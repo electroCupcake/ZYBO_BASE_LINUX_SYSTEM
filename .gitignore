@@ -1,0 +1,6 @@
+#vivado excludes
+
+/*.cache
+/*.runs
+/*.sim
+/*.runs
