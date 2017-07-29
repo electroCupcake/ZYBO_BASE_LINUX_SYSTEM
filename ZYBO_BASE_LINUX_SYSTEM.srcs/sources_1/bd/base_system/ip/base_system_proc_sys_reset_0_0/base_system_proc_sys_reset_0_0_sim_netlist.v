@@ -1,10 +1,10 @@
 // Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
-// Date        : Sat Jul 29 08:42:47 2017
+// Date        : Sat Jul 29 15:48:26 2017
 // Host        : MONOLITH running 64-bit Ubuntu 14.04.5 LTS
-// Command     : write_verilog -force -mode funcsim -rename_top base_system_proc_sys_reset_0_0 -prefix
-//               base_system_proc_sys_reset_0_0_ base_system_proc_sys_reset_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               /home/jconvertino/Documents/Programs/HDL/Xilinx2016/ZYBO_VIVADO_LINUX_BASE/ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ip/base_system_proc_sys_reset_0_0/base_system_proc_sys_reset_0_0_sim_netlist.v
 // Design      : base_system_proc_sys_reset_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -69,6 +69,7 @@ module base_system_proc_sys_reset_0_0
         .slowest_sync_clk(slowest_sync_clk));
 endmodule
 
+(* ORIG_REF_NAME = "cdc_sync" *) 
 module base_system_proc_sys_reset_0_0_cdc_sync
    (lpf_asr_reg,
     scndry_out,
@@ -250,6 +251,7 @@ module base_system_proc_sys_reset_0_0_cdc_sync_0
         .O(lpf_exr_reg));
 endmodule
 
+(* ORIG_REF_NAME = "lpf" *) 
 module base_system_proc_sys_reset_0_0_lpf
    (lpf_int,
     slowest_sync_clk,
@@ -398,6 +400,7 @@ endmodule
 (* C_AUX_RESET_HIGH = "1'b0" *) (* C_AUX_RST_WIDTH = "4" *) (* C_EXT_RESET_HIGH = "1'b0" *) 
 (* C_EXT_RST_WIDTH = "4" *) (* C_FAMILY = "zynq" *) (* C_NUM_BUS_RST = "1" *) 
 (* C_NUM_INTERCONNECT_ARESETN = "1" *) (* C_NUM_PERP_ARESETN = "1" *) (* C_NUM_PERP_RST = "1" *) 
+(* ORIG_REF_NAME = "proc_sys_reset" *) 
 module base_system_proc_sys_reset_0_0_proc_sys_reset
    (slowest_sync_clk,
     ext_reset_in,
@@ -498,6 +501,7 @@ module base_system_proc_sys_reset_0_0_proc_sys_reset
         .R(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "sequence_psr" *) 
 module base_system_proc_sys_reset_0_0_sequence_psr
    (Core,
     bsr,
@@ -738,6 +742,7 @@ module base_system_proc_sys_reset_0_0_sequence_psr
         .R(lpf_int));
 endmodule
 
+(* ORIG_REF_NAME = "upcnt_n" *) 
 module base_system_proc_sys_reset_0_0_upcnt_n
    (Q,
     seq_clr,

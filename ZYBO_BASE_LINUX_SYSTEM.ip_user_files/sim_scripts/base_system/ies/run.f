@@ -1,5 +1,6 @@
 -makelib ies/xil_defaultlib -sv \
   "/opt/Xilinx/Vivado/2016.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
+  "/opt/Xilinx/Vivado/2016.4/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
 -endlib
 -makelib ies/xpm \
   "/opt/Xilinx/Vivado/2016.4/data/ip/xpm/xpm_VCOMP.vhd" \
@@ -66,11 +67,52 @@
 -makelib ies/xil_defaultlib \
   "../../../bd/base_system/ip/base_system_axi_gpio_2_0/sim/base_system_axi_gpio_2_0.vhd" \
 -endlib
+-makelib ies/lib_pkg_v1_0_2 \
+  "../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/832a/hdl/lib_pkg_v1_0_rfs.vhd" \
+-endlib
+-makelib ies/lib_fifo_v1_0_7 \
+  "../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/5ab6/hdl/lib_fifo_v1_0_rfs.vhd" \
+-endlib
+-makelib ies/lib_srl_fifo_v1_0_2 \
+  "../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/6039/hdl/lib_srl_fifo_v1_0_rfs.vhd" \
+-endlib
+-makelib ies/axi_master_burst_v2_0_7 \
+  "../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/905f/hdl/axi_master_burst_v2_0_vh_rfs.vhd" \
+-endlib
+-makelib ies/axi_tft_v2_0_15 \
+  "../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/a1ce/hdl/axi_tft_v2_0_rfs.v" \
+-endlib
+-makelib ies/axi_tft_v2_0_15 \
+  "../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/a1ce/hdl/axi_tft_v2_0_rfs.vhd" \
+-endlib
+-makelib ies/xil_defaultlib \
+  "../../../bd/base_system/ip/base_system_axi_tft_0_0/sim/base_system_axi_tft_0_0.vhd" \
+-endlib
+-makelib ies/xil_defaultlib \
+  "../../../bd/base_system/ipshared/c49f/xlslice.v" \
+  "../../../bd/base_system/ip/base_system_xlslice_0_0/sim/base_system_xlslice_0_0.v" \
+  "../../../bd/base_system/ip/base_system_xlslice_0_1/sim/base_system_xlslice_0_1.v" \
+  "../../../bd/base_system/ip/base_system_clk_wiz_0_0/base_system_clk_wiz_0_0_clk_wiz.v" \
+  "../../../bd/base_system/ip/base_system_clk_wiz_0_0/base_system_clk_wiz_0_0.v" \
+-endlib
 -makelib ies/axi_protocol_converter_v2_1_11 \
   "../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/df1b/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
 -endlib
 -makelib ies/xil_defaultlib \
   "../../../bd/base_system/ip/base_system_auto_pc_0/sim/base_system_auto_pc_0.v" \
+-endlib
+-makelib ies/axi_clock_converter_v2_1_10 \
+  "../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/8479/hdl/axi_clock_converter_v2_1_vl_rfs.v" \
+-endlib
+-makelib ies/blk_mem_gen_v8_3_5 \
+  "../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/6273/simulation/blk_mem_gen_v8_3.v" \
+-endlib
+-makelib ies/axi_dwidth_converter_v2_1_11 \
+  "../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/a4c8/hdl/axi_dwidth_converter_v2_1_vl_rfs.v" \
+-endlib
+-makelib ies/xil_defaultlib \
+  "../../../bd/base_system/ip/base_system_auto_ds_0/sim/base_system_auto_ds_0.v" \
+  "../../../bd/base_system/ip/base_system_auto_pc_1/sim/base_system_auto_pc_1.v" \
   "../../../bd/base_system/hdl/base_system.v" \
 -endlib
 -makelib ies/xil_defaultlib \

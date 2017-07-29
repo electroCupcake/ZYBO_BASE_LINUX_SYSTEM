@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
-//Date        : Sat Jul 29 09:44:37 2017
+//Date        : Sat Jul 29 15:47:26 2017
 //Host        : MONOLITH running 64-bit Ubuntu 14.04.5 LTS
 //Command     : generate_target base_system_wrapper.bd
 //Design      : base_system_wrapper
@@ -31,6 +31,11 @@ module base_system_wrapper
     FIXED_IO_ps_clk,
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
+    H_SYNC,
+    VGA_BLUE,
+    VGA_GREEN,
+    VGA_RED,
+    V_SYNC,
     btns_4bits_tri_i,
     leds_4bits_tri_io,
     reset_rtl,
@@ -56,6 +61,11 @@ module base_system_wrapper
   inout FIXED_IO_ps_clk;
   inout FIXED_IO_ps_porb;
   inout FIXED_IO_ps_srstb;
+  output H_SYNC;
+  output [4:0]VGA_BLUE;
+  output [5:0]VGA_GREEN;
+  output [4:0]VGA_RED;
+  output V_SYNC;
   input [3:0]btns_4bits_tri_i;
   inout [3:0]leds_4bits_tri_io;
   input reset_rtl;
@@ -82,6 +92,11 @@ module base_system_wrapper
   wire FIXED_IO_ps_clk;
   wire FIXED_IO_ps_porb;
   wire FIXED_IO_ps_srstb;
+  wire H_SYNC;
+  wire [4:0]VGA_BLUE;
+  wire [5:0]VGA_GREEN;
+  wire [4:0]VGA_RED;
+  wire V_SYNC;
   wire [3:0]btns_4bits_tri_i;
   wire [0:0]leds_4bits_tri_i_0;
   wire [1:1]leds_4bits_tri_i_1;
@@ -124,6 +139,11 @@ module base_system_wrapper
         .FIXED_IO_ps_clk(FIXED_IO_ps_clk),
         .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
         .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
+        .H_SYNC(H_SYNC),
+        .VGA_BLUE(VGA_BLUE),
+        .VGA_GREEN(VGA_GREEN),
+        .VGA_RED(VGA_RED),
+        .V_SYNC(V_SYNC),
         .btns_4bits_tri_i(btns_4bits_tri_i),
         .leds_4bits_tri_i({leds_4bits_tri_i_3,leds_4bits_tri_i_2,leds_4bits_tri_i_1,leds_4bits_tri_i_0}),
         .leds_4bits_tri_o({leds_4bits_tri_o_3,leds_4bits_tri_o_2,leds_4bits_tri_o_1,leds_4bits_tri_o_0}),
