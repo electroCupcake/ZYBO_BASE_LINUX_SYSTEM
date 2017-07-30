@@ -174,6 +174,7 @@ CONFIG.POLARITY {ACTIVE_LOW} \
   # Create instance: axi_mem_intercon, and set properties
   set axi_mem_intercon [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 axi_mem_intercon ]
   set_property -dict [ list \
+CONFIG.ENABLE_ADVANCED_OPTIONS {0} \
 CONFIG.NUM_MI {1} \
  ] $axi_mem_intercon
 
@@ -758,7 +759,7 @@ CONFIG.PCW_SPI1_SPI1_IO {<Select>} \
 CONFIG.PCW_SPI_PERIPHERAL_CLKSRC {IO PLL} \
 CONFIG.PCW_SPI_PERIPHERAL_DIVISOR0 {1} \
 CONFIG.PCW_SPI_PERIPHERAL_FREQMHZ {166.666666} \
-CONFIG.PCW_S_AXI_HP0_DATA_WIDTH {64} \
+CONFIG.PCW_S_AXI_HP0_DATA_WIDTH {32} \
 CONFIG.PCW_S_AXI_HP1_DATA_WIDTH {64} \
 CONFIG.PCW_S_AXI_HP2_DATA_WIDTH {64} \
 CONFIG.PCW_S_AXI_HP3_DATA_WIDTH {64} \
@@ -904,6 +905,7 @@ CONFIG.PCW_USB_RESET_SELECT {Share reset pin} \
 CONFIG.PCW_USE_CROSS_TRIGGER {0} \
 CONFIG.PCW_USE_FABRIC_INTERRUPT {1} \
 CONFIG.PCW_USE_S_AXI_GP0 {1} \
+CONFIG.PCW_USE_S_AXI_HP0 {0} \
 CONFIG.PCW_WDT_PERIPHERAL_CLKSRC {CPU_1X} \
 CONFIG.PCW_WDT_PERIPHERAL_DIVISOR0 {1} \
 CONFIG.PCW_WDT_PERIPHERAL_ENABLE {0} \
@@ -1294,7 +1296,6 @@ CONFIG.PCW_SPI1_SPI1_IO.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_SPI_PERIPHERAL_CLKSRC.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_SPI_PERIPHERAL_DIVISOR0.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_SPI_PERIPHERAL_FREQMHZ.VALUE_SRC {DEFAULT} \
-CONFIG.PCW_S_AXI_HP0_DATA_WIDTH.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_S_AXI_HP1_DATA_WIDTH.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_S_AXI_HP2_DATA_WIDTH.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_S_AXI_HP3_DATA_WIDTH.VALUE_SRC {DEFAULT} \
@@ -1430,7 +1431,12 @@ CONFIG.PCW_WDT_WDT_IO.VALUE_SRC {DEFAULT} \
   # Create instance: ps7_0_axi_periph, and set properties
   set ps7_0_axi_periph [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 ps7_0_axi_periph ]
   set_property -dict [ list \
+CONFIG.ENABLE_ADVANCED_OPTIONS {0} \
+CONFIG.M03_HAS_DATA_FIFO {0} \
+CONFIG.M03_HAS_REGSLICE {0} \
 CONFIG.NUM_MI {4} \
+CONFIG.S00_HAS_DATA_FIFO {0} \
+CONFIG.STRATEGY {0} \
  ] $ps7_0_axi_periph
 
   # Create instance: red_slice, and set properties
@@ -1445,7 +1451,10 @@ CONFIG.DOUT_WIDTH {5} \
   # Create instance: vga_fb, and set properties
   set vga_fb [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_tft:2.0 vga_fb ]
   set_property -dict [ list \
+CONFIG.C_DEFAULT_TFT_BASE_ADDR {0x00000000F0000000} \
 CONFIG.C_EN_I2C_INTF {0} \
+CONFIG.C_MAX_BURST_LEN {64} \
+CONFIG.C_M_AXI_DATA_WIDTH {32} \
 CONFIG.C_TFT_INTERFACE {0} \
  ] $vga_fb
 
@@ -1486,17 +1495,11 @@ CONFIG.C_TFT_INTERFACE {0} \
   create_bd_addr_seg -range 0x00010000 -offset 0x41200000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs gpio_switches/S_AXI/Reg] SEG_axi_gpio_0_Reg
   create_bd_addr_seg -range 0x00010000 -offset 0x41210000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs gpio_leds/S_AXI/Reg] SEG_axi_gpio_1_Reg
   create_bd_addr_seg -range 0x00010000 -offset 0x41220000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs gpio_buttons/S_AXI/Reg] SEG_axi_gpio_2_Reg
-  create_bd_addr_seg -range 0x00010000 -offset 0x43C00000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs vga_fb/S_AXI_MM/Reg] SEG_axi_tft_0_Reg
+  create_bd_addr_seg -range 0x00010000 -offset 0x44A00000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs vga_fb/S_AXI_MM/Reg] SEG_vga_fb_Reg
   create_bd_addr_seg -range 0x20000000 -offset 0x00000000 [get_bd_addr_spaces vga_fb/Video_data] [get_bd_addr_segs processing_system7_0/S_AXI_GP0/GP0_DDR_LOWOCM] SEG_processing_system7_0_GP0_DDR_LOWOCM
-  create_bd_addr_seg -range 0x01000000 -offset 0xFC000000 [get_bd_addr_spaces vga_fb/Video_data] [get_bd_addr_segs processing_system7_0/S_AXI_GP0/GP0_QSPI_LINEAR] SEG_processing_system7_0_GP0_QSPI_LINEAR
-
-  # Exclude Address Segments
   create_bd_addr_seg -range 0x00400000 -offset 0xE0000000 [get_bd_addr_spaces vga_fb/Video_data] [get_bd_addr_segs processing_system7_0/S_AXI_GP0/GP0_IOP] SEG_processing_system7_0_GP0_IOP
-  exclude_bd_addr_seg [get_bd_addr_segs vga_fb/Video_data/SEG_processing_system7_0_GP0_IOP]
-
   create_bd_addr_seg -range 0x40000000 -offset 0x40000000 [get_bd_addr_spaces vga_fb/Video_data] [get_bd_addr_segs processing_system7_0/S_AXI_GP0/GP0_M_AXI_GP0] SEG_processing_system7_0_GP0_M_AXI_GP0
-  exclude_bd_addr_seg [get_bd_addr_segs vga_fb/Video_data/SEG_processing_system7_0_GP0_M_AXI_GP0]
-
+  create_bd_addr_seg -range 0x01000000 -offset 0xFC000000 [get_bd_addr_spaces vga_fb/Video_data] [get_bd_addr_segs processing_system7_0/S_AXI_GP0/GP0_QSPI_LINEAR] SEG_processing_system7_0_GP0_QSPI_LINEAR
 
   # Perform GUI Layout
   regenerate_bd_layout -layout_string {
@@ -1517,7 +1520,7 @@ preplace inst clock_25Mhz -pg 1 -lvl 2 -y 540 -defaultsOSRD
 preplace inst red_slice -pg 1 -lvl 5 -y 940 -defaultsOSRD
 preplace inst blue_slice -pg 1 -lvl 5 -y 830 -defaultsOSRD
 preplace inst gpio_leds -pg 1 -lvl 5 -y 610 -defaultsOSRD
-preplace inst vga_fb -pg 1 -lvl 3 -y 870 -defaultsOSRD
+preplace inst vga_fb -pg 1 -lvl 3 -y 900 -defaultsOSRD
 preplace inst proc_sys_reset_0 -pg 1 -lvl 1 -y 530 -defaultsOSRD
 preplace inst gpio_switches -pg 1 -lvl 5 -y 730 -defaultsOSRD
 preplace inst ps7_0_axi_periph -pg 1 -lvl 2 -y 790 -defaultsOSRD
@@ -1527,35 +1530,35 @@ preplace inst gpio_buttons -pg 1 -lvl 5 -y 490 -defaultsOSRD
 preplace inst irq_concat -pg 1 -lvl 4 -y 490 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 5 -y 140 -defaultsOSRD
 preplace netloc processing_system7_0_DDR 1 5 1 NJ
-preplace netloc ps7_0_axi_periph_M02_AXI 1 2 3 700J 290 NJ 290 1320
-preplace netloc axi_tft_0_tft_vga_b 1 3 2 NJ 800 1350J
-preplace netloc processing_system7_0_M_AXI_GP0 1 1 5 400 20 NJ 20 NJ 20 1370J 280 1780
-preplace netloc axi_tft_0_tft_hsync 1 3 3 1010J 890 NJ 890 NJ
-preplace netloc axi_tft_0_tft_vga_r 1 3 2 NJ 920 1340J
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 6 30 280 NJ 280 NJ 280 NJ 280 1350J 290 1770
-preplace netloc ps7_0_axi_periph_M03_AXI 1 2 1 N
-preplace netloc axi_mem_intercon_M00_AXI 1 4 1 1320
-preplace netloc axi_tft_0_tft_vsync 1 3 3 990J 990 NJ 990 NJ
-preplace netloc ps7_0_axi_periph_M01_AXI 1 2 3 710 690 NJ 690 1340J
-preplace netloc axi_tft_0_ip2intc_irpt 1 3 1 1000
-preplace netloc axi_tft_0_tft_vga_g 1 3 3 NJ 880 NJ 880 1780J
-preplace netloc proc_sys_reset_0_interconnect_aresetn 1 1 3 370 140 NJ 140 N
+preplace netloc ps7_0_axi_periph_M02_AXI 1 2 3 420J 770 NJ 770 1120
+preplace netloc axi_tft_0_tft_vga_b 1 3 2 NJ 860 1130J
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 5 100 290 NJ 290 NJ 290 NJ 290 1670
+preplace netloc axi_tft_0_tft_hsync 1 3 3 730J 890 NJ 890 NJ
+preplace netloc axi_tft_0_tft_vga_r 1 3 2 NJ 920 1140J
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 6 -270 280 NJ 280 NJ 280 NJ 280 NJ 280 1650
+preplace netloc axi_mem_intercon_M00_AXI 1 4 1 1110
+preplace netloc ps7_0_axi_periph_M03_AXI 1 2 1 390
+preplace netloc axi_tft_0_tft_vsync 1 3 3 700J 990 NJ 990 NJ
+preplace netloc ps7_0_axi_periph_M01_AXI 1 2 3 390 720 NJ 720 1130J
+preplace netloc axi_tft_0_ip2intc_irpt 1 3 1 720
+preplace netloc axi_tft_0_tft_vga_g 1 3 3 NJ 880 NJ 880 1660J
+preplace netloc proc_sys_reset_0_interconnect_aresetn 1 1 3 70 140 NJ 140 N
 preplace netloc processing_system7_0_FIXED_IO 1 5 1 NJ
-preplace netloc clk_wiz_0_clk_out1 1 2 1 680
+preplace netloc clk_wiz_0_clk_out1 1 2 1 380
 preplace netloc axi_gpio_0_GPIO 1 5 1 NJ
 preplace netloc proc_sys_reset_0_peripheral_reset 1 1 1 N
-preplace netloc proc_sys_reset_0_peripheral_aresetn 1 1 4 390 220 690 220 1010 40 1330
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 1 4 90 180 410 180 710 690 1160
 preplace netloc axi_gpio_2_GPIO 1 5 1 NJ
 preplace netloc blue_slice_Dout 1 5 1 NJ
-preplace netloc irq_const_dout 1 3 1 1000
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 6 20 200 380 200 730 200 1000 10 1360 300 1790
-preplace netloc axi_tft_0_M_AXI_MM 1 3 1 990
+preplace netloc irq_const_dout 1 3 1 720
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 6 -280 200 80 200 400 200 700 40 1140 300 1660
 preplace netloc axi_gpio_1_GPIO 1 5 1 NJ
-preplace netloc ps7_0_axi_periph_M00_AXI 1 2 3 720 710 NJ 710 NJ
+preplace netloc axi_tft_0_M_AXI_MM 1 3 1 690
+preplace netloc ps7_0_axi_periph_M00_AXI 1 2 3 N 760 NJ 760 1150J
 preplace netloc red_slice_Dout 1 5 1 NJ
-preplace netloc irq_concat_dout 1 4 1 1340
+preplace netloc irq_concat_dout 1 4 1 1110
 preplace netloc reset_rtl_1 1 0 1 N
-levelinfo -pg 1 0 200 540 860 1180 1570 1810 -top 0 -bot 1040
+levelinfo -pg 1 -300 -100 240 560 970 1450 1710 -top 0 -bot 1660
 ",
 }
 

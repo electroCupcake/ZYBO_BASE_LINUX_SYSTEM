@@ -1,10 +1,10 @@
 // Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
-// Date        : Sat Jul 29 15:49:53 2017
+// Date        : Sat Jul 29 22:43:44 2017
 // Host        : MONOLITH running 64-bit Ubuntu 14.04.5 LTS
-// Command     : write_verilog -force -mode synth_stub
-//               /home/jconvertino/Documents/Programs/HDL/Xilinx2016/ZYBO_VIVADO_LINUX_BASE/ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ip/base_system_axi_tft_0_0/base_system_axi_tft_0_0_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top base_system_axi_tft_0_0 -prefix
+//               base_system_axi_tft_0_0_ base_system_axi_tft_0_0_stub.v
 // Design      : base_system_axi_tft_0_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z010clg400-1
@@ -25,7 +25,7 @@ module base_system_axi_tft_0_0(s_axi_aclk, s_axi_aresetn, m_axi_aclk,
   s_axi_araddr, s_axi_arvalid, s_axi_arready, s_axi_rdata, s_axi_rresp, s_axi_rvalid, 
   s_axi_rready, sys_tft_clk, tft_hsync, tft_vsync, tft_de, tft_dps, tft_vga_clk, tft_vga_r, 
   tft_vga_g, tft_vga_b)
-/* synthesis syn_black_box black_box_pad_pin="s_axi_aclk,s_axi_aresetn,m_axi_aclk,m_axi_aresetn,md_error,ip2intc_irpt,m_axi_arready,m_axi_arvalid,m_axi_araddr[31:0],m_axi_arlen[7:0],m_axi_arsize[2:0],m_axi_arburst[1:0],m_axi_arprot[2:0],m_axi_arcache[3:0],m_axi_rready,m_axi_rvalid,m_axi_rdata[63:0],m_axi_rresp[1:0],m_axi_rlast,m_axi_awready,m_axi_awvalid,m_axi_awaddr[31:0],m_axi_awlen[7:0],m_axi_awsize[2:0],m_axi_awburst[1:0],m_axi_awprot[2:0],m_axi_awcache[3:0],m_axi_wready,m_axi_wvalid,m_axi_wdata[63:0],m_axi_wstrb[7:0],m_axi_wlast,m_axi_bready,m_axi_bvalid,m_axi_bresp[1:0],s_axi_awaddr[3:0],s_axi_awvalid,s_axi_awready,s_axi_wdata[31:0],s_axi_wstrb[3:0],s_axi_wvalid,s_axi_wready,s_axi_bresp[1:0],s_axi_bvalid,s_axi_bready,s_axi_araddr[3:0],s_axi_arvalid,s_axi_arready,s_axi_rdata[31:0],s_axi_rresp[1:0],s_axi_rvalid,s_axi_rready,sys_tft_clk,tft_hsync,tft_vsync,tft_de,tft_dps,tft_vga_clk,tft_vga_r[5:0],tft_vga_g[5:0],tft_vga_b[5:0]" */;
+/* synthesis syn_black_box black_box_pad_pin="s_axi_aclk,s_axi_aresetn,m_axi_aclk,m_axi_aresetn,md_error,ip2intc_irpt,m_axi_arready,m_axi_arvalid,m_axi_araddr[31:0],m_axi_arlen[7:0],m_axi_arsize[2:0],m_axi_arburst[1:0],m_axi_arprot[2:0],m_axi_arcache[3:0],m_axi_rready,m_axi_rvalid,m_axi_rdata[31:0],m_axi_rresp[1:0],m_axi_rlast,m_axi_awready,m_axi_awvalid,m_axi_awaddr[31:0],m_axi_awlen[7:0],m_axi_awsize[2:0],m_axi_awburst[1:0],m_axi_awprot[2:0],m_axi_awcache[3:0],m_axi_wready,m_axi_wvalid,m_axi_wdata[31:0],m_axi_wstrb[3:0],m_axi_wlast,m_axi_bready,m_axi_bvalid,m_axi_bresp[1:0],s_axi_awaddr[3:0],s_axi_awvalid,s_axi_awready,s_axi_wdata[31:0],s_axi_wstrb[3:0],s_axi_wvalid,s_axi_wready,s_axi_bresp[1:0],s_axi_bvalid,s_axi_bready,s_axi_araddr[3:0],s_axi_arvalid,s_axi_arready,s_axi_rdata[31:0],s_axi_rresp[1:0],s_axi_rvalid,s_axi_rready,sys_tft_clk,tft_hsync,tft_vsync,tft_de,tft_dps,tft_vga_clk,tft_vga_r[5:0],tft_vga_g[5:0],tft_vga_b[5:0]" */;
   input s_axi_aclk;
   input s_axi_aresetn;
   input m_axi_aclk;
@@ -42,7 +42,7 @@ module base_system_axi_tft_0_0(s_axi_aclk, s_axi_aresetn, m_axi_aclk,
   output [3:0]m_axi_arcache;
   output m_axi_rready;
   input m_axi_rvalid;
-  input [63:0]m_axi_rdata;
+  input [31:0]m_axi_rdata;
   input [1:0]m_axi_rresp;
   input m_axi_rlast;
   input m_axi_awready;
@@ -55,8 +55,8 @@ module base_system_axi_tft_0_0(s_axi_aclk, s_axi_aresetn, m_axi_aclk,
   output [3:0]m_axi_awcache;
   input m_axi_wready;
   output m_axi_wvalid;
-  output [63:0]m_axi_wdata;
-  output [7:0]m_axi_wstrb;
+  output [31:0]m_axi_wdata;
+  output [3:0]m_axi_wstrb;
   output m_axi_wlast;
   output m_axi_bready;
   input m_axi_bvalid;

@@ -1,10 +1,10 @@
 -- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
--- Date        : Sat Jul 29 15:48:27 2017
+-- Date        : Sat Jul 29 20:57:48 2017
 -- Host        : MONOLITH running 64-bit Ubuntu 14.04.5 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /home/jconvertino/Documents/Programs/HDL/Xilinx2016/ZYBO_VIVADO_LINUX_BASE/ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ip/base_system_axi_gpio_2_0/base_system_axi_gpio_2_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top base_system_axi_gpio_2_0 -prefix
+--               base_system_axi_gpio_2_0_ base_system_axi_gpio_2_0_sim_netlist.vhdl
 -- Design      : base_system_axi_gpio_2_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -44,8 +44,6 @@ entity base_system_axi_gpio_2_0_address_decoder is
     gpio_xferAck_Reg : in STD_LOGIC;
     GPIO_xferAck_i : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of base_system_axi_gpio_2_0_address_decoder : entity is "address_decoder";
 end base_system_axi_gpio_2_0_address_decoder;
 
 architecture STRUCTURE of base_system_axi_gpio_2_0_address_decoder is
@@ -247,8 +245,6 @@ entity base_system_axi_gpio_2_0_cdc_sync is
     gpio_io_i : in STD_LOGIC_VECTOR ( 3 downto 0 );
     s_axi_aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of base_system_axi_gpio_2_0_cdc_sync : entity is "cdc_sync";
 end base_system_axi_gpio_2_0_cdc_sync;
 
 architecture STRUCTURE of base_system_axi_gpio_2_0_cdc_sync is
@@ -521,8 +517,6 @@ entity base_system_axi_gpio_2_0_GPIO_Core is
     \MEM_DECODE_GEN[0].cs_out_i_reg[0]\ : in STD_LOGIC_VECTOR ( 3 downto 0 );
     rst_reg : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of base_system_axi_gpio_2_0_GPIO_Core : entity is "GPIO_Core";
 end base_system_axi_gpio_2_0_GPIO_Core;
 
 architecture STRUCTURE of base_system_axi_gpio_2_0_GPIO_Core is
@@ -782,8 +776,6 @@ entity base_system_axi_gpio_2_0_slave_attachment is
     GPIO_xferAck_i : in STD_LOGIC;
     \ip2bus_data_i_D1_reg[28]\ : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of base_system_axi_gpio_2_0_slave_attachment : entity is "slave_attachment";
 end base_system_axi_gpio_2_0_slave_attachment;
 
 architecture STRUCTURE of base_system_axi_gpio_2_0_slave_attachment is
@@ -1325,8 +1317,6 @@ entity base_system_axi_gpio_2_0_axi_lite_ipif is
     GPIO_xferAck_i : in STD_LOGIC;
     \ip2bus_data_i_D1_reg[28]\ : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of base_system_axi_gpio_2_0_axi_lite_ipif : entity is "axi_lite_ipif";
 end base_system_axi_gpio_2_0_axi_lite_ipif;
 
 architecture STRUCTURE of base_system_axi_gpio_2_0_axi_lite_ipif is
@@ -1431,8 +1421,6 @@ entity base_system_axi_gpio_2_0_axi_gpio is
   attribute C_TRI_DEFAULT of base_system_axi_gpio_2_0_axi_gpio : entity is -1;
   attribute C_TRI_DEFAULT_2 : integer;
   attribute C_TRI_DEFAULT_2 of base_system_axi_gpio_2_0_axi_gpio : entity is -1;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of base_system_axi_gpio_2_0_axi_gpio : entity is "axi_gpio";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of base_system_axi_gpio_2_0_axi_gpio : entity is "yes";
   attribute ip_group : string;

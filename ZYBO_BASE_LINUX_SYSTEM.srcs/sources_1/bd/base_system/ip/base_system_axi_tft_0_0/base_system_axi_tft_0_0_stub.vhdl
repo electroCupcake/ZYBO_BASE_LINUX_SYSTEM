@@ -1,10 +1,10 @@
 -- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
--- Date        : Sat Jul 29 15:49:53 2017
+-- Date        : Sat Jul 29 22:43:44 2017
 -- Host        : MONOLITH running 64-bit Ubuntu 14.04.5 LTS
--- Command     : write_vhdl -force -mode synth_stub
---               /home/jconvertino/Documents/Programs/HDL/Xilinx2016/ZYBO_VIVADO_LINUX_BASE/ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ip/base_system_axi_tft_0_0/base_system_axi_tft_0_0_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top base_system_axi_tft_0_0 -prefix
+--               base_system_axi_tft_0_0_ base_system_axi_tft_0_0_stub.vhdl
 -- Design      : base_system_axi_tft_0_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z010clg400-1
@@ -30,7 +30,7 @@ entity base_system_axi_tft_0_0 is
     m_axi_arcache : out STD_LOGIC_VECTOR ( 3 downto 0 );
     m_axi_rready : out STD_LOGIC;
     m_axi_rvalid : in STD_LOGIC;
-    m_axi_rdata : in STD_LOGIC_VECTOR ( 63 downto 0 );
+    m_axi_rdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
     m_axi_rresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
     m_axi_rlast : in STD_LOGIC;
     m_axi_awready : in STD_LOGIC;
@@ -43,8 +43,8 @@ entity base_system_axi_tft_0_0 is
     m_axi_awcache : out STD_LOGIC_VECTOR ( 3 downto 0 );
     m_axi_wready : in STD_LOGIC;
     m_axi_wvalid : out STD_LOGIC;
-    m_axi_wdata : out STD_LOGIC_VECTOR ( 63 downto 0 );
-    m_axi_wstrb : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    m_axi_wdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    m_axi_wstrb : out STD_LOGIC_VECTOR ( 3 downto 0 );
     m_axi_wlast : out STD_LOGIC;
     m_axi_bready : out STD_LOGIC;
     m_axi_bvalid : in STD_LOGIC;
@@ -83,7 +83,7 @@ architecture stub of base_system_axi_tft_0_0 is
 attribute syn_black_box : boolean;
 attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
-attribute black_box_pad_pin of stub : architecture is "s_axi_aclk,s_axi_aresetn,m_axi_aclk,m_axi_aresetn,md_error,ip2intc_irpt,m_axi_arready,m_axi_arvalid,m_axi_araddr[31:0],m_axi_arlen[7:0],m_axi_arsize[2:0],m_axi_arburst[1:0],m_axi_arprot[2:0],m_axi_arcache[3:0],m_axi_rready,m_axi_rvalid,m_axi_rdata[63:0],m_axi_rresp[1:0],m_axi_rlast,m_axi_awready,m_axi_awvalid,m_axi_awaddr[31:0],m_axi_awlen[7:0],m_axi_awsize[2:0],m_axi_awburst[1:0],m_axi_awprot[2:0],m_axi_awcache[3:0],m_axi_wready,m_axi_wvalid,m_axi_wdata[63:0],m_axi_wstrb[7:0],m_axi_wlast,m_axi_bready,m_axi_bvalid,m_axi_bresp[1:0],s_axi_awaddr[3:0],s_axi_awvalid,s_axi_awready,s_axi_wdata[31:0],s_axi_wstrb[3:0],s_axi_wvalid,s_axi_wready,s_axi_bresp[1:0],s_axi_bvalid,s_axi_bready,s_axi_araddr[3:0],s_axi_arvalid,s_axi_arready,s_axi_rdata[31:0],s_axi_rresp[1:0],s_axi_rvalid,s_axi_rready,sys_tft_clk,tft_hsync,tft_vsync,tft_de,tft_dps,tft_vga_clk,tft_vga_r[5:0],tft_vga_g[5:0],tft_vga_b[5:0]";
+attribute black_box_pad_pin of stub : architecture is "s_axi_aclk,s_axi_aresetn,m_axi_aclk,m_axi_aresetn,md_error,ip2intc_irpt,m_axi_arready,m_axi_arvalid,m_axi_araddr[31:0],m_axi_arlen[7:0],m_axi_arsize[2:0],m_axi_arburst[1:0],m_axi_arprot[2:0],m_axi_arcache[3:0],m_axi_rready,m_axi_rvalid,m_axi_rdata[31:0],m_axi_rresp[1:0],m_axi_rlast,m_axi_awready,m_axi_awvalid,m_axi_awaddr[31:0],m_axi_awlen[7:0],m_axi_awsize[2:0],m_axi_awburst[1:0],m_axi_awprot[2:0],m_axi_awcache[3:0],m_axi_wready,m_axi_wvalid,m_axi_wdata[31:0],m_axi_wstrb[3:0],m_axi_wlast,m_axi_bready,m_axi_bvalid,m_axi_bresp[1:0],s_axi_awaddr[3:0],s_axi_awvalid,s_axi_awready,s_axi_wdata[31:0],s_axi_wstrb[3:0],s_axi_wvalid,s_axi_wready,s_axi_bresp[1:0],s_axi_bvalid,s_axi_bready,s_axi_araddr[3:0],s_axi_arvalid,s_axi_arready,s_axi_rdata[31:0],s_axi_rresp[1:0],s_axi_rvalid,s_axi_rready,sys_tft_clk,tft_hsync,tft_vsync,tft_de,tft_dps,tft_vga_clk,tft_vga_r[5:0],tft_vga_g[5:0],tft_vga_b[5:0]";
 attribute x_core_info : string;
 attribute x_core_info of stub : architecture is "axi_tft,Vivado 2016.4";
 begin

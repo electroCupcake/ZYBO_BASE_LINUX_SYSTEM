@@ -283,7 +283,7 @@ output wire m_axi_rready;
     .C_AXI_WUSER_WIDTH(1),
     .C_AXI_RUSER_WIDTH(1),
     .C_AXI_BUSER_WIDTH(1),
-    .C_TRANSLATION_MODE(0)
+    .C_TRANSLATION_MODE(2)
   ) inst (
     .aclk(aclk),
     .aresetn(aresetn),

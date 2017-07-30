@@ -74,7 +74,7 @@ ENTITY base_system_axi_tft_0_0 IS
     m_axi_arcache : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     m_axi_rready : OUT STD_LOGIC;
     m_axi_rvalid : IN STD_LOGIC;
-    m_axi_rdata : IN STD_LOGIC_VECTOR(63 DOWNTO 0);
+    m_axi_rdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     m_axi_rresp : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
     m_axi_rlast : IN STD_LOGIC;
     m_axi_awready : IN STD_LOGIC;
@@ -87,8 +87,8 @@ ENTITY base_system_axi_tft_0_0 IS
     m_axi_awcache : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     m_axi_wready : IN STD_LOGIC;
     m_axi_wvalid : OUT STD_LOGIC;
-    m_axi_wdata : OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
-    m_axi_wstrb : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+    m_axi_wdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+    m_axi_wstrb : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     m_axi_wlast : OUT STD_LOGIC;
     m_axi_bready : OUT STD_LOGIC;
     m_axi_bvalid : IN STD_LOGIC;
@@ -154,7 +154,7 @@ ARCHITECTURE base_system_axi_tft_0_0_arch OF base_system_axi_tft_0_0 IS
       m_axi_arcache : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
       m_axi_rready : OUT STD_LOGIC;
       m_axi_rvalid : IN STD_LOGIC;
-      m_axi_rdata : IN STD_LOGIC_VECTOR(63 DOWNTO 0);
+      m_axi_rdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
       m_axi_rresp : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
       m_axi_rlast : IN STD_LOGIC;
       m_axi_awready : IN STD_LOGIC;
@@ -167,8 +167,8 @@ ARCHITECTURE base_system_axi_tft_0_0_arch OF base_system_axi_tft_0_0 IS
       m_axi_awcache : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
       m_axi_wready : IN STD_LOGIC;
       m_axi_wvalid : OUT STD_LOGIC;
-      m_axi_wdata : OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
-      m_axi_wstrb : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+      m_axi_wdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+      m_axi_wstrb : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
       m_axi_wlast : OUT STD_LOGIC;
       m_axi_bready : OUT STD_LOGIC;
       m_axi_bvalid : IN STD_LOGIC;
@@ -280,8 +280,8 @@ BEGIN
       C_I2C_SLAVE_ADDR => X"76",
       C_DEFAULT_TFT_BASE_ADDR => X"00000000F0000000",
       C_M_AXI_ADDR_WIDTH => 32,
-      C_M_AXI_DATA_WIDTH => 64,
-      C_MAX_BURST_LEN => 16,
+      C_M_AXI_DATA_WIDTH => 32,
+      C_MAX_BURST_LEN => 64,
       C_S_AXI_ADDR_WIDTH => 3
     )
     PORT MAP (

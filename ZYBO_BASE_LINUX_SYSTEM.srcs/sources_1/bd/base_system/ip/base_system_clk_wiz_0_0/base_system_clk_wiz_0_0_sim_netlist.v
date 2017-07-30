@@ -1,10 +1,10 @@
 // Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
-// Date        : Sat Jul 29 15:49:11 2017
+// Date        : Sat Jul 29 20:58:30 2017
 // Host        : MONOLITH running 64-bit Ubuntu 14.04.5 LTS
-// Command     : write_verilog -force -mode funcsim
-//               /home/jconvertino/Documents/Programs/HDL/Xilinx2016/ZYBO_VIVADO_LINUX_BASE/ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ip/base_system_clk_wiz_0_0/base_system_clk_wiz_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top base_system_clk_wiz_0_0 -prefix
+//               base_system_clk_wiz_0_0_ base_system_clk_wiz_0_0_sim_netlist.v
 // Design      : base_system_clk_wiz_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -31,7 +31,6 @@ module base_system_clk_wiz_0_0
         .reset(reset));
 endmodule
 
-(* ORIG_REF_NAME = "base_system_clk_wiz_0_0_clk_wiz" *) 
 module base_system_clk_wiz_0_0_base_system_clk_wiz_0_0_clk_wiz
    (clk_out1,
     reset,
