@@ -4,12 +4,12 @@
 ## - rename the used signals according to the project
 
 ##Constants
-set_property PACKAGE_PIN A20 [get_ports {reset_rtl}]
-set_property PULLUP TRUE [get_ports {reset_rtl}]
-set_property IOSTANDARD LVCMOS33 [get_ports {reset_rtl}]
+set_property PACKAGE_PIN A20 [get_ports reset_rtl]
+set_property PULLUP true [get_ports reset_rtl]
+set_property IOSTANDARD LVCMOS33 [get_ports reset_rtl]
 
 ##Clock signal
-##IO_L11P_T1_SRCC_35	
+##IO_L11P_T1_SRCC_35
 #set_property PACKAGE_PIN L16 [get_ports clk]
 #set_property IOSTANDARD LVCMOS33 [get_ports clk]
 #create_clock -add -name sys_clk_pin -period 8.00 -waveform {0 4} [get_ports clk]
@@ -337,3 +337,29 @@ set_property IOSTANDARD LVCMOS33 [get_ports V_SYNC]
 #set_property PACKAGE_PIN U13 [get_ports otg_oc]
 #set_property IOSTANDARD LVCMOS33 [get_ports otg_oc]
 
+set_input_delay -clock [get_clocks clk_fpga_0] -min -add_delay 1.000 [get_ports {btns_4bits_tri_i[*]}]
+set_input_delay -clock [get_clocks clk_fpga_0] -max -add_delay 2.000 [get_ports {btns_4bits_tri_i[*]}]
+set_input_delay -clock [get_clocks clk_fpga_0] -min -add_delay 1.000 [get_ports {leds_4bits_tri_io[*]}]
+set_input_delay -clock [get_clocks clk_fpga_0] -max -add_delay 2.000 [get_ports {leds_4bits_tri_io[*]}]
+set_input_delay -clock [get_clocks clk_fpga_0] -min -add_delay 1.000 [get_ports {sws_4bits_tri_i[*]}]
+set_input_delay -clock [get_clocks clk_fpga_0] -max -add_delay 2.000 [get_ports {sws_4bits_tri_i[*]}]
+set_input_delay -clock [get_clocks clk_fpga_0] -min -add_delay 1.000 [get_ports reset_rtl]
+set_input_delay -clock [get_clocks clk_fpga_0] -max -add_delay 2.000 [get_ports reset_rtl]
+set_output_delay -clock [get_clocks clk_fpga_0] -min -add_delay 1.000 [get_ports {leds_4bits_tri_io[*]}]
+set_output_delay -clock [get_clocks clk_fpga_0] -max -add_delay 2.000 [get_ports {leds_4bits_tri_io[*]}]
+
+create_clock -period 40.000 -name VIRTUAL_clk_out1_base_system_clk_wiz_0_0 -waveform {0.000 20.000}
+set_output_delay -clock [get_clocks VIRTUAL_clk_out1_base_system_clk_wiz_0_0] -clock_fall -min -add_delay 4.000 [get_ports {VGA_BLUE[*]}]
+set_output_delay -clock [get_clocks VIRTUAL_clk_out1_base_system_clk_wiz_0_0] -clock_fall -max -add_delay 10.000 [get_ports {VGA_BLUE[*]}]
+set_output_delay -clock [get_clocks VIRTUAL_clk_out1_base_system_clk_wiz_0_0] -clock_fall -min -add_delay 4.000 [get_ports {VGA_GREEN[*]}]
+set_output_delay -clock [get_clocks VIRTUAL_clk_out1_base_system_clk_wiz_0_0] -clock_fall -max -add_delay 10.000 [get_ports {VGA_GREEN[*]}]
+set_output_delay -clock [get_clocks VIRTUAL_clk_out1_base_system_clk_wiz_0_0] -clock_fall -min -add_delay 4.000 [get_ports {VGA_RED[*]}]
+set_output_delay -clock [get_clocks VIRTUAL_clk_out1_base_system_clk_wiz_0_0] -clock_fall -max -add_delay 10.000 [get_ports {VGA_RED[*]}]
+set_output_delay -clock [get_clocks VIRTUAL_clk_out1_base_system_clk_wiz_0_0] -clock_fall -min -add_delay 4.000 [get_ports H_SYNC]
+set_output_delay -clock [get_clocks VIRTUAL_clk_out1_base_system_clk_wiz_0_0] -clock_fall -max -add_delay 10.000 [get_ports H_SYNC]
+set_output_delay -clock [get_clocks VIRTUAL_clk_out1_base_system_clk_wiz_0_0] -clock_fall -min -add_delay 4.000 [get_ports V_SYNC]
+set_output_delay -clock [get_clocks VIRTUAL_clk_out1_base_system_clk_wiz_0_0] -clock_fall -max -add_delay 10.000 [get_ports V_SYNC]
+set_property C_CLK_INPUT_FREQ_HZ 300000000 [get_debug_cores dbg_hub]
+set_property C_ENABLE_CLK_DIVIDER false [get_debug_cores dbg_hub]
+set_property C_USER_SCAN_CHAIN 1 [get_debug_cores dbg_hub]
+connect_debug_port dbg_hub/clk [get_nets clk]

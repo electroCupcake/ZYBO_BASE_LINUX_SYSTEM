@@ -1,10 +1,10 @@
 -- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
--- Date        : Sat Jul 29 21:31:55 2017
+-- Date        : Mon Aug  7 11:28:06 2017
 -- Host        : MONOLITH running 64-bit Ubuntu 14.04.5 LTS
--- Command     : write_vhdl -force -mode funcsim -rename_top base_system_auto_pc_1 -prefix
---               base_system_auto_pc_1_ base_system_auto_pc_1_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               /home/jconvertino/Documents/Programs/HDL/Xilinx2016/ZYBO_VIVADO_LINUX_BASE/ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ip/base_system_auto_pc_1/base_system_auto_pc_1_sim_netlist.vhdl
 -- Design      : base_system_auto_pc_1
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -27,6 +27,8 @@ entity base_system_auto_pc_1_axi_protocol_converter_v2_1_11_b_downsizer is
     m_axi_bvalid : in STD_LOGIC;
     m_axi_bresp : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_b_downsizer : entity is "axi_protocol_converter_v2_1_11_b_downsizer";
 end base_system_auto_pc_1_axi_protocol_converter_v2_1_11_b_downsizer;
 
 architecture STRUCTURE of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_b_downsizer is
@@ -261,6 +263,8 @@ entity base_system_auto_pc_1_axi_protocol_converter_v2_1_11_w_axi3_conv is
     s_axi_wvalid : in STD_LOGIC;
     m_axi_wready : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_w_axi3_conv : entity is "axi_protocol_converter_v2_1_11_w_axi3_conv";
 end base_system_auto_pc_1_axi_protocol_converter_v2_1_11_w_axi3_conv;
 
 architecture STRUCTURE of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_w_axi3_conv is
@@ -581,6 +585,8 @@ entity base_system_auto_pc_1_dmem is
     I55 : in STD_LOGIC_VECTOR ( 4 downto 0 );
     \gpregsm1.curr_fwft_state_reg[1]\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_dmem : entity is "dmem";
 end base_system_auto_pc_1_dmem;
 
 architecture STRUCTURE of base_system_auto_pc_1_dmem is
@@ -857,6 +863,8 @@ entity base_system_auto_pc_1_rd_bin_cntr is
     clk : in STD_LOGIC;
     \ngwrdrst.grst.g7serrst.rd_rst_reg_reg[2]\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_rd_bin_cntr : entity is "rd_bin_cntr";
 end base_system_auto_pc_1_rd_bin_cntr;
 
 architecture STRUCTURE of base_system_auto_pc_1_rd_bin_cntr is
@@ -1607,6 +1615,8 @@ entity base_system_auto_pc_1_rd_fwft is
     rd_en : in STD_LOGIC;
     ram_empty_fb_i_reg_0 : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_rd_fwft : entity is "rd_fwft";
 end base_system_auto_pc_1_rd_fwft;
 
 architecture STRUCTURE of base_system_auto_pc_1_rd_fwft is
@@ -2371,6 +2381,8 @@ entity base_system_auto_pc_1_rd_status_flags_ss is
     clk : in STD_LOGIC;
     \ngwrdrst.grst.g7serrst.rd_rst_reg_reg[2]\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_rd_status_flags_ss : entity is "rd_status_flags_ss";
 end base_system_auto_pc_1_rd_status_flags_ss;
 
 architecture STRUCTURE of base_system_auto_pc_1_rd_status_flags_ss is
@@ -2530,6 +2542,8 @@ entity base_system_auto_pc_1_synchronizer_ff is
     in0 : in STD_LOGIC_VECTOR ( 0 to 0 );
     clk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_synchronizer_ff : entity is "synchronizer_ff";
 end base_system_auto_pc_1_synchronizer_ff;
 
 architecture STRUCTURE of base_system_auto_pc_1_synchronizer_ff is
@@ -3293,6 +3307,8 @@ entity base_system_auto_pc_1_wr_bin_cntr is
     clk : in STD_LOGIC;
     \ngwrdrst.grst.g7serrst.wr_rst_reg_reg[1]\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_wr_bin_cntr : entity is "wr_bin_cntr";
 end base_system_auto_pc_1_wr_bin_cntr;
 
 architecture STRUCTURE of base_system_auto_pc_1_wr_bin_cntr is
@@ -4054,6 +4070,8 @@ entity base_system_auto_pc_1_wr_status_flags_ss is
     \ngwrdrst.grst.g7serrst.wr_rst_reg_reg[0]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     wr_en : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_wr_status_flags_ss : entity is "wr_status_flags_ss";
 end base_system_auto_pc_1_wr_status_flags_ss;
 
 architecture STRUCTURE of base_system_auto_pc_1_wr_status_flags_ss is
@@ -4314,6 +4332,8 @@ entity base_system_auto_pc_1_memory is
     I55 : in STD_LOGIC_VECTOR ( 4 downto 0 );
     \gpregsm1.curr_fwft_state_reg[1]\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_memory : entity is "memory";
 end base_system_auto_pc_1_memory;
 
 architecture STRUCTURE of base_system_auto_pc_1_memory is
@@ -4550,6 +4570,8 @@ entity base_system_auto_pc_1_rd_logic is
     \gcc0.gc0.count_d1_reg[4]\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
     \gcc0.gc0.count_d1_reg[2]\ : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_rd_logic : entity is "rd_logic";
 end base_system_auto_pc_1_rd_logic;
 
 architecture STRUCTURE of base_system_auto_pc_1_rd_logic is
@@ -4746,6 +4768,8 @@ entity base_system_auto_pc_1_reset_blk_ramfifo is
     clk : in STD_LOGIC;
     rst : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_reset_blk_ramfifo : entity is "reset_blk_ramfifo";
 end base_system_auto_pc_1_reset_blk_ramfifo;
 
 architecture STRUCTURE of base_system_auto_pc_1_reset_blk_ramfifo is
@@ -5505,6 +5529,8 @@ entity base_system_auto_pc_1_wr_logic is
     \gc0.count_reg[2]\ : in STD_LOGIC_VECTOR ( 2 downto 0 );
     \gc0.count_d1_reg[4]\ : in STD_LOGIC_VECTOR ( 4 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_wr_logic : entity is "wr_logic";
 end base_system_auto_pc_1_wr_logic;
 
 architecture STRUCTURE of base_system_auto_pc_1_wr_logic is
@@ -5667,6 +5693,8 @@ entity base_system_auto_pc_1_fifo_generator_ramfifo is
     rd_en : in STD_LOGIC;
     wr_en : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_fifo_generator_ramfifo : entity is "fifo_generator_ramfifo";
 end base_system_auto_pc_1_fifo_generator_ramfifo;
 
 architecture STRUCTURE of base_system_auto_pc_1_fifo_generator_ramfifo is
@@ -5942,6 +5970,8 @@ entity base_system_auto_pc_1_fifo_generator_top is
     rd_en : in STD_LOGIC;
     wr_en : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_fifo_generator_top : entity is "fifo_generator_top";
 end base_system_auto_pc_1_fifo_generator_top;
 
 architecture STRUCTURE of base_system_auto_pc_1_fifo_generator_top is
@@ -6039,6 +6069,8 @@ entity base_system_auto_pc_1_fifo_generator_v13_1_3_synth is
     rd_en : in STD_LOGIC;
     wr_en : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_fifo_generator_v13_1_3_synth : entity is "fifo_generator_v13_1_3_synth";
 end base_system_auto_pc_1_fifo_generator_v13_1_3_synth;
 
 architecture STRUCTURE of base_system_auto_pc_1_fifo_generator_v13_1_3_synth is
@@ -6763,6 +6795,8 @@ entity base_system_auto_pc_1_fifo_generator_v13_1_3 is
   attribute C_WR_PNTR_WIDTH_WRCH of base_system_auto_pc_1_fifo_generator_v13_1_3 : entity is 4;
   attribute C_WR_RESPONSE_LATENCY : integer;
   attribute C_WR_RESPONSE_LATENCY of base_system_auto_pc_1_fifo_generator_v13_1_3 : entity is 1;
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_fifo_generator_v13_1_3 : entity is "fifo_generator_v13_1_3";
 end base_system_auto_pc_1_fifo_generator_v13_1_3;
 
 architecture STRUCTURE of base_system_auto_pc_1_fifo_generator_v13_1_3 is
@@ -9974,6 +10008,8 @@ entity base_system_auto_pc_1_axi_data_fifo_v2_1_10_fifo_gen is
     areset_d : in STD_LOGIC_VECTOR ( 0 to 0 );
     \areset_d_reg[1]\ : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_axi_data_fifo_v2_1_10_fifo_gen : entity is "axi_data_fifo_v2_1_10_fifo_gen";
 end base_system_auto_pc_1_axi_data_fifo_v2_1_10_fifo_gen;
 
 architecture STRUCTURE of base_system_auto_pc_1_axi_data_fifo_v2_1_10_fifo_gen is
@@ -13265,6 +13301,8 @@ entity base_system_auto_pc_1_axi_data_fifo_v2_1_10_axic_fifo is
     cmd_empty_reg : in STD_LOGIC;
     multiple_id_non_split : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_axi_data_fifo_v2_1_10_axic_fifo : entity is "axi_data_fifo_v2_1_10_axic_fifo";
 end base_system_auto_pc_1_axi_data_fifo_v2_1_10_axic_fifo;
 
 architecture STRUCTURE of base_system_auto_pc_1_axi_data_fifo_v2_1_10_axic_fifo is
@@ -13571,6 +13609,8 @@ entity base_system_auto_pc_1_axi_protocol_converter_v2_1_11_a_axi3_conv is
     s_axi_awprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axi_awqos : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_a_axi3_conv : entity is "axi_protocol_converter_v2_1_11_a_axi3_conv";
 end base_system_auto_pc_1_axi_protocol_converter_v2_1_11_a_axi3_conv;
 
 architecture STRUCTURE of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_a_axi3_conv is
@@ -19577,6 +19617,8 @@ entity base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi3_conv is
     s_axi_awvalid : in STD_LOGIC;
     s_axi_arvalid : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi3_conv : entity is "axi_protocol_converter_v2_1_11_axi3_conv";
 end base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi3_conv;
 
 architecture STRUCTURE of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi3_conv is
@@ -19720,8 +19762,8 @@ entity base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi_protocol_convert
     s_axi_awvalid : in STD_LOGIC;
     s_axi_awready : out STD_LOGIC;
     s_axi_wid : in STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axi_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    s_axi_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    s_axi_wdata : in STD_LOGIC_VECTOR ( 63 downto 0 );
+    s_axi_wstrb : in STD_LOGIC_VECTOR ( 7 downto 0 );
     s_axi_wlast : in STD_LOGIC;
     s_axi_wuser : in STD_LOGIC_VECTOR ( 0 to 0 );
     s_axi_wvalid : in STD_LOGIC;
@@ -19745,7 +19787,7 @@ entity base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi_protocol_convert
     s_axi_arvalid : in STD_LOGIC;
     s_axi_arready : out STD_LOGIC;
     s_axi_rid : out STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axi_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    s_axi_rdata : out STD_LOGIC_VECTOR ( 63 downto 0 );
     s_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axi_rlast : out STD_LOGIC;
     s_axi_ruser : out STD_LOGIC_VECTOR ( 0 to 0 );
@@ -19765,8 +19807,8 @@ entity base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi_protocol_convert
     m_axi_awvalid : out STD_LOGIC;
     m_axi_awready : in STD_LOGIC;
     m_axi_wid : out STD_LOGIC_VECTOR ( 0 to 0 );
-    m_axi_wdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    m_axi_wstrb : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    m_axi_wdata : out STD_LOGIC_VECTOR ( 63 downto 0 );
+    m_axi_wstrb : out STD_LOGIC_VECTOR ( 7 downto 0 );
     m_axi_wlast : out STD_LOGIC;
     m_axi_wuser : out STD_LOGIC_VECTOR ( 0 to 0 );
     m_axi_wvalid : out STD_LOGIC;
@@ -19790,7 +19832,7 @@ entity base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi_protocol_convert
     m_axi_arvalid : out STD_LOGIC;
     m_axi_arready : in STD_LOGIC;
     m_axi_rid : in STD_LOGIC_VECTOR ( 0 to 0 );
-    m_axi_rdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    m_axi_rdata : in STD_LOGIC_VECTOR ( 63 downto 0 );
     m_axi_rresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
     m_axi_rlast : in STD_LOGIC;
     m_axi_ruser : in STD_LOGIC_VECTOR ( 0 to 0 );
@@ -19806,7 +19848,7 @@ entity base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi_protocol_convert
   attribute C_AXI_BUSER_WIDTH : integer;
   attribute C_AXI_BUSER_WIDTH of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi_protocol_converter : entity is 1;
   attribute C_AXI_DATA_WIDTH : integer;
-  attribute C_AXI_DATA_WIDTH of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi_protocol_converter : entity is 32;
+  attribute C_AXI_DATA_WIDTH of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi_protocol_converter : entity is 64;
   attribute C_AXI_ID_WIDTH : integer;
   attribute C_AXI_ID_WIDTH of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi_protocol_converter : entity is 1;
   attribute C_AXI_RUSER_WIDTH : integer;
@@ -19831,6 +19873,8 @@ entity base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi_protocol_convert
   attribute C_TRANSLATION_MODE of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi_protocol_converter : entity is 2;
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi_protocol_converter : entity is "yes";
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi_protocol_converter : entity is "axi_protocol_converter_v2_1_11_axi_protocol_converter";
   attribute P_AXI3 : integer;
   attribute P_AXI3 of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi_protocol_converter : entity is 1;
   attribute P_AXI4 : integer;
@@ -19838,7 +19882,7 @@ entity base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi_protocol_convert
   attribute P_AXILITE : integer;
   attribute P_AXILITE of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi_protocol_converter : entity is 2;
   attribute P_AXILITE_SIZE : string;
-  attribute P_AXILITE_SIZE of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi_protocol_converter : entity is "3'b010";
+  attribute P_AXILITE_SIZE of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi_protocol_converter : entity is "3'b011";
   attribute P_CONVERSION : integer;
   attribute P_CONVERSION of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi_protocol_converter : entity is 2;
   attribute P_DECERR : string;
@@ -19856,20 +19900,20 @@ architecture STRUCTURE of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_a
   signal \^m_axi_arlock\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal \^m_axi_awlock\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal \^m_axi_bid\ : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal \^m_axi_rdata\ : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal \^m_axi_rdata\ : STD_LOGIC_VECTOR ( 63 downto 0 );
   signal \^m_axi_rid\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal \^m_axi_rresp\ : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal \^m_axi_ruser\ : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal \^s_axi_wdata\ : STD_LOGIC_VECTOR ( 31 downto 0 );
-  signal \^s_axi_wstrb\ : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal \^s_axi_wdata\ : STD_LOGIC_VECTOR ( 63 downto 0 );
+  signal \^s_axi_wstrb\ : STD_LOGIC_VECTOR ( 7 downto 0 );
 begin
   \^m_axi_bid\(0) <= m_axi_bid(0);
-  \^m_axi_rdata\(31 downto 0) <= m_axi_rdata(31 downto 0);
+  \^m_axi_rdata\(63 downto 0) <= m_axi_rdata(63 downto 0);
   \^m_axi_rid\(0) <= m_axi_rid(0);
   \^m_axi_rresp\(1 downto 0) <= m_axi_rresp(1 downto 0);
   \^m_axi_ruser\(0) <= m_axi_ruser(0);
-  \^s_axi_wdata\(31 downto 0) <= s_axi_wdata(31 downto 0);
-  \^s_axi_wstrb\(3 downto 0) <= s_axi_wstrb(3 downto 0);
+  \^s_axi_wdata\(63 downto 0) <= s_axi_wdata(63 downto 0);
+  \^s_axi_wstrb\(7 downto 0) <= s_axi_wstrb(7 downto 0);
   m_axi_arlock(1) <= \<const0>\;
   m_axi_arlock(0) <= \^m_axi_arlock\(0);
   m_axi_arregion(3) <= \<const0>\;
@@ -19884,12 +19928,12 @@ begin
   m_axi_awregion(1) <= \<const0>\;
   m_axi_awregion(0) <= \<const0>\;
   m_axi_awuser(0) <= \<const0>\;
-  m_axi_wdata(31 downto 0) <= \^s_axi_wdata\(31 downto 0);
-  m_axi_wstrb(3 downto 0) <= \^s_axi_wstrb\(3 downto 0);
+  m_axi_wdata(63 downto 0) <= \^s_axi_wdata\(63 downto 0);
+  m_axi_wstrb(7 downto 0) <= \^s_axi_wstrb\(7 downto 0);
   m_axi_wuser(0) <= \<const0>\;
   s_axi_bid(0) <= \^m_axi_bid\(0);
   s_axi_buser(0) <= \<const0>\;
-  s_axi_rdata(31 downto 0) <= \^m_axi_rdata\(31 downto 0);
+  s_axi_rdata(63 downto 0) <= \^m_axi_rdata\(63 downto 0);
   s_axi_rid(0) <= \^m_axi_rid\(0);
   s_axi_rresp(1 downto 0) <= \^m_axi_rresp\(1 downto 0);
   s_axi_ruser(0) <= \^m_axi_ruser\(0);
@@ -19984,8 +20028,8 @@ entity base_system_auto_pc_1 is
     s_axi_awqos : in STD_LOGIC_VECTOR ( 3 downto 0 );
     s_axi_awvalid : in STD_LOGIC;
     s_axi_awready : out STD_LOGIC;
-    s_axi_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    s_axi_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    s_axi_wdata : in STD_LOGIC_VECTOR ( 63 downto 0 );
+    s_axi_wstrb : in STD_LOGIC_VECTOR ( 7 downto 0 );
     s_axi_wlast : in STD_LOGIC;
     s_axi_wvalid : in STD_LOGIC;
     s_axi_wready : out STD_LOGIC;
@@ -20003,7 +20047,7 @@ entity base_system_auto_pc_1 is
     s_axi_arqos : in STD_LOGIC_VECTOR ( 3 downto 0 );
     s_axi_arvalid : in STD_LOGIC;
     s_axi_arready : out STD_LOGIC;
-    s_axi_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    s_axi_rdata : out STD_LOGIC_VECTOR ( 63 downto 0 );
     s_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axi_rlast : out STD_LOGIC;
     s_axi_rvalid : out STD_LOGIC;
@@ -20018,8 +20062,8 @@ entity base_system_auto_pc_1 is
     m_axi_awqos : out STD_LOGIC_VECTOR ( 3 downto 0 );
     m_axi_awvalid : out STD_LOGIC;
     m_axi_awready : in STD_LOGIC;
-    m_axi_wdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    m_axi_wstrb : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    m_axi_wdata : out STD_LOGIC_VECTOR ( 63 downto 0 );
+    m_axi_wstrb : out STD_LOGIC_VECTOR ( 7 downto 0 );
     m_axi_wlast : out STD_LOGIC;
     m_axi_wvalid : out STD_LOGIC;
     m_axi_wready : in STD_LOGIC;
@@ -20036,7 +20080,7 @@ entity base_system_auto_pc_1 is
     m_axi_arqos : out STD_LOGIC_VECTOR ( 3 downto 0 );
     m_axi_arvalid : out STD_LOGIC;
     m_axi_arready : in STD_LOGIC;
-    m_axi_rdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    m_axi_rdata : in STD_LOGIC_VECTOR ( 63 downto 0 );
     m_axi_rresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
     m_axi_rlast : in STD_LOGIC;
     m_axi_rvalid : in STD_LOGIC;
@@ -20074,7 +20118,7 @@ architecture STRUCTURE of base_system_auto_pc_1 is
   attribute C_AXI_BUSER_WIDTH : integer;
   attribute C_AXI_BUSER_WIDTH of inst : label is 1;
   attribute C_AXI_DATA_WIDTH : integer;
-  attribute C_AXI_DATA_WIDTH of inst : label is 32;
+  attribute C_AXI_DATA_WIDTH of inst : label is 64;
   attribute C_AXI_ID_WIDTH : integer;
   attribute C_AXI_ID_WIDTH of inst : label is 1;
   attribute C_AXI_RUSER_WIDTH : integer;
@@ -20105,7 +20149,7 @@ architecture STRUCTURE of base_system_auto_pc_1 is
   attribute P_AXILITE : integer;
   attribute P_AXILITE of inst : label is 2;
   attribute P_AXILITE_SIZE : string;
-  attribute P_AXILITE_SIZE of inst : label is "3'b010";
+  attribute P_AXILITE_SIZE of inst : label is "3'b011";
   attribute P_CONVERSION : integer;
   attribute P_CONVERSION of inst : label is 2;
   attribute P_DECERR : string;
@@ -20152,18 +20196,18 @@ inst: entity work.base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi_proto
       m_axi_bresp(1 downto 0) => m_axi_bresp(1 downto 0),
       m_axi_buser(0) => '0',
       m_axi_bvalid => m_axi_bvalid,
-      m_axi_rdata(31 downto 0) => m_axi_rdata(31 downto 0),
+      m_axi_rdata(63 downto 0) => m_axi_rdata(63 downto 0),
       m_axi_rid(0) => '0',
       m_axi_rlast => m_axi_rlast,
       m_axi_rready => m_axi_rready,
       m_axi_rresp(1 downto 0) => m_axi_rresp(1 downto 0),
       m_axi_ruser(0) => '0',
       m_axi_rvalid => m_axi_rvalid,
-      m_axi_wdata(31 downto 0) => m_axi_wdata(31 downto 0),
+      m_axi_wdata(63 downto 0) => m_axi_wdata(63 downto 0),
       m_axi_wid(0) => NLW_inst_m_axi_wid_UNCONNECTED(0),
       m_axi_wlast => m_axi_wlast,
       m_axi_wready => m_axi_wready,
-      m_axi_wstrb(3 downto 0) => m_axi_wstrb(3 downto 0),
+      m_axi_wstrb(7 downto 0) => m_axi_wstrb(7 downto 0),
       m_axi_wuser(0) => NLW_inst_m_axi_wuser_UNCONNECTED(0),
       m_axi_wvalid => m_axi_wvalid,
       s_axi_araddr(31 downto 0) => s_axi_araddr(31 downto 0),
@@ -20197,18 +20241,18 @@ inst: entity work.base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi_proto
       s_axi_bresp(1 downto 0) => s_axi_bresp(1 downto 0),
       s_axi_buser(0) => NLW_inst_s_axi_buser_UNCONNECTED(0),
       s_axi_bvalid => s_axi_bvalid,
-      s_axi_rdata(31 downto 0) => s_axi_rdata(31 downto 0),
+      s_axi_rdata(63 downto 0) => s_axi_rdata(63 downto 0),
       s_axi_rid(0) => NLW_inst_s_axi_rid_UNCONNECTED(0),
       s_axi_rlast => s_axi_rlast,
       s_axi_rready => s_axi_rready,
       s_axi_rresp(1 downto 0) => s_axi_rresp(1 downto 0),
       s_axi_ruser(0) => NLW_inst_s_axi_ruser_UNCONNECTED(0),
       s_axi_rvalid => s_axi_rvalid,
-      s_axi_wdata(31 downto 0) => s_axi_wdata(31 downto 0),
+      s_axi_wdata(63 downto 0) => s_axi_wdata(63 downto 0),
       s_axi_wid(0) => '0',
       s_axi_wlast => s_axi_wlast,
       s_axi_wready => s_axi_wready,
-      s_axi_wstrb(3 downto 0) => s_axi_wstrb(3 downto 0),
+      s_axi_wstrb(7 downto 0) => s_axi_wstrb(7 downto 0),
       s_axi_wuser(0) => '0',
       s_axi_wvalid => s_axi_wvalid
     );
