@@ -1479,7 +1479,7 @@ CONFIG.DOUT_WIDTH {5} \
   # Create instance: vga_fb, and set properties
   set vga_fb [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_tft:2.0 vga_fb ]
   set_property -dict [ list \
-CONFIG.C_DEFAULT_TFT_BASE_ADDR {0x000000001f100000} \
+CONFIG.C_DEFAULT_TFT_BASE_ADDR {0x00000000F0000000} \
 CONFIG.C_EN_I2C_INTF {0} \
 CONFIG.C_MAX_BURST_LEN {16} \
 CONFIG.C_M_AXI_ADDR_WIDTH {32} \
@@ -1563,34 +1563,34 @@ preplace inst irq_concat -pg 1 -lvl 4 -y 610 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 5 -y 300 -defaultsOSRD
 preplace netloc processing_system7_0_DDR 1 5 1 NJ
 preplace netloc ps7_0_axi_periph_M02_AXI 1 2 3 720 50 NJ 50 NJ
-preplace netloc vga_fb_tft_vga_g 1 3 3 NJ 968 1390 740 NJ
-preplace netloc processing_system7_0_M_AXI_GP0 1 1 5 400 140 NJ 140 NJ 140 NJ 140 1860
-preplace netloc v_tc_0_vsync_out 1 3 3 NJ 1018 1340 1240 NJ
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 6 30 130 NJ 130 NJ 130 NJ 130 1400J 150 1850
+preplace netloc vga_fb_tft_vga_g 1 3 3 NJ 940 1420 740 NJ
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 5 400 140 NJ 140 NJ 140 NJ 140 1890
+preplace netloc v_tc_0_vsync_out 1 3 3 NJ 1000 1370 1240 NJ
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 6 30 130 NJ 130 NJ 130 NJ 130 1430J 150 1880
 preplace netloc axi_mem_intercon_M00_AXI 1 4 1 N
 preplace netloc ps7_0_axi_periph_M03_AXI 1 2 1 700
-preplace netloc ps7_0_axi_periph_M01_AXI 1 2 3 NJ 410 NJ 410 1340
-preplace netloc axi_tft_0_ip2intc_irpt 1 3 1 1030
+preplace netloc ps7_0_axi_periph_M01_AXI 1 2 3 NJ 410 NJ 410 1370
+preplace netloc axi_tft_0_ip2intc_irpt 1 3 1 1050
 preplace netloc proc_sys_reset_0_interconnect_aresetn 1 1 3 390 240 NJ 240 1010
 preplace netloc vga_fb_M_AXI_MM 1 3 1 1020
 preplace netloc processing_system7_0_FIXED_IO 1 5 1 NJ
 preplace netloc clk_wiz_0_clk_out1 1 2 1 690J
-preplace netloc vga_fb_tft_vga_b 1 3 2 1010J 1030 1380
+preplace netloc vga_fb_tft_vga_b 1 3 2 1030J 1030 1410
 preplace netloc axi_gpio_0_GPIO 1 5 1 NJ
-preplace netloc v_tc_0_hsync_out 1 3 3 NJ 985 1400 760 NJ
-preplace netloc proc_sys_reset_0_peripheral_aresetn 1 1 4 380 90 730 90 1050 90 1360
+preplace netloc v_tc_0_hsync_out 1 3 3 NJ 960 1430 760 NJ
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 1 4 380 90 730 90 1050 90 1390
 preplace netloc axi_gpio_2_GPIO 1 5 1 NJ
 preplace netloc blue_slice_Dout 1 5 1 NJ
-preplace netloc irq_const_dout 1 3 1 1010
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 5 20 70 370 70 710 70 1040 70 1370
-preplace netloc axi_gpio_1_GPIO 1 5 1 1860J
-preplace netloc ps7_0_axi_periph_M00_AXI 1 2 3 N 390 1010J 400 1350J
-preplace netloc processing_system7_0_FCLK_CLK1 1 1 5 400 810 NJ 810 NJ 810 1330J 650 1840
-preplace netloc vga_fb_tft_vga_r 1 3 2 NJ 1002 1360
+preplace netloc irq_const_dout 1 3 1 1030
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 5 20 70 370 70 710 70 1040 70 1400
+preplace netloc axi_gpio_1_GPIO 1 5 1 1890J
+preplace netloc ps7_0_axi_periph_M00_AXI 1 2 3 N 390 1010J 400 1380J
+preplace netloc processing_system7_0_FCLK_CLK1 1 1 5 400 810 NJ 810 NJ 810 1360J 650 1870
+preplace netloc vga_fb_tft_vga_r 1 3 2 NJ 980 1390
 preplace netloc red_slice_Dout 1 5 1 NJ
-preplace netloc irq_concat_dout 1 4 1 1330
+preplace netloc irq_concat_dout 1 4 1 1360
 preplace netloc reset_rtl_1 1 0 1 N
-levelinfo -pg 1 0 200 550 880 1190 1620 1880 -top 0 -bot 1300
+levelinfo -pg 1 0 200 550 880 1220 1650 1910 -top 0 -bot 1300
 ",
 }
 

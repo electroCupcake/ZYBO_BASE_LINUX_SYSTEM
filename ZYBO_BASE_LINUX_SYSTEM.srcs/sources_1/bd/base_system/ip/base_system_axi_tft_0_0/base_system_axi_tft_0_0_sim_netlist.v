@@ -1,7 +1,7 @@
 // Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
-// Date        : Sun Aug  6 11:03:27 2017
+// Date        : Sat Jul 29 20:59:09 2017
 // Host        : MONOLITH running 64-bit Ubuntu 14.04.5 LTS
 // Command     : write_verilog -force -mode funcsim -rename_top base_system_axi_tft_0_0 -prefix
 //               base_system_axi_tft_0_0_ base_system_axi_tft_0_0_sim_netlist.v
@@ -7649,7 +7649,7 @@ module base_system_axi_tft_0_0_axi_master_burst_wr_status_cntl
         .sig_reset_reg(sig_reset_reg));
 endmodule
 
-(* C_DEFAULT_TFT_BASE_ADDR = "64'b0000000000000000000000000000000000011111000100000000000000000000" *) (* C_EN_I2C_INTF = "0" *) (* C_FAMILY = "zynq" *) 
+(* C_DEFAULT_TFT_BASE_ADDR = "64'b0000000000000000000000000000000011110000000000000000000000000000" *) (* C_EN_I2C_INTF = "0" *) (* C_FAMILY = "zynq" *) 
 (* C_I2C_SLAVE_ADDR = "8'b01110110" *) (* C_MAX_BURST_LEN = "16" *) (* C_M_AXI_ADDR_WIDTH = "32" *) 
 (* C_M_AXI_DATA_WIDTH = "64" *) (* C_S_AXI_ADDR_WIDTH = "3" *) (* C_TFT_INTERFACE = "0" *) 
 (* downgradeipidentifiedwarnings = "yes" *) 
@@ -10021,60 +10021,60 @@ module base_system_axi_tft_0_0_axi_tft_v2_0_15_slave_register
         .D(Bus_RNW_reg_reg_8),
         .Q(D[17]),
         .R(bus2ip_sreset_reg));
-  FDRE \TFT_base_addr_reg[0] 
+  FDSE \TFT_base_addr_reg[0] 
        (.C(s_axi_aclk),
         .CE(bus2ip_wrce[2]),
         .D(s_axi_wdata[26]),
         .Q(\GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_IN_cdc_to[10].CROSS2_PLEVEL_IN2SCNDRY_IN_cdc_to [10]),
-        .R(bus2ip_sreset));
+        .S(bus2ip_sreset));
   FDRE \TFT_base_addr_reg[10] 
        (.C(s_axi_aclk),
         .CE(bus2ip_wrce[2]),
         .D(s_axi_wdata[16]),
         .Q(\GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_IN_cdc_to[10].CROSS2_PLEVEL_IN2SCNDRY_IN_cdc_to [0]),
         .R(bus2ip_sreset));
-  FDRE \TFT_base_addr_reg[1] 
+  FDSE \TFT_base_addr_reg[1] 
        (.C(s_axi_aclk),
         .CE(bus2ip_wrce[2]),
         .D(s_axi_wdata[25]),
         .Q(\GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_IN_cdc_to[10].CROSS2_PLEVEL_IN2SCNDRY_IN_cdc_to [9]),
-        .R(bus2ip_sreset));
-  FDRE \TFT_base_addr_reg[2] 
+        .S(bus2ip_sreset));
+  FDSE \TFT_base_addr_reg[2] 
        (.C(s_axi_aclk),
         .CE(bus2ip_wrce[2]),
         .D(s_axi_wdata[24]),
         .Q(\GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_IN_cdc_to[10].CROSS2_PLEVEL_IN2SCNDRY_IN_cdc_to [8]),
-        .R(bus2ip_sreset));
+        .S(bus2ip_sreset));
   FDSE \TFT_base_addr_reg[3] 
        (.C(s_axi_aclk),
         .CE(bus2ip_wrce[2]),
         .D(s_axi_wdata[23]),
         .Q(\GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_IN_cdc_to[10].CROSS2_PLEVEL_IN2SCNDRY_IN_cdc_to [7]),
         .S(bus2ip_sreset));
-  FDSE \TFT_base_addr_reg[4] 
+  FDRE \TFT_base_addr_reg[4] 
        (.C(s_axi_aclk),
         .CE(bus2ip_wrce[2]),
         .D(s_axi_wdata[22]),
         .Q(\GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_IN_cdc_to[10].CROSS2_PLEVEL_IN2SCNDRY_IN_cdc_to [6]),
-        .S(bus2ip_sreset));
-  FDSE \TFT_base_addr_reg[5] 
+        .R(bus2ip_sreset));
+  FDRE \TFT_base_addr_reg[5] 
        (.C(s_axi_aclk),
         .CE(bus2ip_wrce[2]),
         .D(s_axi_wdata[21]),
         .Q(\GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_IN_cdc_to[10].CROSS2_PLEVEL_IN2SCNDRY_IN_cdc_to [5]),
-        .S(bus2ip_sreset));
-  FDSE \TFT_base_addr_reg[6] 
+        .R(bus2ip_sreset));
+  FDRE \TFT_base_addr_reg[6] 
        (.C(s_axi_aclk),
         .CE(bus2ip_wrce[2]),
         .D(s_axi_wdata[20]),
         .Q(\GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_IN_cdc_to[10].CROSS2_PLEVEL_IN2SCNDRY_IN_cdc_to [4]),
-        .S(bus2ip_sreset));
-  FDSE \TFT_base_addr_reg[7] 
+        .R(bus2ip_sreset));
+  FDRE \TFT_base_addr_reg[7] 
        (.C(s_axi_aclk),
         .CE(bus2ip_wrce[2]),
         .D(s_axi_wdata[19]),
         .Q(\GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_IN_cdc_to[10].CROSS2_PLEVEL_IN2SCNDRY_IN_cdc_to [3]),
-        .S(bus2ip_sreset));
+        .R(bus2ip_sreset));
   FDRE \TFT_base_addr_reg[8] 
        (.C(s_axi_aclk),
         .CE(bus2ip_wrce[2]),
@@ -11316,60 +11316,60 @@ module base_system_axi_tft_0_0_axi_tft_v2_0_15_tft_controller
        (.I0(ip2bus_mstrd_req),
         .I1(sig_cmd_empty_reg),
         .O(sig_push_cmd_reg));
-  FDRE \tft_base_addr_reg[0] 
+  FDSE \tft_base_addr_reg[0] 
        (.C(m_axi_aclk),
         .CE(v_bp_pulse),
         .D(tft_base_addr_d2[0]),
         .Q(\sig_cmd_mst_addr_reg[31] [24]),
-        .R(TFT_ON_MAXI_SYNC_n_0));
+        .S(TFT_ON_MAXI_SYNC_n_0));
   FDRE \tft_base_addr_reg[10] 
        (.C(m_axi_aclk),
         .CE(v_bp_pulse),
         .D(tft_base_addr_d2[10]),
         .Q(\sig_cmd_mst_addr_reg[31] [14]),
         .R(TFT_ON_MAXI_SYNC_n_0));
-  FDRE \tft_base_addr_reg[1] 
+  FDSE \tft_base_addr_reg[1] 
        (.C(m_axi_aclk),
         .CE(v_bp_pulse),
         .D(tft_base_addr_d2[1]),
         .Q(\sig_cmd_mst_addr_reg[31] [23]),
-        .R(TFT_ON_MAXI_SYNC_n_0));
-  FDRE \tft_base_addr_reg[2] 
+        .S(TFT_ON_MAXI_SYNC_n_0));
+  FDSE \tft_base_addr_reg[2] 
        (.C(m_axi_aclk),
         .CE(v_bp_pulse),
         .D(tft_base_addr_d2[2]),
         .Q(\sig_cmd_mst_addr_reg[31] [22]),
-        .R(TFT_ON_MAXI_SYNC_n_0));
+        .S(TFT_ON_MAXI_SYNC_n_0));
   FDSE \tft_base_addr_reg[3] 
        (.C(m_axi_aclk),
         .CE(v_bp_pulse),
         .D(tft_base_addr_d2[3]),
         .Q(\sig_cmd_mst_addr_reg[31] [21]),
         .S(TFT_ON_MAXI_SYNC_n_0));
-  FDSE \tft_base_addr_reg[4] 
+  FDRE \tft_base_addr_reg[4] 
        (.C(m_axi_aclk),
         .CE(v_bp_pulse),
         .D(tft_base_addr_d2[4]),
         .Q(\sig_cmd_mst_addr_reg[31] [20]),
-        .S(TFT_ON_MAXI_SYNC_n_0));
-  FDSE \tft_base_addr_reg[5] 
+        .R(TFT_ON_MAXI_SYNC_n_0));
+  FDRE \tft_base_addr_reg[5] 
        (.C(m_axi_aclk),
         .CE(v_bp_pulse),
         .D(tft_base_addr_d2[5]),
         .Q(\sig_cmd_mst_addr_reg[31] [19]),
-        .S(TFT_ON_MAXI_SYNC_n_0));
-  FDSE \tft_base_addr_reg[6] 
+        .R(TFT_ON_MAXI_SYNC_n_0));
+  FDRE \tft_base_addr_reg[6] 
        (.C(m_axi_aclk),
         .CE(v_bp_pulse),
         .D(tft_base_addr_d2[6]),
         .Q(\sig_cmd_mst_addr_reg[31] [18]),
-        .S(TFT_ON_MAXI_SYNC_n_0));
-  FDSE \tft_base_addr_reg[7] 
+        .R(TFT_ON_MAXI_SYNC_n_0));
+  FDRE \tft_base_addr_reg[7] 
        (.C(m_axi_aclk),
         .CE(v_bp_pulse),
         .D(tft_base_addr_d2[7]),
         .Q(\sig_cmd_mst_addr_reg[31] [17]),
-        .S(TFT_ON_MAXI_SYNC_n_0));
+        .R(TFT_ON_MAXI_SYNC_n_0));
   FDRE \tft_base_addr_reg[8] 
        (.C(m_axi_aclk),
         .CE(v_bp_pulse),
@@ -12617,7 +12617,7 @@ module base_system_axi_tft_0_0
   wire NLW_U0_tft_iic_sda_t_UNCONNECTED;
   wire [11:0]NLW_U0_tft_dvi_data_UNCONNECTED;
 
-  (* C_DEFAULT_TFT_BASE_ADDR = "64'b0000000000000000000000000000000000011111000100000000000000000000" *) 
+  (* C_DEFAULT_TFT_BASE_ADDR = "64'b0000000000000000000000000000000011110000000000000000000000000000" *) 
   (* C_EN_I2C_INTF = "0" *) 
   (* C_FAMILY = "zynq" *) 
   (* C_I2C_SLAVE_ADDR = "8'b01110110" *) 

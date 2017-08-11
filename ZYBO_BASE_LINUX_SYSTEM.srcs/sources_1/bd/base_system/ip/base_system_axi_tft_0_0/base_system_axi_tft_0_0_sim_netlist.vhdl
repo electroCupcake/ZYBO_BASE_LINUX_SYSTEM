@@ -1,7 +1,7 @@
 -- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
--- Date        : Sun Aug  6 11:03:27 2017
+-- Date        : Sat Jul 29 20:59:10 2017
 -- Host        : MONOLITH running 64-bit Ubuntu 14.04.5 LTS
 -- Command     : write_vhdl -force -mode funcsim -rename_top base_system_axi_tft_0_0 -prefix
 --               base_system_axi_tft_0_0_ base_system_axi_tft_0_0_sim_netlist.vhdl
@@ -9112,13 +9112,13 @@ begin
       Q => D(17),
       R => bus2ip_sreset_reg
     );
-\TFT_base_addr_reg[0]\: unisim.vcomponents.FDRE
+\TFT_base_addr_reg[0]\: unisim.vcomponents.FDSE
      port map (
       C => s_axi_aclk,
       CE => bus2ip_wrce(2),
       D => s_axi_wdata(26),
       Q => \GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_IN_cdc_to[10].CROSS2_PLEVEL_IN2SCNDRY_IN_cdc_to\(10),
-      R => bus2ip_sreset
+      S => bus2ip_sreset
     );
 \TFT_base_addr_reg[10]\: unisim.vcomponents.FDRE
      port map (
@@ -9128,21 +9128,21 @@ begin
       Q => \GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_IN_cdc_to[10].CROSS2_PLEVEL_IN2SCNDRY_IN_cdc_to\(0),
       R => bus2ip_sreset
     );
-\TFT_base_addr_reg[1]\: unisim.vcomponents.FDRE
+\TFT_base_addr_reg[1]\: unisim.vcomponents.FDSE
      port map (
       C => s_axi_aclk,
       CE => bus2ip_wrce(2),
       D => s_axi_wdata(25),
       Q => \GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_IN_cdc_to[10].CROSS2_PLEVEL_IN2SCNDRY_IN_cdc_to\(9),
-      R => bus2ip_sreset
+      S => bus2ip_sreset
     );
-\TFT_base_addr_reg[2]\: unisim.vcomponents.FDRE
+\TFT_base_addr_reg[2]\: unisim.vcomponents.FDSE
      port map (
       C => s_axi_aclk,
       CE => bus2ip_wrce(2),
       D => s_axi_wdata(24),
       Q => \GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_IN_cdc_to[10].CROSS2_PLEVEL_IN2SCNDRY_IN_cdc_to\(8),
-      R => bus2ip_sreset
+      S => bus2ip_sreset
     );
 \TFT_base_addr_reg[3]\: unisim.vcomponents.FDSE
      port map (
@@ -9152,37 +9152,37 @@ begin
       Q => \GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_IN_cdc_to[10].CROSS2_PLEVEL_IN2SCNDRY_IN_cdc_to\(7),
       S => bus2ip_sreset
     );
-\TFT_base_addr_reg[4]\: unisim.vcomponents.FDSE
+\TFT_base_addr_reg[4]\: unisim.vcomponents.FDRE
      port map (
       C => s_axi_aclk,
       CE => bus2ip_wrce(2),
       D => s_axi_wdata(22),
       Q => \GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_IN_cdc_to[10].CROSS2_PLEVEL_IN2SCNDRY_IN_cdc_to\(6),
-      S => bus2ip_sreset
+      R => bus2ip_sreset
     );
-\TFT_base_addr_reg[5]\: unisim.vcomponents.FDSE
+\TFT_base_addr_reg[5]\: unisim.vcomponents.FDRE
      port map (
       C => s_axi_aclk,
       CE => bus2ip_wrce(2),
       D => s_axi_wdata(21),
       Q => \GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_IN_cdc_to[10].CROSS2_PLEVEL_IN2SCNDRY_IN_cdc_to\(5),
-      S => bus2ip_sreset
+      R => bus2ip_sreset
     );
-\TFT_base_addr_reg[6]\: unisim.vcomponents.FDSE
+\TFT_base_addr_reg[6]\: unisim.vcomponents.FDRE
      port map (
       C => s_axi_aclk,
       CE => bus2ip_wrce(2),
       D => s_axi_wdata(20),
       Q => \GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_IN_cdc_to[10].CROSS2_PLEVEL_IN2SCNDRY_IN_cdc_to\(4),
-      S => bus2ip_sreset
+      R => bus2ip_sreset
     );
-\TFT_base_addr_reg[7]\: unisim.vcomponents.FDSE
+\TFT_base_addr_reg[7]\: unisim.vcomponents.FDRE
      port map (
       C => s_axi_aclk,
       CE => bus2ip_wrce(2),
       D => s_axi_wdata(19),
       Q => \GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_IN_cdc_to[10].CROSS2_PLEVEL_IN2SCNDRY_IN_cdc_to\(3),
-      S => bus2ip_sreset
+      R => bus2ip_sreset
     );
 \TFT_base_addr_reg[8]\: unisim.vcomponents.FDRE
      port map (
@@ -22965,13 +22965,13 @@ sig_cmd_full_reg_i_2: unisim.vcomponents.LUT2
       I1 => sig_cmd_empty_reg,
       O => sig_push_cmd_reg
     );
-\tft_base_addr_reg[0]\: unisim.vcomponents.FDRE
+\tft_base_addr_reg[0]\: unisim.vcomponents.FDSE
      port map (
       C => m_axi_aclk,
       CE => v_bp_pulse,
       D => tft_base_addr_d2(0),
       Q => \sig_cmd_mst_addr_reg[31]\(24),
-      R => TFT_ON_MAXI_SYNC_n_0
+      S => TFT_ON_MAXI_SYNC_n_0
     );
 \tft_base_addr_reg[10]\: unisim.vcomponents.FDRE
      port map (
@@ -22981,21 +22981,21 @@ sig_cmd_full_reg_i_2: unisim.vcomponents.LUT2
       Q => \sig_cmd_mst_addr_reg[31]\(14),
       R => TFT_ON_MAXI_SYNC_n_0
     );
-\tft_base_addr_reg[1]\: unisim.vcomponents.FDRE
+\tft_base_addr_reg[1]\: unisim.vcomponents.FDSE
      port map (
       C => m_axi_aclk,
       CE => v_bp_pulse,
       D => tft_base_addr_d2(1),
       Q => \sig_cmd_mst_addr_reg[31]\(23),
-      R => TFT_ON_MAXI_SYNC_n_0
+      S => TFT_ON_MAXI_SYNC_n_0
     );
-\tft_base_addr_reg[2]\: unisim.vcomponents.FDRE
+\tft_base_addr_reg[2]\: unisim.vcomponents.FDSE
      port map (
       C => m_axi_aclk,
       CE => v_bp_pulse,
       D => tft_base_addr_d2(2),
       Q => \sig_cmd_mst_addr_reg[31]\(22),
-      R => TFT_ON_MAXI_SYNC_n_0
+      S => TFT_ON_MAXI_SYNC_n_0
     );
 \tft_base_addr_reg[3]\: unisim.vcomponents.FDSE
      port map (
@@ -23005,37 +23005,37 @@ sig_cmd_full_reg_i_2: unisim.vcomponents.LUT2
       Q => \sig_cmd_mst_addr_reg[31]\(21),
       S => TFT_ON_MAXI_SYNC_n_0
     );
-\tft_base_addr_reg[4]\: unisim.vcomponents.FDSE
+\tft_base_addr_reg[4]\: unisim.vcomponents.FDRE
      port map (
       C => m_axi_aclk,
       CE => v_bp_pulse,
       D => tft_base_addr_d2(4),
       Q => \sig_cmd_mst_addr_reg[31]\(20),
-      S => TFT_ON_MAXI_SYNC_n_0
+      R => TFT_ON_MAXI_SYNC_n_0
     );
-\tft_base_addr_reg[5]\: unisim.vcomponents.FDSE
+\tft_base_addr_reg[5]\: unisim.vcomponents.FDRE
      port map (
       C => m_axi_aclk,
       CE => v_bp_pulse,
       D => tft_base_addr_d2(5),
       Q => \sig_cmd_mst_addr_reg[31]\(19),
-      S => TFT_ON_MAXI_SYNC_n_0
+      R => TFT_ON_MAXI_SYNC_n_0
     );
-\tft_base_addr_reg[6]\: unisim.vcomponents.FDSE
+\tft_base_addr_reg[6]\: unisim.vcomponents.FDRE
      port map (
       C => m_axi_aclk,
       CE => v_bp_pulse,
       D => tft_base_addr_d2(6),
       Q => \sig_cmd_mst_addr_reg[31]\(18),
-      S => TFT_ON_MAXI_SYNC_n_0
+      R => TFT_ON_MAXI_SYNC_n_0
     );
-\tft_base_addr_reg[7]\: unisim.vcomponents.FDSE
+\tft_base_addr_reg[7]\: unisim.vcomponents.FDRE
      port map (
       C => m_axi_aclk,
       CE => v_bp_pulse,
       D => tft_base_addr_d2(7),
       Q => \sig_cmd_mst_addr_reg[31]\(17),
-      S => TFT_ON_MAXI_SYNC_n_0
+      R => TFT_ON_MAXI_SYNC_n_0
     );
 \tft_base_addr_reg[8]\: unisim.vcomponents.FDRE
      port map (
@@ -23294,7 +23294,7 @@ entity base_system_axi_tft_0_0_axi_tft is
     tft_iic_sda_t : out STD_LOGIC
   );
   attribute C_DEFAULT_TFT_BASE_ADDR : string;
-  attribute C_DEFAULT_TFT_BASE_ADDR of base_system_axi_tft_0_0_axi_tft : entity is "64'b0000000000000000000000000000000000011111000100000000000000000000";
+  attribute C_DEFAULT_TFT_BASE_ADDR of base_system_axi_tft_0_0_axi_tft : entity is "64'b0000000000000000000000000000000011110000000000000000000000000000";
   attribute C_EN_I2C_INTF : integer;
   attribute C_EN_I2C_INTF of base_system_axi_tft_0_0_axi_tft : entity is 0;
   attribute C_FAMILY : string;
@@ -24068,7 +24068,7 @@ architecture STRUCTURE of base_system_axi_tft_0_0 is
   signal NLW_U0_tft_iic_sda_t_UNCONNECTED : STD_LOGIC;
   signal NLW_U0_tft_dvi_data_UNCONNECTED : STD_LOGIC_VECTOR ( 11 downto 0 );
   attribute C_DEFAULT_TFT_BASE_ADDR : string;
-  attribute C_DEFAULT_TFT_BASE_ADDR of U0 : label is "64'b0000000000000000000000000000000000011111000100000000000000000000";
+  attribute C_DEFAULT_TFT_BASE_ADDR of U0 : label is "64'b0000000000000000000000000000000011110000000000000000000000000000";
   attribute C_EN_I2C_INTF : integer;
   attribute C_EN_I2C_INTF of U0 : label is 0;
   attribute C_FAMILY : string;

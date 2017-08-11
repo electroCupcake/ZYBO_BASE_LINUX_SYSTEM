@@ -215,7 +215,7 @@ ARCHITECTURE base_system_axi_tft_0_0_arch OF base_system_axi_tft_0_0 IS
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF base_system_axi_tft_0_0_arch : ARCHITECTURE IS "base_system_axi_tft_0_0,axi_tft,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF base_system_axi_tft_0_0_arch: ARCHITECTURE IS "base_system_axi_tft_0_0,axi_tft,{x_ipProduct=Vivado 2016.4,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axi_tft,x_ipVersion=2.0,x_ipCoreRevision=15,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_FAMILY=zynq,C_TFT_INTERFACE=0,C_EN_I2C_INTF=0,C_I2C_SLAVE_ADDR=0x76,C_DEFAULT_TFT_BASE_ADDR=0x000000001f100000,C_M_AXI_ADDR_WIDTH=32,C_M_AXI_DATA_WIDTH=64,C_MAX_BURST_LEN=16,C_S_AXI_ADDR_WIDTH=3}";
+  ATTRIBUTE CORE_GENERATION_INFO OF base_system_axi_tft_0_0_arch: ARCHITECTURE IS "base_system_axi_tft_0_0,axi_tft,{x_ipProduct=Vivado 2016.4,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axi_tft,x_ipVersion=2.0,x_ipCoreRevision=15,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_FAMILY=zynq,C_TFT_INTERFACE=0,C_EN_I2C_INTF=0,C_I2C_SLAVE_ADDR=0x76,C_DEFAULT_TFT_BASE_ADDR=0x00000000F0000000,C_M_AXI_ADDR_WIDTH=32,C_M_AXI_DATA_WIDTH=64,C_MAX_BURST_LEN=16,C_S_AXI_ADDR_WIDTH=3}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_INFO OF s_axi_aclk: SIGNAL IS "xilinx.com:signal:clock:1.0 S_AXI_ACLK CLK";
   ATTRIBUTE X_INTERFACE_INFO OF s_axi_aresetn: SIGNAL IS "xilinx.com:signal:reset:1.0 S_AXI_ARESETN RST";
@@ -284,7 +284,7 @@ BEGIN
       C_TFT_INTERFACE => 0,
       C_EN_I2C_INTF => 0,
       C_I2C_SLAVE_ADDR => X"76",
-      C_DEFAULT_TFT_BASE_ADDR => X"000000001f100000",
+      C_DEFAULT_TFT_BASE_ADDR => X"00000000F0000000",
       C_M_AXI_ADDR_WIDTH => 32,
       C_M_AXI_DATA_WIDTH => 64,
       C_MAX_BURST_LEN => 16,
