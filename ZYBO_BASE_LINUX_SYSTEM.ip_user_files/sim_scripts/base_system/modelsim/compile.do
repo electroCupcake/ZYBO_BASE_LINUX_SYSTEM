@@ -143,6 +143,10 @@ vlog -work xil_defaultlib -64 -incr "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.
 "../../../bd/base_system/ip/base_system_clk_wiz_0_0/base_system_clk_wiz_0_0_clk_wiz.v" \
 "../../../bd/base_system/ip/base_system_clk_wiz_0_0/base_system_clk_wiz_0_0.v" \
 "../../../bd/base_system/hdl/base_system.v" \
+"../../../bd/base_system/ipshared/8c55/hdl/simpleAdder_v1_0_S00_AXI.v" \
+"../../../bd/base_system/ipshared/8c55/hdl/simpleAdder_v1_0.v" \
+"../../../bd/base_system/ip/base_system_simpleAdder_0_0_1/sim/base_system_simpleAdder_0_0.v" \
+"../../../bd/base_system/ip/base_system_ila_3_0/sim/base_system_ila_3_0.v" \
 
 vlog -work axi_protocol_converter_v2_1_11 -64 -incr "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/7dd0/hdl" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/7e3a/hdl" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/100a" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/0cab/hdl/verilog" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/f9cc/hdl/verilog" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/469d/hdl/verilog" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/48e6/hdl/verilog" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/7dd0/hdl" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/7e3a/hdl" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/100a" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/0cab/hdl/verilog" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/f9cc/hdl/verilog" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/469d/hdl/verilog" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/48e6/hdl/verilog" \
 "../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/df1b/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
