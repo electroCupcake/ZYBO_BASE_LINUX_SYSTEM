@@ -2,9 +2,9 @@
 <Root MajorVersion="0" MinorVersion="33">
   <CompositeFile CompositeFileTopName="base_system" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1515201901"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1515201901"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1515201901"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1515368787"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1515368787"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1515368787"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip/base_system_processing_system7_0_0/base_system_processing_system7_0_0.xci" Type="IP">
         <Instance HierarchyPath="processing_system7_0"/>
@@ -110,30 +110,6 @@
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="ip/base_system_ila_0_0/base_system_ila_0_0.xci" Type="IP">
-        <Instance HierarchyPath="ila_0"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
-      <File Name="ip/base_system_ila_1_0/base_system_ila_1_0.xci" Type="IP">
-        <Instance HierarchyPath="ila_1"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
-      <File Name="ip/base_system_ila_2_0/base_system_ila_2_0.xci" Type="IP">
-        <Instance HierarchyPath="ila_2"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
       <File Name="ip/base_system_clk_wiz_0_0/base_system_clk_wiz_0_0.xci" Type="IP">
         <Instance HierarchyPath="clk_wiz_0"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
@@ -144,14 +120,6 @@
       </File>
       <File Name="hdl/base_system.v" Type="Verilog">
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
-      <File Name="ip/base_system_simpleAdder_0_0/base_system_simpleAdder_0_0.xci" Type="IP">
-        <Instance HierarchyPath="simpleAdder_0"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>

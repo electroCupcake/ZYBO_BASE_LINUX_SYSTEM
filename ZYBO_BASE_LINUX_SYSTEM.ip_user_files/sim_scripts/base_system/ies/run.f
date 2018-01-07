@@ -92,15 +92,9 @@
   "../../../bd/base_system/ipshared/c49f/xlslice.v" \
   "../../../bd/base_system/ip/base_system_xlslice_0_0/sim/base_system_xlslice_0_0.v" \
   "../../../bd/base_system/ip/base_system_xlslice_0_1/sim/base_system_xlslice_0_1.v" \
-  "../../../bd/base_system/ip/base_system_ila_0_0/sim/base_system_ila_0_0.v" \
-  "../../../bd/base_system/ip/base_system_ila_1_0/sim/base_system_ila_1_0.v" \
-  "../../../bd/base_system/ip/base_system_ila_2_0/sim/base_system_ila_2_0.v" \
   "../../../bd/base_system/ip/base_system_clk_wiz_0_0/base_system_clk_wiz_0_0_clk_wiz.v" \
   "../../../bd/base_system/ip/base_system_clk_wiz_0_0/base_system_clk_wiz_0_0.v" \
   "../../../bd/base_system/hdl/base_system.v" \
-  "../../../bd/base_system/ipshared/8c55/hdl/simpleAdder_v1_0_S00_AXI.v" \
-  "../../../bd/base_system/ipshared/8c55/hdl/simpleAdder_v1_0.v" \
-  "../../../bd/base_system/ip/base_system_simpleAdder_0_0/sim/base_system_simpleAdder_0_0.v" \
 -endlib
 -makelib ies/axi_protocol_converter_v2_1_11 \
   "../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/df1b/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
