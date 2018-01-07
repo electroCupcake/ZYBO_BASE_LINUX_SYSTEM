@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
-//Date        : Fri Jan  5 18:30:05 2018
+//Date        : Fri Jan  5 20:24:56 2018
 //Host        : monolith running 64-bit Ubuntu 16.04.3 LTS
 //Command     : generate_target base_system.bd
 //Design      : base_system
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "base_system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=base_system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=28,numReposBlks=19,numNonXlnxBlks=1,numHierBlks=9,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=12,da_board_cnt=5,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "base_system.hwdef" *) 
+(* CORE_GENERATION_INFO = "base_system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=base_system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=27,numReposBlks=18,numNonXlnxBlks=1,numHierBlks=9,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=12,da_board_cnt=5,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "base_system.hwdef" *) 
 module base_system
    (DDR_addr,
     DDR_ba,
@@ -533,27 +533,6 @@ module base_system
         .probe7(ps7_0_axi_periph_M03_AXI_WVALID),
         .probe8(ps7_0_axi_periph_M03_AXI_ARVALID),
         .probe9(ps7_0_axi_periph_M03_AXI_ARREADY));
-  base_system_ila_3_0 ila_3
-       (.clk(processing_system7_0_FCLK_CLK0),
-        .probe0(ps7_0_axi_periph_M04_AXI_WREADY),
-        .probe1(ps7_0_axi_periph_M04_AXI_AWADDR[3:0]),
-        .probe10(ps7_0_axi_periph_M04_AXI_RDATA),
-        .probe11(ps7_0_axi_periph_M04_AXI_AWVALID),
-        .probe12(ps7_0_axi_periph_M04_AXI_AWREADY),
-        .probe13(ps7_0_axi_periph_M04_AXI_RRESP),
-        .probe14(ps7_0_axi_periph_M04_AXI_WDATA),
-        .probe15(ps7_0_axi_periph_M04_AXI_WSTRB),
-        .probe16(ps7_0_axi_periph_M04_AXI_RVALID),
-        .probe17(ps7_0_axi_periph_M04_AXI_ARPROT),
-        .probe18(ps7_0_axi_periph_M04_AXI_AWPROT),
-        .probe2(ps7_0_axi_periph_M04_AXI_BRESP),
-        .probe3(ps7_0_axi_periph_M04_AXI_BVALID),
-        .probe4(ps7_0_axi_periph_M04_AXI_BREADY),
-        .probe5(ps7_0_axi_periph_M04_AXI_ARADDR[3:0]),
-        .probe6(ps7_0_axi_periph_M04_AXI_RREADY),
-        .probe7(ps7_0_axi_periph_M04_AXI_WVALID),
-        .probe8(ps7_0_axi_periph_M04_AXI_ARVALID),
-        .probe9(ps7_0_axi_periph_M04_AXI_ARREADY));
   base_system_xlconcat_0_0 irq_concat
        (.In0(irq_const_dout),
         .In1(irq_const_dout),

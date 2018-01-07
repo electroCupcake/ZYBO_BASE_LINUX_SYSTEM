@@ -1,10 +1,10 @@
 -- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
--- Date        : Mon Aug  7 11:28:05 2017
--- Host        : MONOLITH running 64-bit Ubuntu 14.04.5 LTS
--- Command     : write_vhdl -force -mode funcsim -rename_top base_system_auto_pc_1 -prefix
---               base_system_auto_pc_1_ base_system_auto_pc_1_sim_netlist.vhdl
+-- Date        : Fri Jan  5 20:25:42 2018
+-- Host        : monolith running 64-bit Ubuntu 16.04.3 LTS
+-- Command     : write_vhdl -force -mode funcsim
+--               /home/jconvertino/Documents/Programs/HDL/Xilinx2016/ZYBO_VIVADO_LINUX_BASE/ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ip/base_system_auto_pc_1/base_system_auto_pc_1_sim_netlist.vhdl
 -- Design      : base_system_auto_pc_1
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -27,6 +27,8 @@ entity base_system_auto_pc_1_axi_protocol_converter_v2_1_11_b_downsizer is
     m_axi_bvalid : in STD_LOGIC;
     m_axi_bresp : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_b_downsizer : entity is "axi_protocol_converter_v2_1_11_b_downsizer";
 end base_system_auto_pc_1_axi_protocol_converter_v2_1_11_b_downsizer;
 
 architecture STRUCTURE of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_b_downsizer is
@@ -261,6 +263,8 @@ entity base_system_auto_pc_1_axi_protocol_converter_v2_1_11_w_axi3_conv is
     s_axi_wvalid : in STD_LOGIC;
     m_axi_wready : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_w_axi3_conv : entity is "axi_protocol_converter_v2_1_11_w_axi3_conv";
 end base_system_auto_pc_1_axi_protocol_converter_v2_1_11_w_axi3_conv;
 
 architecture STRUCTURE of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_w_axi3_conv is
@@ -581,6 +585,8 @@ entity base_system_auto_pc_1_dmem is
     I55 : in STD_LOGIC_VECTOR ( 4 downto 0 );
     \gpregsm1.curr_fwft_state_reg[1]\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_dmem : entity is "dmem";
 end base_system_auto_pc_1_dmem;
 
 architecture STRUCTURE of base_system_auto_pc_1_dmem is
@@ -857,6 +863,8 @@ entity base_system_auto_pc_1_rd_bin_cntr is
     clk : in STD_LOGIC;
     \ngwrdrst.grst.g7serrst.rd_rst_reg_reg[2]\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_rd_bin_cntr : entity is "rd_bin_cntr";
 end base_system_auto_pc_1_rd_bin_cntr;
 
 architecture STRUCTURE of base_system_auto_pc_1_rd_bin_cntr is
@@ -1607,6 +1615,8 @@ entity base_system_auto_pc_1_rd_fwft is
     rd_en : in STD_LOGIC;
     ram_empty_fb_i_reg_0 : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_rd_fwft : entity is "rd_fwft";
 end base_system_auto_pc_1_rd_fwft;
 
 architecture STRUCTURE of base_system_auto_pc_1_rd_fwft is
@@ -2371,6 +2381,8 @@ entity base_system_auto_pc_1_rd_status_flags_ss is
     clk : in STD_LOGIC;
     \ngwrdrst.grst.g7serrst.rd_rst_reg_reg[2]\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_rd_status_flags_ss : entity is "rd_status_flags_ss";
 end base_system_auto_pc_1_rd_status_flags_ss;
 
 architecture STRUCTURE of base_system_auto_pc_1_rd_status_flags_ss is
@@ -2530,6 +2542,8 @@ entity base_system_auto_pc_1_synchronizer_ff is
     in0 : in STD_LOGIC_VECTOR ( 0 to 0 );
     clk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_synchronizer_ff : entity is "synchronizer_ff";
 end base_system_auto_pc_1_synchronizer_ff;
 
 architecture STRUCTURE of base_system_auto_pc_1_synchronizer_ff is
@@ -3293,6 +3307,8 @@ entity base_system_auto_pc_1_wr_bin_cntr is
     clk : in STD_LOGIC;
     \ngwrdrst.grst.g7serrst.wr_rst_reg_reg[1]\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_wr_bin_cntr : entity is "wr_bin_cntr";
 end base_system_auto_pc_1_wr_bin_cntr;
 
 architecture STRUCTURE of base_system_auto_pc_1_wr_bin_cntr is
@@ -4054,6 +4070,8 @@ entity base_system_auto_pc_1_wr_status_flags_ss is
     \ngwrdrst.grst.g7serrst.wr_rst_reg_reg[0]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     wr_en : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_wr_status_flags_ss : entity is "wr_status_flags_ss";
 end base_system_auto_pc_1_wr_status_flags_ss;
 
 architecture STRUCTURE of base_system_auto_pc_1_wr_status_flags_ss is
@@ -4314,6 +4332,8 @@ entity base_system_auto_pc_1_memory is
     I55 : in STD_LOGIC_VECTOR ( 4 downto 0 );
     \gpregsm1.curr_fwft_state_reg[1]\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_memory : entity is "memory";
 end base_system_auto_pc_1_memory;
 
 architecture STRUCTURE of base_system_auto_pc_1_memory is
@@ -4550,6 +4570,8 @@ entity base_system_auto_pc_1_rd_logic is
     \gcc0.gc0.count_d1_reg[4]\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
     \gcc0.gc0.count_d1_reg[2]\ : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_rd_logic : entity is "rd_logic";
 end base_system_auto_pc_1_rd_logic;
 
 architecture STRUCTURE of base_system_auto_pc_1_rd_logic is
@@ -4746,6 +4768,8 @@ entity base_system_auto_pc_1_reset_blk_ramfifo is
     clk : in STD_LOGIC;
     rst : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_reset_blk_ramfifo : entity is "reset_blk_ramfifo";
 end base_system_auto_pc_1_reset_blk_ramfifo;
 
 architecture STRUCTURE of base_system_auto_pc_1_reset_blk_ramfifo is
@@ -5505,6 +5529,8 @@ entity base_system_auto_pc_1_wr_logic is
     \gc0.count_reg[2]\ : in STD_LOGIC_VECTOR ( 2 downto 0 );
     \gc0.count_d1_reg[4]\ : in STD_LOGIC_VECTOR ( 4 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_wr_logic : entity is "wr_logic";
 end base_system_auto_pc_1_wr_logic;
 
 architecture STRUCTURE of base_system_auto_pc_1_wr_logic is
@@ -5667,6 +5693,8 @@ entity base_system_auto_pc_1_fifo_generator_ramfifo is
     rd_en : in STD_LOGIC;
     wr_en : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_fifo_generator_ramfifo : entity is "fifo_generator_ramfifo";
 end base_system_auto_pc_1_fifo_generator_ramfifo;
 
 architecture STRUCTURE of base_system_auto_pc_1_fifo_generator_ramfifo is
@@ -5942,6 +5970,8 @@ entity base_system_auto_pc_1_fifo_generator_top is
     rd_en : in STD_LOGIC;
     wr_en : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_fifo_generator_top : entity is "fifo_generator_top";
 end base_system_auto_pc_1_fifo_generator_top;
 
 architecture STRUCTURE of base_system_auto_pc_1_fifo_generator_top is
@@ -6039,6 +6069,8 @@ entity base_system_auto_pc_1_fifo_generator_v13_1_3_synth is
     rd_en : in STD_LOGIC;
     wr_en : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_fifo_generator_v13_1_3_synth : entity is "fifo_generator_v13_1_3_synth";
 end base_system_auto_pc_1_fifo_generator_v13_1_3_synth;
 
 architecture STRUCTURE of base_system_auto_pc_1_fifo_generator_v13_1_3_synth is
@@ -6763,6 +6795,8 @@ entity base_system_auto_pc_1_fifo_generator_v13_1_3 is
   attribute C_WR_PNTR_WIDTH_WRCH of base_system_auto_pc_1_fifo_generator_v13_1_3 : entity is 4;
   attribute C_WR_RESPONSE_LATENCY : integer;
   attribute C_WR_RESPONSE_LATENCY of base_system_auto_pc_1_fifo_generator_v13_1_3 : entity is 1;
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_fifo_generator_v13_1_3 : entity is "fifo_generator_v13_1_3";
 end base_system_auto_pc_1_fifo_generator_v13_1_3;
 
 architecture STRUCTURE of base_system_auto_pc_1_fifo_generator_v13_1_3 is
@@ -9974,6 +10008,8 @@ entity base_system_auto_pc_1_axi_data_fifo_v2_1_10_fifo_gen is
     areset_d : in STD_LOGIC_VECTOR ( 0 to 0 );
     \areset_d_reg[1]\ : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_axi_data_fifo_v2_1_10_fifo_gen : entity is "axi_data_fifo_v2_1_10_fifo_gen";
 end base_system_auto_pc_1_axi_data_fifo_v2_1_10_fifo_gen;
 
 architecture STRUCTURE of base_system_auto_pc_1_axi_data_fifo_v2_1_10_fifo_gen is
@@ -13265,6 +13301,8 @@ entity base_system_auto_pc_1_axi_data_fifo_v2_1_10_axic_fifo is
     cmd_empty_reg : in STD_LOGIC;
     multiple_id_non_split : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_axi_data_fifo_v2_1_10_axic_fifo : entity is "axi_data_fifo_v2_1_10_axic_fifo";
 end base_system_auto_pc_1_axi_data_fifo_v2_1_10_axic_fifo;
 
 architecture STRUCTURE of base_system_auto_pc_1_axi_data_fifo_v2_1_10_axic_fifo is
@@ -13571,6 +13609,8 @@ entity base_system_auto_pc_1_axi_protocol_converter_v2_1_11_a_axi3_conv is
     s_axi_awprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axi_awqos : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_a_axi3_conv : entity is "axi_protocol_converter_v2_1_11_a_axi3_conv";
 end base_system_auto_pc_1_axi_protocol_converter_v2_1_11_a_axi3_conv;
 
 architecture STRUCTURE of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_a_axi3_conv is
@@ -19577,6 +19617,8 @@ entity base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi3_conv is
     s_axi_awvalid : in STD_LOGIC;
     s_axi_arvalid : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi3_conv : entity is "axi_protocol_converter_v2_1_11_axi3_conv";
 end base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi3_conv;
 
 architecture STRUCTURE of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi3_conv is
@@ -19831,6 +19873,8 @@ entity base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi_protocol_convert
   attribute C_TRANSLATION_MODE of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi_protocol_converter : entity is 2;
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi_protocol_converter : entity is "yes";
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi_protocol_converter : entity is "axi_protocol_converter_v2_1_11_axi_protocol_converter";
   attribute P_AXI3 : integer;
   attribute P_AXI3 of base_system_auto_pc_1_axi_protocol_converter_v2_1_11_axi_protocol_converter : entity is 1;
   attribute P_AXI4 : integer;

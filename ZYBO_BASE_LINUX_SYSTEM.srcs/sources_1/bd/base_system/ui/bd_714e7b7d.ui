@@ -25,14 +25,13 @@ preplace inst ps7_0_axi_periph -pg 1 -lvl 2 -y 580 -defaultsOSRD
 preplace inst irq_const -pg 1 -lvl 3 -y 460 -defaultsOSRD
 preplace inst clk_wiz_0 -pg 1 -lvl 2 -y 1010 -defaultsOSRD
 preplace inst ila_2 -pg 1 -lvl 3 -y 1130 -defaultsOSRD
-preplace inst ila_3 -pg 1 -lvl 5 -y 590 -defaultsOSRD
 preplace inst axi_mem_intercon -pg 1 -lvl 4 -y 280 -defaultsOSRD
 preplace inst gpio_buttons -pg 1 -lvl 5 -y 70 -defaultsOSRD
 preplace inst irq_concat -pg 1 -lvl 4 -y 610 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 5 -y 290 -defaultsOSRD
 preplace netloc processing_system7_0_DDR 1 5 1 2110J
 preplace netloc ps7_0_axi_periph_M02_AXI 1 2 3 940 50 NJ 50 NJ
-preplace netloc vga_fb_tft_vga_g 1 3 3 NJ 940 1570 1260 2100J
+preplace netloc vga_fb_tft_vga_g 1 3 3 NJ 940 1610 630 2090J
 preplace netloc processing_system7_0_M_AXI_GP0 1 1 5 620 0 NJ 0 NJ 0 NJ 0 2090
 preplace netloc v_tc_0_vsync_out 1 3 3 NJ 1000 1560 1250 2110J
 preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 6 -10J 140 NJ 140 NJ 140 NJ 140 NJ 140 2100
@@ -44,19 +43,19 @@ preplace netloc proc_sys_reset_0_interconnect_aresetn 1 1 3 590 250 NJ 250 1260J
 preplace netloc vga_fb_M_AXI_MM 1 3 1 1250
 preplace netloc processing_system7_0_FIXED_IO 1 5 1 2110J
 preplace netloc clk_wiz_0_clk_out1 1 2 1 910J
-preplace netloc vga_fb_tft_vga_b 1 3 2 1240J 1030 1600
+preplace netloc vga_fb_tft_vga_b 1 3 2 1240J 1030 1590
 preplace netloc axi_gpio_0_GPIO 1 5 1 NJ
-preplace netloc v_tc_0_hsync_out 1 3 3 NJ 960 1590 1240 2080J
-preplace netloc proc_sys_reset_0_peripheral_aresetn 1 1 4 610 90 960 90 1280 90 1600
+preplace netloc v_tc_0_hsync_out 1 3 3 NJ 960 1580 1240 2090J
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 1 4 610 90 960 90 1280 90 1590
 preplace netloc axi_gpio_2_GPIO 1 5 1 NJ
 preplace netloc ps7_0_axi_periph_M04_AXI 1 2 3 N 620 1220 160 1580
 preplace netloc blue_slice_Dout 1 5 1 NJ
 preplace netloc irq_const_dout 1 3 1 1240
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 5 -20 70 600 70 930 70 1270 70 1610
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 5 -20 70 600 70 930 70 1270 70 1600
 preplace netloc axi_gpio_1_GPIO 1 5 1 2100J
 preplace netloc ps7_0_axi_periph_M00_AXI 1 2 3 950J 810 NJ 810 NJ
 preplace netloc processing_system7_0_FCLK_CLK1 1 1 5 630 150 NJ 150 NJ 150 NJ 150 2080
-preplace netloc vga_fb_tft_vga_r 1 3 2 NJ 980 1580
+preplace netloc vga_fb_tft_vga_r 1 3 2 NJ 980 1570
 preplace netloc red_slice_Dout 1 5 1 NJ
 preplace netloc irq_concat_dout 1 4 1 1560
 preplace netloc reset_rtl_1 1 0 1 N
