@@ -2,5 +2,6 @@ vhdl xil_defaultlib "../../../bd/base_system/ip/base_system_proc_sys_reset_0_0/s
 vhdl xil_defaultlib "../../../bd/base_system/ip/base_system_axi_gpio_0_0/sim/base_system_axi_gpio_0_0.vhd" 
 vhdl xil_defaultlib "../../../bd/base_system/ip/base_system_axi_gpio_1_0/sim/base_system_axi_gpio_1_0.vhd" 
 vhdl xil_defaultlib "../../../bd/base_system/ip/base_system_axi_gpio_2_0/sim/base_system_axi_gpio_2_0.vhd" 
+vhdl xil_defaultlib "../../../bd/base_system/ip/base_system_axi_tft_0_0/sim/base_system_axi_tft_0_0.vhd" 
 
 nosort

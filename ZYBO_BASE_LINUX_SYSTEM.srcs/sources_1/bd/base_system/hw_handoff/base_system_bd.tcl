@@ -161,32 +161,117 @@ proc create_root_design { parentCell } {
   set sws_4bits [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:gpio_rtl:1.0 sws_4bits ]
 
   # Create ports
+  set H_SYNC [ create_bd_port -dir O H_SYNC ]
+  set VGA_BLUE [ create_bd_port -dir O -from 4 -to 0 VGA_BLUE ]
+  set VGA_GREEN [ create_bd_port -dir O -from 5 -to 0 VGA_GREEN ]
+  set VGA_RED [ create_bd_port -dir O -from 4 -to 0 VGA_RED ]
+  set V_SYNC [ create_bd_port -dir O V_SYNC ]
   set reset_rtl [ create_bd_port -dir I -type rst reset_rtl ]
   set_property -dict [ list \
 CONFIG.POLARITY {ACTIVE_LOW} \
  ] $reset_rtl
 
-  # Create instance: axi_gpio_0, and set properties
-  set axi_gpio_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_0 ]
+  # Create instance: axi_mem_intercon, and set properties
+  set axi_mem_intercon [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 axi_mem_intercon ]
   set_property -dict [ list \
-CONFIG.GPIO_BOARD_INTERFACE {sws_4bits} \
-CONFIG.USE_BOARD_FLOW {true} \
- ] $axi_gpio_0
+CONFIG.ENABLE_ADVANCED_OPTIONS {0} \
+CONFIG.NUM_MI {1} \
+ ] $axi_mem_intercon
 
-  # Create instance: axi_gpio_1, and set properties
-  set axi_gpio_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_1 ]
+  # Create instance: blue_slice, and set properties
+  set blue_slice [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 blue_slice ]
+  set_property -dict [ list \
+CONFIG.DIN_FROM {5} \
+CONFIG.DIN_TO {1} \
+CONFIG.DIN_WIDTH {6} \
+CONFIG.DOUT_WIDTH {5} \
+ ] $blue_slice
+
+  # Create instance: clk_wiz_0, and set properties
+  set clk_wiz_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:5.3 clk_wiz_0 ]
+  set_property -dict [ list \
+CONFIG.CLKOUT1_JITTER {175.402} \
+CONFIG.CLKOUT1_PHASE_ERROR {98.575} \
+CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {25} \
+CONFIG.CLKOUT2_JITTER {130.958} \
+CONFIG.CLKOUT2_PHASE_ERROR {98.575} \
+CONFIG.CLKOUT2_USED {true} \
+CONFIG.MMCM_CLKFBOUT_MULT_F {10.000} \
+CONFIG.MMCM_CLKIN1_PERIOD {10.0} \
+CONFIG.MMCM_CLKIN2_PERIOD {10.0} \
+CONFIG.MMCM_CLKOUT0_DIVIDE_F {40.000} \
+CONFIG.MMCM_CLKOUT1_DIVIDE {10} \
+CONFIG.MMCM_COMPENSATION {ZHOLD} \
+CONFIG.MMCM_DIVCLK_DIVIDE {1} \
+CONFIG.NUM_OUT_CLKS {2} \
+CONFIG.USE_LOCKED {false} \
+CONFIG.USE_RESET {false} \
+ ] $clk_wiz_0
+
+  # Need to retain value_src of defaults
+  set_property -dict [ list \
+CONFIG.MMCM_CLKIN1_PERIOD.VALUE_SRC {DEFAULT} \
+CONFIG.MMCM_CLKIN2_PERIOD.VALUE_SRC {DEFAULT} \
+CONFIG.MMCM_COMPENSATION.VALUE_SRC {DEFAULT} \
+ ] $clk_wiz_0
+
+  # Create instance: gpio_buttons, and set properties
+  set gpio_buttons [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 gpio_buttons ]
+  set_property -dict [ list \
+CONFIG.GPIO_BOARD_INTERFACE {btns_4bits} \
+CONFIG.USE_BOARD_FLOW {true} \
+ ] $gpio_buttons
+
+  # Create instance: gpio_leds, and set properties
+  set gpio_leds [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 gpio_leds ]
   set_property -dict [ list \
 CONFIG.C_IS_DUAL {0} \
 CONFIG.GPIO_BOARD_INTERFACE {leds_4bits} \
 CONFIG.USE_BOARD_FLOW {true} \
- ] $axi_gpio_1
+ ] $gpio_leds
 
-  # Create instance: axi_gpio_2, and set properties
-  set axi_gpio_2 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_2 ]
+  # Create instance: gpio_switches, and set properties
+  set gpio_switches [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 gpio_switches ]
   set_property -dict [ list \
-CONFIG.GPIO_BOARD_INTERFACE {btns_4bits} \
+CONFIG.GPIO_BOARD_INTERFACE {sws_4bits} \
 CONFIG.USE_BOARD_FLOW {true} \
- ] $axi_gpio_2
+ ] $gpio_switches
+
+  # Create instance: ila_0, and set properties
+  set ila_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:ila:6.2 ila_0 ]
+  set_property -dict [ list \
+CONFIG.C_DATA_DEPTH {4096} \
+CONFIG.C_MONITOR_TYPE {AXI} \
+ ] $ila_0
+
+  # Need to retain value_src of defaults
+  set_property -dict [ list \
+CONFIG.C_MONITOR_TYPE.VALUE_SRC {DEFAULT} \
+ ] $ila_0
+
+  # Create instance: ila_1, and set properties
+  set ila_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:ila:6.2 ila_1 ]
+  set_property -dict [ list \
+CONFIG.C_DATA_DEPTH {4096} \
+CONFIG.C_ENABLE_ILA_AXI_MON {false} \
+CONFIG.C_MONITOR_TYPE {Native} \
+CONFIG.C_NUM_OF_PROBES {5} \
+CONFIG.C_PROBE0_WIDTH {6} \
+CONFIG.C_PROBE1_WIDTH {6} \
+CONFIG.C_PROBE2_WIDTH {6} \
+ ] $ila_1
+
+  # Create instance: ila_2, and set properties
+  set ila_2 [ create_bd_cell -type ip -vlnv xilinx.com:ip:ila:6.2 ila_2 ]
+  set_property -dict [ list \
+CONFIG.C_DATA_DEPTH {4096} \
+CONFIG.C_MONITOR_TYPE {AXI} \
+ ] $ila_2
+
+  # Need to retain value_src of defaults
+  set_property -dict [ list \
+CONFIG.C_MONITOR_TYPE.VALUE_SRC {DEFAULT} \
+ ] $ila_2
 
   # Create instance: irq_concat, and set properties
   set irq_concat [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconcat:2.1 irq_concat ]
@@ -304,6 +389,7 @@ CONFIG.PCW_ENET_RESET_ENABLE {1} \
 CONFIG.PCW_ENET_RESET_POLARITY {Active Low} \
 CONFIG.PCW_ENET_RESET_SELECT {Share reset pin} \
 CONFIG.PCW_EN_4K_TIMER {0} \
+CONFIG.PCW_EN_CLK1_PORT {0} \
 CONFIG.PCW_EN_EMIO_TTC0 {1} \
 CONFIG.PCW_EN_EMIO_WP_SDIO0 {1} \
 CONFIG.PCW_EN_ENET0 {1} \
@@ -329,7 +415,7 @@ CONFIG.PCW_FCLK_CLK1_BUF {FALSE} \
 CONFIG.PCW_FCLK_CLK2_BUF {FALSE} \
 CONFIG.PCW_FCLK_CLK3_BUF {FALSE} \
 CONFIG.PCW_FPGA0_PERIPHERAL_FREQMHZ {100} \
-CONFIG.PCW_FPGA1_PERIPHERAL_FREQMHZ {50} \
+CONFIG.PCW_FPGA1_PERIPHERAL_FREQMHZ {25} \
 CONFIG.PCW_FPGA2_PERIPHERAL_FREQMHZ {50} \
 CONFIG.PCW_FPGA3_PERIPHERAL_FREQMHZ {50} \
 CONFIG.PCW_FPGA_FCLK0_ENABLE {1} \
@@ -846,7 +932,9 @@ CONFIG.PCW_USB_RESET_POLARITY {Active Low} \
 CONFIG.PCW_USB_RESET_SELECT {Share reset pin} \
 CONFIG.PCW_USE_CROSS_TRIGGER {0} \
 CONFIG.PCW_USE_FABRIC_INTERRUPT {1} \
-CONFIG.PCW_USE_S_AXI_GP0 {1} \
+CONFIG.PCW_USE_HIGH_OCM {1} \
+CONFIG.PCW_USE_S_AXI_GP0 {0} \
+CONFIG.PCW_USE_S_AXI_HP0 {1} \
 CONFIG.PCW_WDT_PERIPHERAL_CLKSRC {CPU_1X} \
 CONFIG.PCW_WDT_PERIPHERAL_DIVISOR0 {1} \
 CONFIG.PCW_WDT_PERIPHERAL_ENABLE {0} \
@@ -972,7 +1060,6 @@ CONFIG.PCW_FCLK_CLK0_BUF.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_FCLK_CLK1_BUF.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_FCLK_CLK2_BUF.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_FCLK_CLK3_BUF.VALUE_SRC {DEFAULT} \
-CONFIG.PCW_FPGA1_PERIPHERAL_FREQMHZ.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_FPGA2_PERIPHERAL_FREQMHZ.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_FPGA3_PERIPHERAL_FREQMHZ.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_FPGA_FCLK0_ENABLE.VALUE_SRC {DEFAULT} \
@@ -1237,7 +1324,6 @@ CONFIG.PCW_SPI1_SPI1_IO.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_SPI_PERIPHERAL_CLKSRC.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_SPI_PERIPHERAL_DIVISOR0.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_SPI_PERIPHERAL_FREQMHZ.VALUE_SRC {DEFAULT} \
-CONFIG.PCW_S_AXI_HP0_DATA_WIDTH.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_S_AXI_HP1_DATA_WIDTH.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_S_AXI_HP2_DATA_WIDTH.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_S_AXI_HP3_DATA_WIDTH.VALUE_SRC {DEFAULT} \
@@ -1373,69 +1459,145 @@ CONFIG.PCW_WDT_WDT_IO.VALUE_SRC {DEFAULT} \
   # Create instance: ps7_0_axi_periph, and set properties
   set ps7_0_axi_periph [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 ps7_0_axi_periph ]
   set_property -dict [ list \
-CONFIG.NUM_MI {3} \
+CONFIG.ENABLE_ADVANCED_OPTIONS {0} \
+CONFIG.M03_HAS_DATA_FIFO {0} \
+CONFIG.M03_HAS_REGSLICE {0} \
+CONFIG.NUM_MI {5} \
+CONFIG.S00_HAS_DATA_FIFO {0} \
+CONFIG.STRATEGY {0} \
  ] $ps7_0_axi_periph
 
+  # Create instance: red_slice, and set properties
+  set red_slice [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 red_slice ]
+  set_property -dict [ list \
+CONFIG.DIN_FROM {5} \
+CONFIG.DIN_TO {1} \
+CONFIG.DIN_WIDTH {6} \
+CONFIG.DOUT_WIDTH {5} \
+ ] $red_slice
+
+  # Create instance: simpleAdder_0, and set properties
+  set simpleAdder_0 [ create_bd_cell -type ip -vlnv electroCupcake:user:simpleAdder:1.0 simpleAdder_0 ]
+
+  # Create instance: vga_fb, and set properties
+  set vga_fb [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_tft:2.0 vga_fb ]
+  set_property -dict [ list \
+CONFIG.C_DEFAULT_TFT_BASE_ADDR {0x00000000F0000000} \
+CONFIG.C_EN_I2C_INTF {0} \
+CONFIG.C_MAX_BURST_LEN {16} \
+CONFIG.C_M_AXI_ADDR_WIDTH {32} \
+CONFIG.C_M_AXI_DATA_WIDTH {64} \
+CONFIG.C_TFT_INTERFACE {0} \
+ ] $vga_fb
+
   # Create interface connections
-  connect_bd_intf_net -intf_net axi_gpio_0_GPIO [get_bd_intf_ports sws_4bits] [get_bd_intf_pins axi_gpio_0/GPIO]
-  connect_bd_intf_net -intf_net axi_gpio_1_GPIO [get_bd_intf_ports leds_4bits] [get_bd_intf_pins axi_gpio_1/GPIO]
-  connect_bd_intf_net -intf_net axi_gpio_2_GPIO [get_bd_intf_ports btns_4bits] [get_bd_intf_pins axi_gpio_2/GPIO]
+  connect_bd_intf_net -intf_net axi_gpio_0_GPIO [get_bd_intf_ports sws_4bits] [get_bd_intf_pins gpio_switches/GPIO]
+  connect_bd_intf_net -intf_net axi_gpio_1_GPIO [get_bd_intf_ports leds_4bits] [get_bd_intf_pins gpio_leds/GPIO]
+  connect_bd_intf_net -intf_net axi_gpio_2_GPIO [get_bd_intf_ports btns_4bits] [get_bd_intf_pins gpio_buttons/GPIO]
+  connect_bd_intf_net -intf_net axi_mem_intercon_M00_AXI [get_bd_intf_pins axi_mem_intercon/M00_AXI] [get_bd_intf_pins processing_system7_0/S_AXI_HP0]
   connect_bd_intf_net -intf_net processing_system7_0_DDR [get_bd_intf_ports DDR] [get_bd_intf_pins processing_system7_0/DDR]
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins processing_system7_0/FIXED_IO]
   connect_bd_intf_net -intf_net processing_system7_0_M_AXI_GP0 [get_bd_intf_pins processing_system7_0/M_AXI_GP0] [get_bd_intf_pins ps7_0_axi_periph/S00_AXI]
-  connect_bd_intf_net -intf_net ps7_0_axi_periph_M00_AXI [get_bd_intf_pins axi_gpio_0/S_AXI] [get_bd_intf_pins ps7_0_axi_periph/M00_AXI]
-  connect_bd_intf_net -intf_net ps7_0_axi_periph_M01_AXI [get_bd_intf_pins axi_gpio_1/S_AXI] [get_bd_intf_pins ps7_0_axi_periph/M01_AXI]
-  connect_bd_intf_net -intf_net ps7_0_axi_periph_M02_AXI [get_bd_intf_pins axi_gpio_2/S_AXI] [get_bd_intf_pins ps7_0_axi_periph/M02_AXI]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M00_AXI [get_bd_intf_pins gpio_switches/S_AXI] [get_bd_intf_pins ps7_0_axi_periph/M00_AXI]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M01_AXI [get_bd_intf_pins gpio_leds/S_AXI] [get_bd_intf_pins ps7_0_axi_periph/M01_AXI]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M02_AXI [get_bd_intf_pins gpio_buttons/S_AXI] [get_bd_intf_pins ps7_0_axi_periph/M02_AXI]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M03_AXI [get_bd_intf_pins ps7_0_axi_periph/M03_AXI] [get_bd_intf_pins vga_fb/S_AXI_MM]
+connect_bd_intf_net -intf_net [get_bd_intf_nets ps7_0_axi_periph_M03_AXI] [get_bd_intf_pins ila_2/SLOT_0_AXI] [get_bd_intf_pins ps7_0_axi_periph/M03_AXI]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M04_AXI [get_bd_intf_pins ps7_0_axi_periph/M04_AXI] [get_bd_intf_pins simpleAdder_0/S00_AXI]
+  connect_bd_intf_net -intf_net vga_fb_M_AXI_MM [get_bd_intf_pins axi_mem_intercon/S00_AXI] [get_bd_intf_pins vga_fb/M_AXI_MM]
+connect_bd_intf_net -intf_net [get_bd_intf_nets vga_fb_M_AXI_MM] [get_bd_intf_pins ila_0/SLOT_0_AXI] [get_bd_intf_pins vga_fb/M_AXI_MM]
 
   # Create port connections
+  connect_bd_net -net axi_tft_0_ip2intc_irpt [get_bd_pins irq_concat/In15] [get_bd_pins vga_fb/ip2intc_irpt]
+  connect_bd_net -net blue_slice_Dout [get_bd_ports VGA_BLUE] [get_bd_pins blue_slice/Dout]
+  connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins vga_fb/sys_tft_clk]
   connect_bd_net -net irq_concat_dout [get_bd_pins irq_concat/dout] [get_bd_pins processing_system7_0/IRQ_F2P]
-  connect_bd_net -net irq_const_dout [get_bd_pins irq_concat/In0] [get_bd_pins irq_concat/In1] [get_bd_pins irq_concat/In2] [get_bd_pins irq_concat/In3] [get_bd_pins irq_concat/In4] [get_bd_pins irq_concat/In5] [get_bd_pins irq_concat/In6] [get_bd_pins irq_concat/In7] [get_bd_pins irq_concat/In8] [get_bd_pins irq_concat/In9] [get_bd_pins irq_concat/In10] [get_bd_pins irq_concat/In11] [get_bd_pins irq_concat/In12] [get_bd_pins irq_concat/In13] [get_bd_pins irq_concat/In14] [get_bd_pins irq_concat/In15] [get_bd_pins irq_const/dout]
-  connect_bd_net -net proc_sys_reset_0_interconnect_aresetn [get_bd_pins proc_sys_reset_0/interconnect_aresetn] [get_bd_pins ps7_0_axi_periph/ARESETN]
-  connect_bd_net -net proc_sys_reset_0_peripheral_aresetn [get_bd_pins axi_gpio_0/s_axi_aresetn] [get_bd_pins axi_gpio_1/s_axi_aresetn] [get_bd_pins axi_gpio_2/s_axi_aresetn] [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/M01_ARESETN] [get_bd_pins ps7_0_axi_periph/M02_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN]
-  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axi_gpio_0/s_axi_aclk] [get_bd_pins axi_gpio_1/s_axi_aclk] [get_bd_pins axi_gpio_2/s_axi_aclk] [get_bd_pins proc_sys_reset_0/slowest_sync_clk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0/S_AXI_GP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/M01_ACLK] [get_bd_pins ps7_0_axi_periph/M02_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK]
+  connect_bd_net -net irq_const_dout [get_bd_pins irq_concat/In0] [get_bd_pins irq_concat/In1] [get_bd_pins irq_concat/In2] [get_bd_pins irq_concat/In3] [get_bd_pins irq_concat/In4] [get_bd_pins irq_concat/In5] [get_bd_pins irq_concat/In6] [get_bd_pins irq_concat/In7] [get_bd_pins irq_concat/In8] [get_bd_pins irq_concat/In9] [get_bd_pins irq_concat/In10] [get_bd_pins irq_concat/In11] [get_bd_pins irq_concat/In12] [get_bd_pins irq_concat/In13] [get_bd_pins irq_concat/In14] [get_bd_pins irq_const/dout]
+  connect_bd_net -net proc_sys_reset_0_interconnect_aresetn [get_bd_pins axi_mem_intercon/ARESETN] [get_bd_pins proc_sys_reset_0/interconnect_aresetn] [get_bd_pins ps7_0_axi_periph/ARESETN]
+  connect_bd_net -net proc_sys_reset_0_peripheral_aresetn [get_bd_pins axi_mem_intercon/M00_ARESETN] [get_bd_pins axi_mem_intercon/S00_ARESETN] [get_bd_pins gpio_buttons/s_axi_aresetn] [get_bd_pins gpio_leds/s_axi_aresetn] [get_bd_pins gpio_switches/s_axi_aresetn] [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/M01_ARESETN] [get_bd_pins ps7_0_axi_periph/M02_ARESETN] [get_bd_pins ps7_0_axi_periph/M03_ARESETN] [get_bd_pins ps7_0_axi_periph/M04_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN] [get_bd_pins simpleAdder_0/s00_axi_aresetn] [get_bd_pins vga_fb/m_axi_aresetn] [get_bd_pins vga_fb/s_axi_aresetn]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axi_mem_intercon/ACLK] [get_bd_pins axi_mem_intercon/M00_ACLK] [get_bd_pins axi_mem_intercon/S00_ACLK] [get_bd_pins clk_wiz_0/clk_out2] [get_bd_pins gpio_buttons/s_axi_aclk] [get_bd_pins gpio_leds/s_axi_aclk] [get_bd_pins gpio_switches/s_axi_aclk] [get_bd_pins ila_0/clk] [get_bd_pins ila_1/clk] [get_bd_pins ila_2/clk] [get_bd_pins proc_sys_reset_0/slowest_sync_clk] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0/S_AXI_HP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/M01_ACLK] [get_bd_pins ps7_0_axi_periph/M02_ACLK] [get_bd_pins ps7_0_axi_periph/M03_ACLK] [get_bd_pins ps7_0_axi_periph/M04_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins simpleAdder_0/s00_axi_aclk] [get_bd_pins vga_fb/m_axi_aclk] [get_bd_pins vga_fb/s_axi_aclk]
+  connect_bd_net -net processing_system7_0_FCLK_CLK1 [get_bd_pins clk_wiz_0/clk_in1] [get_bd_pins processing_system7_0/FCLK_CLK0]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins proc_sys_reset_0/aux_reset_in] [get_bd_pins processing_system7_0/FCLK_RESET0_N]
+  connect_bd_net -net red_slice_Dout [get_bd_ports VGA_RED] [get_bd_pins red_slice/Dout]
   connect_bd_net -net reset_rtl_1 [get_bd_ports reset_rtl] [get_bd_pins proc_sys_reset_0/ext_reset_in]
+  connect_bd_net -net v_tc_0_hsync_out [get_bd_ports H_SYNC] [get_bd_pins ila_1/probe3] [get_bd_pins vga_fb/tft_hsync]
+  connect_bd_net -net v_tc_0_vsync_out [get_bd_ports V_SYNC] [get_bd_pins ila_1/probe4] [get_bd_pins vga_fb/tft_vsync]
+  connect_bd_net -net vga_fb_tft_vga_b [get_bd_pins blue_slice/Din] [get_bd_pins ila_1/probe0] [get_bd_pins vga_fb/tft_vga_b]
+  connect_bd_net -net vga_fb_tft_vga_g [get_bd_ports VGA_GREEN] [get_bd_pins ila_1/probe2] [get_bd_pins vga_fb/tft_vga_g]
+  connect_bd_net -net vga_fb_tft_vga_r [get_bd_pins ila_1/probe1] [get_bd_pins red_slice/Din] [get_bd_pins vga_fb/tft_vga_r]
 
   # Create address segments
-  create_bd_addr_seg -range 0x00010000 -offset 0x41200000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_0/S_AXI/Reg] SEG_axi_gpio_0_Reg
-  create_bd_addr_seg -range 0x00010000 -offset 0x41210000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_1/S_AXI/Reg] SEG_axi_gpio_1_Reg
-  create_bd_addr_seg -range 0x00010000 -offset 0x41220000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_2/S_AXI/Reg] SEG_axi_gpio_2_Reg
+  create_bd_addr_seg -range 0x00010000 -offset 0x41200000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs gpio_switches/S_AXI/Reg] SEG_axi_gpio_0_Reg
+  create_bd_addr_seg -range 0x00010000 -offset 0x41210000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs gpio_leds/S_AXI/Reg] SEG_axi_gpio_1_Reg
+  create_bd_addr_seg -range 0x00010000 -offset 0x41220000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs gpio_buttons/S_AXI/Reg] SEG_axi_gpio_2_Reg
+  create_bd_addr_seg -range 0x00010000 -offset 0x43C00000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs simpleAdder_0/S00_AXI/S00_AXI_reg] SEG_simpleAdder_0_S00_AXI_reg
+  create_bd_addr_seg -range 0x00010000 -offset 0x44A00000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs vga_fb/S_AXI_MM/Reg] SEG_vga_fb_Reg
+  create_bd_addr_seg -range 0x20000000 -offset 0x00000000 [get_bd_addr_spaces vga_fb/Video_data] [get_bd_addr_segs processing_system7_0/S_AXI_HP0/HP0_DDR_LOWOCM] SEG_processing_system7_0_HP0_DDR_LOWOCM
+  create_bd_addr_seg -range 0x00040000 -offset 0xFFFC0000 [get_bd_addr_spaces vga_fb/Video_data] [get_bd_addr_segs processing_system7_0/S_AXI_HP0/HP0_HIGH_OCM] SEG_processing_system7_0_HP0_HIGH_OCM
 
   # Perform GUI Layout
   regenerate_bd_layout -layout_string {
    guistr: "# # String gsaved with Nlview 6.6.5b  2016-09-06 bk=1.3687 VDI=39 GEI=35 GUI=JA:1.6
 #  -string -flagsOSRD
-preplace port btns_4bits -pg 1 -y 330 -defaultsOSRD
-preplace port DDR -pg 1 -y 410 -defaultsOSRD
-preplace port reset_rtl -pg 1 -y 160 -defaultsOSRD
-preplace port sws_4bits -pg 1 -y 70 -defaultsOSRD
-preplace port leds_4bits -pg 1 -y 190 -defaultsOSRD
-preplace port FIXED_IO -pg 1 -y 400 -defaultsOSRD
-preplace inst axi_gpio_0 -pg 1 -lvl 5 -y 70 -defaultsOSRD
-preplace inst proc_sys_reset_0 -pg 1 -lvl 3 -y 180 -defaultsOSRD
-preplace inst axi_gpio_1 -pg 1 -lvl 5 -y 190 -defaultsOSRD
-preplace inst axi_gpio_2 -pg 1 -lvl 5 -y 330 -defaultsOSRD
-preplace inst ps7_0_axi_periph -pg 1 -lvl 4 -y 170 -defaultsOSRD
-preplace inst irq_const -pg 1 -lvl 1 -y 300 -defaultsOSRD
-preplace inst irq_concat -pg 1 -lvl 2 -y 450 -defaultsOSRD
-preplace inst processing_system7_0 -pg 1 -lvl 3 -y 420 -defaultsOSRD
-preplace netloc ps7_0_axi_periph_M02_AXI 1 4 1 1110
-preplace netloc processing_system7_0_DDR 1 3 3 800J 410 NJ 410 NJ
-preplace netloc processing_system7_0_M_AXI_GP0 1 3 1 780
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 2 2 370 270 770
-preplace netloc ps7_0_axi_periph_M01_AXI 1 4 1 N
-preplace netloc proc_sys_reset_0_interconnect_aresetn 1 3 1 820
-preplace netloc processing_system7_0_FIXED_IO 1 3 3 790J 400 NJ 400 NJ
+preplace port btns_4bits -pg 1 -y 70 -defaultsOSRD
+preplace port DDR -pg 1 -y 210 -defaultsOSRD
+preplace port reset_rtl -pg 1 -y 210 -defaultsOSRD
+preplace port sws_4bits -pg 1 -y 830 -defaultsOSRD
+preplace port H_SYNC -pg 1 -y 760 -defaultsOSRD
+preplace port V_SYNC -pg 1 -y 1240 -defaultsOSRD
+preplace port leds_4bits -pg 1 -y 490 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -y 230 -defaultsOSRD
+preplace portBus VGA_RED -pg 1 -y 1190 -defaultsOSRD
+preplace portBus VGA_BLUE -pg 1 -y 930 -defaultsOSRD
+preplace portBus VGA_GREEN -pg 1 -y 740 -defaultsOSRD
+preplace inst red_slice -pg 1 -lvl 5 -y 1190 -defaultsOSRD
+preplace inst blue_slice -pg 1 -lvl 5 -y 930 -defaultsOSRD
+preplace inst gpio_leds -pg 1 -lvl 5 -y 480 -defaultsOSRD
+preplace inst vga_fb -pg 1 -lvl 3 -y 960 -defaultsOSRD -resize 220 220
+preplace inst proc_sys_reset_0 -pg 1 -lvl 1 -y 230 -defaultsOSRD
+preplace inst gpio_switches -pg 1 -lvl 5 -y 830 -defaultsOSRD
+preplace inst simpleAdder_0 -pg 1 -lvl 5 -y 700 -defaultsOSRD
+preplace inst ila_0 -pg 1 -lvl 4 -y 880 -defaultsOSRD
+preplace inst ila_1 -pg 1 -lvl 5 -y 1060 -defaultsOSRD
+preplace inst ps7_0_axi_periph -pg 1 -lvl 2 -y 580 -defaultsOSRD
+preplace inst irq_const -pg 1 -lvl 3 -y 460 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 2 -y 1010 -defaultsOSRD
+preplace inst ila_2 -pg 1 -lvl 3 -y 1130 -defaultsOSRD
+preplace inst axi_mem_intercon -pg 1 -lvl 4 -y 280 -defaultsOSRD
+preplace inst gpio_buttons -pg 1 -lvl 5 -y 70 -defaultsOSRD
+preplace inst irq_concat -pg 1 -lvl 4 -y 610 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 5 -y 290 -defaultsOSRD
+preplace netloc processing_system7_0_DDR 1 5 1 2110J
+preplace netloc ps7_0_axi_periph_M02_AXI 1 2 3 940 50 NJ 50 NJ
+preplace netloc vga_fb_tft_vga_g 1 3 3 NJ 940 1610 630 2090J
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 5 620 0 NJ 0 NJ 0 NJ 0 2090
+preplace netloc v_tc_0_vsync_out 1 3 3 NJ 1000 1560 1250 2110J
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 6 -10J 140 NJ 140 NJ 140 NJ 140 NJ 140 2100
+preplace netloc axi_mem_intercon_M00_AXI 1 4 1 1560
+preplace netloc ps7_0_axi_periph_M03_AXI 1 2 1 920
+preplace netloc ps7_0_axi_periph_M01_AXI 1 2 3 NJ 560 1230J 410 1570
+preplace netloc axi_tft_0_ip2intc_irpt 1 3 1 1280
+preplace netloc proc_sys_reset_0_interconnect_aresetn 1 1 3 590 250 NJ 250 1260J
+preplace netloc vga_fb_M_AXI_MM 1 3 1 1250
+preplace netloc processing_system7_0_FIXED_IO 1 5 1 2110J
+preplace netloc clk_wiz_0_clk_out1 1 2 1 910J
+preplace netloc vga_fb_tft_vga_b 1 3 2 1240J 1030 1590
 preplace netloc axi_gpio_0_GPIO 1 5 1 NJ
-preplace netloc proc_sys_reset_0_peripheral_aresetn 1 3 2 830 350 1130
+preplace netloc v_tc_0_hsync_out 1 3 3 NJ 960 1580 1240 2090J
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 1 4 610 90 960 90 1280 90 1590
 preplace netloc axi_gpio_2_GPIO 1 5 1 NJ
-preplace netloc irq_const_dout 1 1 1 160J
-preplace netloc processing_system7_0_FCLK_CLK0 1 2 3 360 90 810 340 1120
-preplace netloc axi_gpio_1_GPIO 1 5 1 NJ
-preplace netloc ps7_0_axi_periph_M00_AXI 1 4 1 1110
-preplace netloc irq_concat_dout 1 2 1 NJ
-preplace netloc reset_rtl_1 1 0 3 NJ 160 NJ 160 NJ
-levelinfo -pg 1 0 90 260 570 970 1230 1350 -top 0 -bot 650
+preplace netloc ps7_0_axi_periph_M04_AXI 1 2 3 N 620 1220 160 1580
+preplace netloc blue_slice_Dout 1 5 1 NJ
+preplace netloc irq_const_dout 1 3 1 1240
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 5 -20 70 600 70 930 70 1270 70 1600
+preplace netloc axi_gpio_1_GPIO 1 5 1 2100J
+preplace netloc ps7_0_axi_periph_M00_AXI 1 2 3 950J 810 NJ 810 NJ
+preplace netloc processing_system7_0_FCLK_CLK1 1 1 5 630 150 NJ 150 NJ 150 NJ 150 2080
+preplace netloc vga_fb_tft_vga_r 1 3 2 NJ 980 1570
+preplace netloc red_slice_Dout 1 5 1 NJ
+preplace netloc irq_concat_dout 1 4 1 1560
+preplace netloc reset_rtl_1 1 0 1 N
+levelinfo -pg 1 -40 420 770 1090 1420 1860 2130 -top -50 -bot 1300
 ",
 }
 
