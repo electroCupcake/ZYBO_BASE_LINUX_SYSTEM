@@ -71,41 +71,41 @@ set_property IOSTANDARD LVCMOS33 [get_ports V_SYNC]
 
 ##I2S Audio Codec
 ##IO_L12N_T1_MRCC_35
-#set_property PACKAGE_PIN K18 [get_ports ac_bclk]
-#set_property IOSTANDARD LVCMOS33 [get_ports ac_bclk]
+set_property PACKAGE_PIN K18 [get_ports BCLK_O]
+set_property IOSTANDARD LVCMOS33 [get_ports BCLK_O]
 
 ##IO_25_34
-#set_property PACKAGE_PIN T19 [get_ports ac_mclk]
-#set_property IOSTANDARD LVCMOS33 [get_ports ac_mclk]
+set_property PACKAGE_PIN T19 [get_ports MCLK_O]
+set_property IOSTANDARD LVCMOS33 [get_ports MCLK_O]
 
 ##IO_L23N_T3_34
-#set_property PACKAGE_PIN P18 [get_ports ac_muten]
-#set_property IOSTANDARD LVCMOS33 [get_ports ac_muten]
+set_property PACKAGE_PIN P18 [get_ports MUTEN_O]
+set_property IOSTANDARD LVCMOS33 [get_ports MUTEN_O]
 
 ##IO_L8P_T1_AD10P_35
-#set_property PACKAGE_PIN M17 [get_ports ac_pbdat]
-#set_property IOSTANDARD LVCMOS33 [get_ports ac_pbdat]
+set_property PACKAGE_PIN M17 [get_ports SDATA_O]
+set_property IOSTANDARD LVCMOS33 [get_ports SDATA_O]
 
 ##IO_L11N_T1_SRCC_35
-#set_property PACKAGE_PIN L17 [get_ports ac_pblrc]
-#set_property IOSTANDARD LVCMOS33 [get_ports ac_pblrc]
+set_property PACKAGE_PIN L17 [get_ports LRCLK_O]
+set_property IOSTANDARD LVCMOS33 [get_ports LRCLK_O]
 
 ##IO_L12P_T1_MRCC_35
-#set_property PACKAGE_PIN K17 [get_ports ac_recdat]
-#set_property IOSTANDARD LVCMOS33 [get_ports ac_recdat]
+set_property PACKAGE_PIN K17 [get_ports LRCLK_I]
+set_property IOSTANDARD LVCMOS33 [get_ports LRCLK_I]
 
 ##IO_L8N_T1_AD10N_35
-#set_property PACKAGE_PIN M18 [get_ports ac_reclrc]
-#set_property IOSTANDARD LVCMOS33 [get_ports ac_reclrc]
+set_property PACKAGE_PIN M18 [get_ports SDATA_I]
+set_property IOSTANDARD LVCMOS33 [get_ports SDATA_I]
 
 ##Audio Codec/external EEPROM IIC bus
 #IO_L13P_T2_MRCC_34
-#set_property PACKAGE_PIN N18 [get_ports iic_0_scl_io]
-#set_property IOSTANDARD LVCMOS33 [get_ports iic_0_scl_io]
+set_property PACKAGE_PIN N18 [get_ports iic_0_scl_io]
+set_property IOSTANDARD LVCMOS33 [get_ports iic_0_scl_io]
 
 #IO_L23P_T3_34
-#set_property PACKAGE_PIN N17 [get_ports iic_0_sda_io]
-#set_property IOSTANDARD LVCMOS33 [get_ports iic_0_sda_io]
+set_property PACKAGE_PIN N17 [get_ports iic_0_sda_io]
+set_property IOSTANDARD LVCMOS33 [get_ports iic_0_sda_io]
 
 ##Additional Ethernet signals
 ##IO_L6P_T0_35
@@ -337,16 +337,17 @@ set_property IOSTANDARD LVCMOS33 [get_ports V_SYNC]
 #set_property PACKAGE_PIN U13 [get_ports otg_oc]
 #set_property IOSTANDARD LVCMOS33 [get_ports otg_oc]
 
-set_input_delay -clock [get_clocks clk_fpga_0] -min -add_delay 1.000 [get_ports {btns_4bits_tri_i[*]}]
-set_input_delay -clock [get_clocks clk_fpga_0] -max -add_delay 2.000 [get_ports {btns_4bits_tri_i[*]}]
-set_input_delay -clock [get_clocks clk_fpga_0] -min -add_delay 1.000 [get_ports {leds_4bits_tri_io[*]}]
-set_input_delay -clock [get_clocks clk_fpga_0] -max -add_delay 2.000 [get_ports {leds_4bits_tri_io[*]}]
-set_input_delay -clock [get_clocks clk_fpga_0] -min -add_delay 1.000 [get_ports {sws_4bits_tri_i[*]}]
-set_input_delay -clock [get_clocks clk_fpga_0] -max -add_delay 2.000 [get_ports {sws_4bits_tri_i[*]}]
-set_input_delay -clock [get_clocks clk_fpga_0] -min -add_delay 1.000 [get_ports reset_rtl]
-set_input_delay -clock [get_clocks clk_fpga_0] -max -add_delay 2.000 [get_ports reset_rtl]
-set_output_delay -clock [get_clocks clk_fpga_0] -min -add_delay 1.000 [get_ports {leds_4bits_tri_io[*]}]
-set_output_delay -clock [get_clocks clk_fpga_0] -max -add_delay 2.000 [get_ports {leds_4bits_tri_io[*]}]
+create_clock -period 10 -name VIRTUAL_clk_out2_base_system_clk_wiz_0_0 -waveform {0.000 5.000}
+set_input_delay -clock [get_clocks VIRTUAL_clk_out2_base_system_clk_wiz_0_0] -min -add_delay 1.000 [get_ports {btns_4bits_tri_i[*]}]
+set_input_delay -clock [get_clocks VIRTUAL_clk_out2_base_system_clk_wiz_0_0] -max -add_delay 2.000 [get_ports {btns_4bits_tri_i[*]}]
+set_input_delay -clock [get_clocks VIRTUAL_clk_out2_base_system_clk_wiz_0_0] -min -add_delay 1.000 [get_ports {leds_4bits_tri_io[*]}]
+set_input_delay -clock [get_clocks VIRTUAL_clk_out2_base_system_clk_wiz_0_0] -max -add_delay 2.000 [get_ports {leds_4bits_tri_io[*]}]
+set_input_delay -clock [get_clocks VIRTUAL_clk_out2_base_system_clk_wiz_0_0] -min -add_delay 1.000 [get_ports {sws_4bits_tri_i[*]}]
+set_input_delay -clock [get_clocks VIRTUAL_clk_out2_base_system_clk_wiz_0_0] -max -add_delay 2.000 [get_ports {sws_4bits_tri_i[*]}]
+set_input_delay -clock [get_clocks VIRTUAL_clk_out2_base_system_clk_wiz_0_0] -min -add_delay 1.000 [get_ports reset_rtl]
+set_input_delay -clock [get_clocks VIRTUAL_clk_out2_base_system_clk_wiz_0_0] -max -add_delay 2.000 [get_ports reset_rtl]
+set_output_delay -clock [get_clocks VIRTUAL_clk_out2_base_system_clk_wiz_0_0] -min -add_delay 1.000 [get_ports {leds_4bits_tri_io[*]}]
+set_output_delay -clock [get_clocks VIRTUAL_clk_out2_base_system_clk_wiz_0_0] -max -add_delay 2.000 [get_ports {leds_4bits_tri_io[*]}]
 
 create_clock -period 40.000 -name VIRTUAL_clk_out1_base_system_clk_wiz_0_0 -waveform {0.000 20.000}
 set_output_delay -clock [get_clocks VIRTUAL_clk_out1_base_system_clk_wiz_0_0] -clock_fall -min -add_delay 4.000 [get_ports {VGA_BLUE[*]}]

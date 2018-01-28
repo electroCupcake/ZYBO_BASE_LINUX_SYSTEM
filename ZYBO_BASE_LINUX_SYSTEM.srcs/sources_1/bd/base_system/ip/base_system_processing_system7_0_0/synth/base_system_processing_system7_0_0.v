@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2017 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2018 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -58,10 +58,13 @@ _CHECK=0,C_USE_DEFAULT_ACP_USER_VAL=0,C_S_AXI_ACP_ARUSER_VAL=31,C_S_AXI_ACP_AWUS
 ODIFIABLE_TXN=0}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module base_system_processing_system7_0_0 (
+  I2C0_SDA_I,
+  I2C0_SDA_O,
+  I2C0_SDA_T,
+  I2C0_SCL_I,
+  I2C0_SCL_O,
+  I2C0_SCL_T,
   SDIO0_WP,
-  TTC0_WAVE0_OUT,
-  TTC0_WAVE1_OUT,
-  TTC0_WAVE2_OUT,
   USB0_PORT_INDCTL,
   USB0_VBUS_PWRSELECT,
   USB0_VBUS_PWRFAULT,
@@ -150,6 +153,22 @@ module base_system_processing_system7_0_0 (
   S_AXI_HP0_WDATA,
   S_AXI_HP0_WSTRB,
   IRQ_F2P,
+  DMA0_DATYPE,
+  DMA0_DAVALID,
+  DMA0_DRREADY,
+  DMA1_DATYPE,
+  DMA1_DAVALID,
+  DMA1_DRREADY,
+  DMA0_ACLK,
+  DMA0_DAREADY,
+  DMA0_DRLAST,
+  DMA0_DRVALID,
+  DMA1_ACLK,
+  DMA1_DAREADY,
+  DMA1_DRLAST,
+  DMA1_DRVALID,
+  DMA0_DRTYPE,
+  DMA1_DRTYPE,
   FCLK_CLK0,
   FCLK_RESET0_N,
   MIO,
@@ -175,11 +194,20 @@ module base_system_processing_system7_0_0 (
   PS_PORB
 );
 
+(* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 IIC_0 SDA_I" *)
+input wire I2C0_SDA_I;
+(* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 IIC_0 SDA_O" *)
+output wire I2C0_SDA_O;
+(* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 IIC_0 SDA_T" *)
+output wire I2C0_SDA_T;
+(* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 IIC_0 SCL_I" *)
+input wire I2C0_SCL_I;
+(* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 IIC_0 SCL_O" *)
+output wire I2C0_SCL_O;
+(* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 IIC_0 SCL_T" *)
+output wire I2C0_SCL_T;
 (* X_INTERFACE_INFO = "xilinx.com:interface:sdio:1.0 SDIO_0 WP" *)
 input wire SDIO0_WP;
-output wire TTC0_WAVE0_OUT;
-output wire TTC0_WAVE1_OUT;
-output wire TTC0_WAVE2_OUT;
 (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:usbctrl:1.0 USBIND_0 PORT_INDCTL" *)
 output wire [1 : 0] USB0_PORT_INDCTL;
 (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:usbctrl:1.0 USBIND_0 VBUS_PWRSELECT" *)
@@ -356,6 +384,38 @@ input wire [63 : 0] S_AXI_HP0_WDATA;
 input wire [7 : 0] S_AXI_HP0_WSTRB;
 (* X_INTERFACE_INFO = "xilinx.com:signal:interrupt:1.0 IRQ_F2P INTERRUPT" *)
 input wire [15 : 0] IRQ_F2P;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 DMA0_ACK TUSER" *)
+output wire [1 : 0] DMA0_DATYPE;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 DMA0_ACK TVALID" *)
+output wire DMA0_DAVALID;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 DMA0_REQ TREADY" *)
+output wire DMA0_DRREADY;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 DMA1_ACK TUSER" *)
+output wire [1 : 0] DMA1_DATYPE;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 DMA1_ACK TVALID" *)
+output wire DMA1_DAVALID;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 DMA1_REQ TREADY" *)
+output wire DMA1_DRREADY;
+(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 DMA0_ACLK CLK" *)
+input wire DMA0_ACLK;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 DMA0_ACK TREADY" *)
+input wire DMA0_DAREADY;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 DMA0_REQ TLAST" *)
+input wire DMA0_DRLAST;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 DMA0_REQ TVALID" *)
+input wire DMA0_DRVALID;
+(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 DMA1_ACLK CLK" *)
+input wire DMA1_ACLK;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 DMA1_ACK TREADY" *)
+input wire DMA1_DAREADY;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 DMA1_REQ TLAST" *)
+input wire DMA1_DRLAST;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 DMA1_REQ TVALID" *)
+input wire DMA1_DRVALID;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 DMA0_REQ TUSER" *)
+input wire [1 : 0] DMA0_DRTYPE;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 DMA1_REQ TUSER" *)
+input wire [1 : 0] DMA1_DRTYPE;
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 FCLK_CLK0 CLK" *)
 output wire FCLK_CLK0;
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 FCLK_RESET0_N RST" *)
@@ -517,12 +577,12 @@ inout wire PS_PORB;
     .GPIO_I(64'B0),
     .GPIO_O(),
     .GPIO_T(),
-    .I2C0_SDA_I(1'B0),
-    .I2C0_SDA_O(),
-    .I2C0_SDA_T(),
-    .I2C0_SCL_I(1'B0),
-    .I2C0_SCL_O(),
-    .I2C0_SCL_T(),
+    .I2C0_SDA_I(I2C0_SDA_I),
+    .I2C0_SDA_O(I2C0_SDA_O),
+    .I2C0_SDA_T(I2C0_SDA_T),
+    .I2C0_SCL_I(I2C0_SCL_I),
+    .I2C0_SCL_O(I2C0_SCL_O),
+    .I2C0_SCL_T(I2C0_SCL_T),
     .I2C1_SDA_I(1'B0),
     .I2C1_SDA_O(),
     .I2C1_SDA_T(),
@@ -603,9 +663,9 @@ inout wire PS_PORB;
     .UART1_DSRN(1'B0),
     .UART1_RIN(1'B0),
     .UART1_RX(1'B1),
-    .TTC0_WAVE0_OUT(TTC0_WAVE0_OUT),
-    .TTC0_WAVE1_OUT(TTC0_WAVE1_OUT),
-    .TTC0_WAVE2_OUT(TTC0_WAVE2_OUT),
+    .TTC0_WAVE0_OUT(),
+    .TTC0_WAVE1_OUT(),
+    .TTC0_WAVE2_OUT(),
     .TTC0_CLK0_IN(1'B0),
     .TTC0_CLK1_IN(1'B0),
     .TTC0_CLK2_IN(1'B0),
@@ -1039,26 +1099,26 @@ inout wire PS_PORB;
     .Core0_nIRQ(1'B0),
     .Core1_nFIQ(1'B0),
     .Core1_nIRQ(1'B0),
-    .DMA0_DATYPE(),
-    .DMA0_DAVALID(),
-    .DMA0_DRREADY(),
-    .DMA1_DATYPE(),
-    .DMA1_DAVALID(),
-    .DMA1_DRREADY(),
+    .DMA0_DATYPE(DMA0_DATYPE),
+    .DMA0_DAVALID(DMA0_DAVALID),
+    .DMA0_DRREADY(DMA0_DRREADY),
+    .DMA1_DATYPE(DMA1_DATYPE),
+    .DMA1_DAVALID(DMA1_DAVALID),
+    .DMA1_DRREADY(DMA1_DRREADY),
     .DMA2_DATYPE(),
     .DMA2_DAVALID(),
     .DMA2_DRREADY(),
     .DMA3_DATYPE(),
     .DMA3_DAVALID(),
     .DMA3_DRREADY(),
-    .DMA0_ACLK(1'B0),
-    .DMA0_DAREADY(1'B0),
-    .DMA0_DRLAST(1'B0),
-    .DMA0_DRVALID(1'B0),
-    .DMA1_ACLK(1'B0),
-    .DMA1_DAREADY(1'B0),
-    .DMA1_DRLAST(1'B0),
-    .DMA1_DRVALID(1'B0),
+    .DMA0_ACLK(DMA0_ACLK),
+    .DMA0_DAREADY(DMA0_DAREADY),
+    .DMA0_DRLAST(DMA0_DRLAST),
+    .DMA0_DRVALID(DMA0_DRVALID),
+    .DMA1_ACLK(DMA1_ACLK),
+    .DMA1_DAREADY(DMA1_DAREADY),
+    .DMA1_DRLAST(DMA1_DRLAST),
+    .DMA1_DRVALID(DMA1_DRVALID),
     .DMA2_ACLK(1'B0),
     .DMA2_DAREADY(1'B0),
     .DMA2_DRLAST(1'B0),
@@ -1067,8 +1127,8 @@ inout wire PS_PORB;
     .DMA3_DAREADY(1'B0),
     .DMA3_DRLAST(1'B0),
     .DMA3_DRVALID(1'B0),
-    .DMA0_DRTYPE(2'B0),
-    .DMA1_DRTYPE(2'B0),
+    .DMA0_DRTYPE(DMA0_DRTYPE),
+    .DMA1_DRTYPE(DMA1_DRTYPE),
     .DMA2_DRTYPE(2'B0),
     .DMA3_DRTYPE(2'B0),
     .FCLK_CLK0(FCLK_CLK0),

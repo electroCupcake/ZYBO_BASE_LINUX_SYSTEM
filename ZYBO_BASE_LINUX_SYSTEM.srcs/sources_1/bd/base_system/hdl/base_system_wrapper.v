@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
-//Date        : Sun Jan  7 18:46:25 2018
+//Date        : Sat Jan 27 19:40:09 2018
 //Host        : monolith running 64-bit Ubuntu 16.04.3 LTS
 //Command     : generate_target base_system_wrapper.bd
 //Design      : base_system_wrapper
@@ -10,7 +10,8 @@
 `timescale 1 ps / 1 ps
 
 module base_system_wrapper
-   (DDR_addr,
+   (BCLK_O,
+    DDR_addr,
     DDR_ba,
     DDR_cas_n,
     DDR_ck_n,
@@ -32,14 +33,23 @@ module base_system_wrapper
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
     H_SYNC,
+    LRCLK_I,
+    LRCLK_O,
+    MCLK_O,
+    MUTEN_O,
+    SDATA_I,
+    SDATA_O,
     VGA_BLUE,
     VGA_GREEN,
     VGA_RED,
     V_SYNC,
     btns_4bits_tri_i,
+    iic_0_scl_io,
+    iic_0_sda_io,
     leds_4bits_tri_io,
     reset_rtl,
     sws_4bits_tri_i);
+  output [0:0]BCLK_O;
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
   inout DDR_cas_n;
@@ -62,15 +72,24 @@ module base_system_wrapper
   inout FIXED_IO_ps_porb;
   inout FIXED_IO_ps_srstb;
   output H_SYNC;
+  output [0:0]LRCLK_I;
+  output [0:0]LRCLK_O;
+  output MCLK_O;
+  output [0:0]MUTEN_O;
+  input [0:0]SDATA_I;
+  output [0:0]SDATA_O;
   output [4:0]VGA_BLUE;
   output [5:0]VGA_GREEN;
   output [4:0]VGA_RED;
   output V_SYNC;
   input [3:0]btns_4bits_tri_i;
+  inout iic_0_scl_io;
+  inout iic_0_sda_io;
   inout [3:0]leds_4bits_tri_io;
   input reset_rtl;
   input [3:0]sws_4bits_tri_i;
 
+  wire [0:0]BCLK_O;
   wire [14:0]DDR_addr;
   wire [2:0]DDR_ba;
   wire DDR_cas_n;
@@ -93,11 +112,25 @@ module base_system_wrapper
   wire FIXED_IO_ps_porb;
   wire FIXED_IO_ps_srstb;
   wire H_SYNC;
+  wire [0:0]LRCLK_I;
+  wire [0:0]LRCLK_O;
+  wire MCLK_O;
+  wire [0:0]MUTEN_O;
+  wire [0:0]SDATA_I;
+  wire [0:0]SDATA_O;
   wire [4:0]VGA_BLUE;
   wire [5:0]VGA_GREEN;
   wire [4:0]VGA_RED;
   wire V_SYNC;
   wire [3:0]btns_4bits_tri_i;
+  wire iic_0_scl_i;
+  wire iic_0_scl_io;
+  wire iic_0_scl_o;
+  wire iic_0_scl_t;
+  wire iic_0_sda_i;
+  wire iic_0_sda_io;
+  wire iic_0_sda_o;
+  wire iic_0_sda_t;
   wire [0:0]leds_4bits_tri_i_0;
   wire [1:1]leds_4bits_tri_i_1;
   wire [2:2]leds_4bits_tri_i_2;
@@ -118,7 +151,8 @@ module base_system_wrapper
   wire [3:0]sws_4bits_tri_i;
 
   base_system base_system_i
-       (.DDR_addr(DDR_addr),
+       (.BCLK_O(BCLK_O),
+        .DDR_addr(DDR_addr),
         .DDR_ba(DDR_ba),
         .DDR_cas_n(DDR_cas_n),
         .DDR_ck_n(DDR_ck_n),
@@ -140,6 +174,18 @@ module base_system_wrapper
         .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
         .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
         .H_SYNC(H_SYNC),
+        .IIC_0_scl_i(iic_0_scl_i),
+        .IIC_0_scl_o(iic_0_scl_o),
+        .IIC_0_scl_t(iic_0_scl_t),
+        .IIC_0_sda_i(iic_0_sda_i),
+        .IIC_0_sda_o(iic_0_sda_o),
+        .IIC_0_sda_t(iic_0_sda_t),
+        .LRCLK_I(LRCLK_I),
+        .LRCLK_O(LRCLK_O),
+        .MCLK_O(MCLK_O),
+        .MUTEN_O(MUTEN_O),
+        .SDATA_I(SDATA_I),
+        .SDATA_O(SDATA_O),
         .VGA_BLUE(VGA_BLUE),
         .VGA_GREEN(VGA_GREEN),
         .VGA_RED(VGA_RED),
@@ -150,6 +196,16 @@ module base_system_wrapper
         .leds_4bits_tri_t({leds_4bits_tri_t_3,leds_4bits_tri_t_2,leds_4bits_tri_t_1,leds_4bits_tri_t_0}),
         .reset_rtl(reset_rtl),
         .sws_4bits_tri_i(sws_4bits_tri_i));
+  IOBUF iic_0_scl_iobuf
+       (.I(iic_0_scl_o),
+        .IO(iic_0_scl_io),
+        .O(iic_0_scl_i),
+        .T(iic_0_scl_t));
+  IOBUF iic_0_sda_iobuf
+       (.I(iic_0_sda_o),
+        .IO(iic_0_sda_io),
+        .O(iic_0_sda_i),
+        .T(iic_0_sda_t));
   IOBUF leds_4bits_tri_iobuf_0
        (.I(leds_4bits_tri_o_0),
         .IO(leds_4bits_tri_io[0]),
