@@ -164,9 +164,9 @@ proc create_root_design { parentCell } {
   # Create ports
   set BCLK_O [ create_bd_port -dir O -from 0 -to 0 BCLK_O ]
   set H_SYNC [ create_bd_port -dir O H_SYNC ]
-  set LRCLK_I [ create_bd_port -dir O -from 0 -to 0 -type clk LRCLK_I ]
+  set LRCLK_I [ create_bd_port -dir O -from 0 -to 0 LRCLK_I ]
   set LRCLK_O [ create_bd_port -dir O -from 0 -to 0 LRCLK_O ]
-  set MCLK_O [ create_bd_port -dir O -type clk MCLK_O ]
+  set MCLK_O [ create_bd_port -dir O -from 0 -to 0 -type clk MCLK_O ]
   set MUTEN_O [ create_bd_port -dir O -from 0 -to 0 MUTEN_O ]
   set SDATA_I [ create_bd_port -dir I -from 0 -to 0 SDATA_I ]
   set SDATA_O [ create_bd_port -dir O -from 0 -to 0 SDATA_O ]
@@ -178,29 +178,17 @@ proc create_root_design { parentCell } {
   set_property -dict [ list \
 CONFIG.POLARITY {ACTIVE_LOW} \
  ] $reset_rtl
+  set sys_clock [ create_bd_port -dir I -type clk sys_clock ]
+  set_property -dict [ list \
+CONFIG.FREQ_HZ {125000000} \
+CONFIG.PHASE {0.000} \
+ ] $sys_clock
 
   # Create instance: axi_i2s_adi_0, and set properties
   set axi_i2s_adi_0 [ create_bd_cell -type ip -vlnv analog.com:user:axi_i2s_adi:1.0 axi_i2s_adi_0 ]
   set_property -dict [ list \
 CONFIG.C_DMA_TYPE {1} \
  ] $axi_i2s_adi_0
-
-  set_property -dict [ list \
-CONFIG.TUSER_WIDTH {2} \
-CONFIG.HAS_TREADY {1} \
-CONFIG.HAS_TLAST {1} \
- ] [get_bd_intf_pins /axi_i2s_adi_0/DMA_REQ_RX]
-
-  set_property -dict [ list \
-CONFIG.TUSER_WIDTH {2} \
-CONFIG.HAS_TREADY {1} \
-CONFIG.HAS_TLAST {1} \
- ] [get_bd_intf_pins /axi_i2s_adi_0/DMA_REQ_TX]
-
-  set_property -dict [ list \
-CONFIG.NUM_READ_OUTSTANDING {1} \
-CONFIG.NUM_WRITE_OUTSTANDING {1} \
- ] [get_bd_intf_pins /axi_i2s_adi_0/S_AXI]
 
   # Create instance: axi_mem_intercon, and set properties
   set axi_mem_intercon [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 axi_mem_intercon ]
@@ -218,38 +206,38 @@ CONFIG.DIN_WIDTH {6} \
 CONFIG.DOUT_WIDTH {5} \
  ] $blue_slice
 
-  # Create instance: clk_wiz_0, and set properties
-  set clk_wiz_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:5.3 clk_wiz_0 ]
+  # Create instance: clk_wiz_1, and set properties
+  set clk_wiz_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:5.3 clk_wiz_1 ]
   set_property -dict [ list \
-CONFIG.CLKOUT1_JITTER {183.467} \
-CONFIG.CLKOUT1_PHASE_ERROR {105.461} \
-CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {25} \
-CONFIG.CLKOUT2_JITTER {137.681} \
-CONFIG.CLKOUT2_PHASE_ERROR {105.461} \
+CONFIG.CLKIN1_JITTER_PS {80.0} \
+CONFIG.CLKOUT1_JITTER {425.475} \
+CONFIG.CLKOUT1_PHASE_ERROR {293.530} \
+CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {12.288} \
+CONFIG.CLKOUT2_JITTER {373.811} \
+CONFIG.CLKOUT2_PHASE_ERROR {293.530} \
+CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {25.000} \
 CONFIG.CLKOUT2_USED {true} \
-CONFIG.CLKOUT3_JITTER {211.763} \
-CONFIG.CLKOUT3_PHASE_ERROR {105.461} \
-CONFIG.CLKOUT3_REQUESTED_OUT_FREQ {12} \
-CONFIG.CLKOUT3_USED {true} \
-CONFIG.MMCM_CLKFBOUT_MULT_F {9.000} \
-CONFIG.MMCM_CLKIN1_PERIOD {10.0} \
+CONFIG.CLK_IN1_BOARD_INTERFACE {sys_clock} \
+CONFIG.MMCM_CLKFBOUT_MULT_F {29.000} \
+CONFIG.MMCM_CLKIN1_PERIOD {8.0} \
 CONFIG.MMCM_CLKIN2_PERIOD {10.0} \
-CONFIG.MMCM_CLKOUT0_DIVIDE_F {36.000} \
-CONFIG.MMCM_CLKOUT1_DIVIDE {9} \
-CONFIG.MMCM_CLKOUT2_DIVIDE {75} \
+CONFIG.MMCM_CLKOUT0_DIVIDE_F {59.000} \
+CONFIG.MMCM_CLKOUT1_DIVIDE {29} \
 CONFIG.MMCM_COMPENSATION {ZHOLD} \
-CONFIG.MMCM_DIVCLK_DIVIDE {1} \
-CONFIG.NUM_OUT_CLKS {3} \
+CONFIG.MMCM_DIVCLK_DIVIDE {5} \
+CONFIG.NUM_OUT_CLKS {2} \
+CONFIG.USE_BOARD_FLOW {true} \
 CONFIG.USE_LOCKED {false} \
 CONFIG.USE_RESET {false} \
- ] $clk_wiz_0
+ ] $clk_wiz_1
 
   # Need to retain value_src of defaults
   set_property -dict [ list \
+CONFIG.CLKIN1_JITTER_PS.VALUE_SRC {DEFAULT} \
 CONFIG.MMCM_CLKIN1_PERIOD.VALUE_SRC {DEFAULT} \
 CONFIG.MMCM_CLKIN2_PERIOD.VALUE_SRC {DEFAULT} \
 CONFIG.MMCM_COMPENSATION.VALUE_SRC {DEFAULT} \
- ] $clk_wiz_0
+ ] $clk_wiz_1
 
   # Create instance: gpio_buttons, and set properties
   set gpio_buttons [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 gpio_buttons ]
@@ -1463,9 +1451,9 @@ CONFIG.PCW_WDT_WDT_IO.VALUE_SRC {DEFAULT} \
 CONFIG.ENABLE_ADVANCED_OPTIONS {0} \
 CONFIG.M03_HAS_DATA_FIFO {0} \
 CONFIG.M03_HAS_REGSLICE {0} \
-CONFIG.NUM_MI {5} \
-CONFIG.S00_HAS_DATA_FIFO {0} \
-CONFIG.STRATEGY {0} \
+CONFIG.NUM_MI {6} \
+CONFIG.S00_HAS_DATA_FIFO {2} \
+CONFIG.STRATEGY {2} \
  ] $ps7_0_axi_periph
 
   # Create instance: red_slice, and set properties
@@ -1476,6 +1464,12 @@ CONFIG.DIN_TO {1} \
 CONFIG.DIN_WIDTH {6} \
 CONFIG.DOUT_WIDTH {5} \
  ] $red_slice
+
+  # Create instance: util_ds_buf_0, and set properties
+  set util_ds_buf_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:util_ds_buf:2.1 util_ds_buf_0 ]
+  set_property -dict [ list \
+CONFIG.C_BUF_TYPE {BUFG} \
+ ] $util_ds_buf_0
 
   # Create instance: vga_fb, and set properties
   set vga_fb [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_tft:2.0 vga_fb ]
@@ -1518,17 +1512,18 @@ CONFIG.C_TFT_INTERFACE {0} \
   connect_bd_net -net axi_i2s_adi_0_SDATA_O [get_bd_ports SDATA_O] [get_bd_pins axi_i2s_adi_0/SDATA_O]
   connect_bd_net -net axi_tft_0_ip2intc_irpt [get_bd_pins irq_concat/In15] [get_bd_pins vga_fb/ip2intc_irpt]
   connect_bd_net -net blue_slice_Dout [get_bd_ports VGA_BLUE] [get_bd_pins blue_slice/Dout]
-  connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins vga_fb/sys_tft_clk]
-  connect_bd_net -net clk_wiz_0_clk_out3 [get_bd_ports MCLK_O] [get_bd_pins axi_i2s_adi_0/DATA_CLK_I] [get_bd_pins clk_wiz_0/clk_out3]
+  connect_bd_net -net clk_wiz_1_clk_out2 [get_bd_pins clk_wiz_1/clk_out2] [get_bd_pins vga_fb/sys_tft_clk]
   connect_bd_net -net irq_concat_dout [get_bd_pins irq_concat/dout] [get_bd_pins processing_system7_0/IRQ_F2P]
   connect_bd_net -net irq_const_dout [get_bd_pins irq_concat/In0] [get_bd_pins irq_concat/In1] [get_bd_pins irq_concat/In2] [get_bd_pins irq_concat/In3] [get_bd_pins irq_concat/In4] [get_bd_pins irq_concat/In5] [get_bd_pins irq_concat/In6] [get_bd_pins irq_concat/In7] [get_bd_pins irq_concat/In8] [get_bd_pins irq_concat/In9] [get_bd_pins irq_concat/In10] [get_bd_pins irq_concat/In11] [get_bd_pins irq_concat/In12] [get_bd_pins irq_concat/In13] [get_bd_pins irq_concat/In14] [get_bd_pins irq_const/dout]
   connect_bd_net -net proc_sys_reset_0_interconnect_aresetn [get_bd_pins axi_mem_intercon/ARESETN] [get_bd_pins proc_sys_reset_0/interconnect_aresetn] [get_bd_pins ps7_0_axi_periph/ARESETN]
-  connect_bd_net -net proc_sys_reset_0_peripheral_aresetn [get_bd_pins axi_i2s_adi_0/DMA_REQ_RX_RSTN] [get_bd_pins axi_i2s_adi_0/DMA_REQ_TX_RSTN] [get_bd_pins axi_i2s_adi_0/S_AXI_ARESETN] [get_bd_pins axi_mem_intercon/M00_ARESETN] [get_bd_pins axi_mem_intercon/S00_ARESETN] [get_bd_pins gpio_buttons/s_axi_aresetn] [get_bd_pins gpio_leds/s_axi_aresetn] [get_bd_pins gpio_switches/s_axi_aresetn] [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/M01_ARESETN] [get_bd_pins ps7_0_axi_periph/M02_ARESETN] [get_bd_pins ps7_0_axi_periph/M03_ARESETN] [get_bd_pins ps7_0_axi_periph/M04_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN] [get_bd_pins vga_fb/m_axi_aresetn] [get_bd_pins vga_fb/s_axi_aresetn]
-  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axi_i2s_adi_0/DMA_REQ_RX_ACLK] [get_bd_pins axi_i2s_adi_0/DMA_REQ_TX_ACLK] [get_bd_pins axi_i2s_adi_0/S_AXI_ACLK] [get_bd_pins axi_mem_intercon/ACLK] [get_bd_pins axi_mem_intercon/M00_ACLK] [get_bd_pins axi_mem_intercon/S00_ACLK] [get_bd_pins clk_wiz_0/clk_out2] [get_bd_pins gpio_buttons/s_axi_aclk] [get_bd_pins gpio_leds/s_axi_aclk] [get_bd_pins gpio_switches/s_axi_aclk] [get_bd_pins proc_sys_reset_0/slowest_sync_clk] [get_bd_pins processing_system7_0/DMA0_ACLK] [get_bd_pins processing_system7_0/DMA1_ACLK] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0/S_AXI_HP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/M01_ACLK] [get_bd_pins ps7_0_axi_periph/M02_ACLK] [get_bd_pins ps7_0_axi_periph/M03_ACLK] [get_bd_pins ps7_0_axi_periph/M04_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins vga_fb/m_axi_aclk] [get_bd_pins vga_fb/s_axi_aclk]
-  connect_bd_net -net processing_system7_0_FCLK_CLK1 [get_bd_pins clk_wiz_0/clk_in1] [get_bd_pins processing_system7_0/FCLK_CLK0]
+  connect_bd_net -net proc_sys_reset_0_peripheral_aresetn [get_bd_pins axi_i2s_adi_0/DMA_REQ_RX_RSTN] [get_bd_pins axi_i2s_adi_0/DMA_REQ_TX_RSTN] [get_bd_pins axi_i2s_adi_0/S_AXI_ARESETN] [get_bd_pins axi_mem_intercon/M00_ARESETN] [get_bd_pins axi_mem_intercon/S00_ARESETN] [get_bd_pins gpio_buttons/s_axi_aresetn] [get_bd_pins gpio_leds/s_axi_aresetn] [get_bd_pins gpio_switches/s_axi_aresetn] [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/M01_ARESETN] [get_bd_pins ps7_0_axi_periph/M02_ARESETN] [get_bd_pins ps7_0_axi_periph/M03_ARESETN] [get_bd_pins ps7_0_axi_periph/M04_ARESETN] [get_bd_pins ps7_0_axi_periph/M05_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN] [get_bd_pins vga_fb/m_axi_aresetn] [get_bd_pins vga_fb/s_axi_aresetn]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axi_i2s_adi_0/DMA_REQ_RX_ACLK] [get_bd_pins axi_i2s_adi_0/DMA_REQ_TX_ACLK] [get_bd_pins axi_i2s_adi_0/S_AXI_ACLK] [get_bd_pins axi_mem_intercon/ACLK] [get_bd_pins axi_mem_intercon/M00_ACLK] [get_bd_pins axi_mem_intercon/S00_ACLK] [get_bd_pins gpio_buttons/s_axi_aclk] [get_bd_pins gpio_leds/s_axi_aclk] [get_bd_pins gpio_switches/s_axi_aclk] [get_bd_pins proc_sys_reset_0/slowest_sync_clk] [get_bd_pins processing_system7_0/DMA0_ACLK] [get_bd_pins processing_system7_0/DMA1_ACLK] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0/S_AXI_HP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/M01_ACLK] [get_bd_pins ps7_0_axi_periph/M02_ACLK] [get_bd_pins ps7_0_axi_periph/M03_ACLK] [get_bd_pins ps7_0_axi_periph/M04_ACLK] [get_bd_pins ps7_0_axi_periph/M05_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins vga_fb/m_axi_aclk] [get_bd_pins vga_fb/s_axi_aclk]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins proc_sys_reset_0/aux_reset_in] [get_bd_pins processing_system7_0/FCLK_RESET0_N]
   connect_bd_net -net red_slice_Dout [get_bd_ports VGA_RED] [get_bd_pins red_slice/Dout]
   connect_bd_net -net reset_rtl_1 [get_bd_ports reset_rtl] [get_bd_pins proc_sys_reset_0/ext_reset_in]
+  connect_bd_net -net sys_clock_1 [get_bd_ports sys_clock] [get_bd_pins util_ds_buf_0/BUFG_I]
+  connect_bd_net -net util_ds_buf_0_BUFG_O [get_bd_ports MCLK_O] [get_bd_pins axi_i2s_adi_0/DATA_CLK_I] [get_bd_pins clk_wiz_1/clk_out1]
+  connect_bd_net -net util_ds_buf_0_BUFG_O1 [get_bd_pins clk_wiz_1/clk_in1] [get_bd_pins util_ds_buf_0/BUFG_O]
   connect_bd_net -net v_tc_0_hsync_out [get_bd_ports H_SYNC] [get_bd_pins vga_fb/tft_hsync]
   connect_bd_net -net v_tc_0_vsync_out [get_bd_ports V_SYNC] [get_bd_pins vga_fb/tft_vsync]
   connect_bd_net -net vga_fb_tft_vga_b [get_bd_pins blue_slice/Din] [get_bd_pins vga_fb/tft_vga_b]
@@ -1549,82 +1544,85 @@ CONFIG.C_TFT_INTERFACE {0} \
   regenerate_bd_layout -layout_string {
    guistr: "# # String gsaved with Nlview 6.6.5b  2016-09-06 bk=1.3687 VDI=39 GEI=35 GUI=JA:1.6
 #  -string -flagsOSRD
-preplace port btns_4bits -pg 1 -y 1290 -defaultsOSRD
-preplace port DDR -pg 1 -y 50 -defaultsOSRD
-preplace port reset_rtl -pg 1 -y 650 -defaultsOSRD
-preplace port MCLK_O -pg 1 -y 440 -defaultsOSRD
-preplace port sws_4bits -pg 1 -y 780 -defaultsOSRD
-preplace port LRCLK_I -pg 1 -y 380 -defaultsOSRD
-preplace port H_SYNC -pg 1 -y 980 -defaultsOSRD
-preplace port V_SYNC -pg 1 -y 1220 -defaultsOSRD
-preplace port leds_4bits -pg 1 -y 940 -defaultsOSRD
-preplace port IIC_0 -pg 1 -y 90 -defaultsOSRD
-preplace port FIXED_IO -pg 1 -y 70 -defaultsOSRD
-preplace portBus MUTEN_O -pg 1 -y 1390 -defaultsOSRD
-preplace portBus VGA_RED -pg 1 -y 1170 -defaultsOSRD
-preplace portBus SDATA_O -pg 1 -y 340 -defaultsOSRD
-preplace portBus VGA_BLUE -pg 1 -y 1060 -defaultsOSRD
-preplace portBus BCLK_O -pg 1 -y 300 -defaultsOSRD
-preplace portBus VGA_GREEN -pg 1 -y 960 -defaultsOSRD
-preplace portBus SDATA_I -pg 1 -y 140 -defaultsOSRD
-preplace portBus LRCLK_O -pg 1 -y 280 -defaultsOSRD
-preplace inst xlconstant_0 -pg 1 -lvl 6 -y 1390 -defaultsOSRD
-preplace inst red_slice -pg 1 -lvl 6 -y 1170 -defaultsOSRD
-preplace inst blue_slice -pg 1 -lvl 6 -y 1060 -defaultsOSRD
-preplace inst gpio_leds -pg 1 -lvl 6 -y 960 -defaultsOSRD
-preplace inst vga_fb -pg 1 -lvl 4 -y 1050 -defaultsOSRD -resize 220 220
-preplace inst proc_sys_reset_0 -pg 1 -lvl 2 -y 670 -defaultsOSRD
-preplace inst gpio_switches -pg 1 -lvl 6 -y 780 -defaultsOSRD
-preplace inst axi_i2s_adi_0 -pg 1 -lvl 5 -y 160 -defaultsOSRD
-preplace inst ps7_0_axi_periph -pg 1 -lvl 3 -y 800 -defaultsOSRD
-preplace inst irq_const -pg 1 -lvl 4 -y 890 -defaultsOSRD
-preplace inst clk_wiz_0 -pg 1 -lvl 1 -y 550 -defaultsOSRD
-preplace inst axi_mem_intercon -pg 1 -lvl 5 -y 560 -defaultsOSRD
-preplace inst gpio_buttons -pg 1 -lvl 6 -y 1290 -defaultsOSRD
-preplace inst irq_concat -pg 1 -lvl 5 -y 980 -defaultsOSRD
-preplace inst processing_system7_0 -pg 1 -lvl 6 -y 140 -defaultsOSRD
-preplace netloc processing_system7_0_DDR 1 6 1 NJ
-preplace netloc ps7_0_axi_periph_M02_AXI 1 3 3 850J 1270 NJ 1270 NJ
-preplace netloc vga_fb_tft_vga_g 1 4 3 1200J 750 1540J 860 2050J
-preplace netloc axi_i2s_adi_0_DMA_REQ_RX 1 5 1 1530
-preplace netloc processing_system7_0_M_AXI_GP0 1 2 5 570 350 NJ 350 NJ 350 NJ 350 2070
-preplace netloc v_tc_0_vsync_out 1 4 3 1140J 1220 NJ 1220 NJ
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 1 6 200 340 NJ 340 NJ 340 NJ 340 NJ 340 2030
-preplace netloc processing_system7_0_IIC_0 1 6 1 NJ
-preplace netloc axi_mem_intercon_M00_AXI 1 5 1 1540
-preplace netloc ps7_0_axi_periph_M03_AXI 1 3 1 860
-preplace netloc axi_i2s_adi_0_SDATA_O 1 5 2 1550J 290 2090J
-preplace netloc processing_system7_0_DMA0_ACK 1 4 3 1210 310 NJ 310 2060
-preplace netloc ps7_0_axi_periph_M01_AXI 1 3 3 NJ 780 NJ 780 1520
-preplace netloc axi_tft_0_ip2intc_irpt 1 4 1 N
-preplace netloc proc_sys_reset_0_interconnect_aresetn 1 2 3 560 540 NJ 540 NJ
-preplace netloc processing_system7_0_DMA1_ACK 1 4 3 1200 320 NJ 320 2050
-preplace netloc vga_fb_M_AXI_MM 1 4 1 1150
-preplace netloc xlconstant_0_dout 1 6 1 N
-preplace netloc axi_i2s_adi_0_BCLK_O 1 5 2 1560J 300 NJ
-preplace netloc processing_system7_0_FIXED_IO 1 6 1 NJ
-preplace netloc axi_i2s_adi_0_LRCLK_O 1 5 2 1530J 380 2080J
-preplace netloc clk_wiz_0_clk_out1 1 1 3 NJ 530 NJ 530 870J
-preplace netloc vga_fb_tft_vga_b 1 4 2 1170J 740 1530J
-preplace netloc axi_gpio_0_GPIO 1 6 1 NJ
-preplace netloc v_tc_0_hsync_out 1 4 3 1180J 730 1560J 850 2080J
-preplace netloc proc_sys_reset_0_peripheral_aresetn 1 2 4 540 1310 880 1310 1190 1310 1600
-preplace netloc axi_i2s_adi_0_DMA_REQ_TX 1 5 1 1520
-preplace netloc ps7_0_axi_periph_M04_AXI 1 3 2 NJ 840 1140
-preplace netloc axi_gpio_2_GPIO 1 6 1 NJ
-preplace netloc SDATA_I_1 1 0 5 NJ 140 NJ 140 NJ 140 NJ 140 NJ
-preplace netloc clk_wiz_0_clk_out3 1 1 6 190J 440 NJ 440 NJ 440 1150 440 NJ 440 NJ
-preplace netloc blue_slice_Dout 1 6 1 NJ
-preplace netloc irq_const_dout 1 4 1 1210
-preplace netloc processing_system7_0_FCLK_CLK0 1 1 5 180 1290 550 1290 860 1290 1160 1290 1580
-preplace netloc axi_gpio_1_GPIO 1 6 1 2030J
-preplace netloc ps7_0_axi_periph_M00_AXI 1 3 3 N 760 NJ 760 NJ
-preplace netloc processing_system7_0_FCLK_CLK1 1 0 7 20 330 NJ 330 NJ 330 NJ 330 NJ 330 NJ 330 2040
-preplace netloc vga_fb_tft_vga_r 1 4 2 1150J 1180 1590J
-preplace netloc red_slice_Dout 1 6 1 NJ
-preplace netloc irq_concat_dout 1 5 1 1570
-preplace netloc reset_rtl_1 1 0 2 NJ 650 NJ
-levelinfo -pg 1 0 100 370 710 1010 1370 1820 2120 -top 0 -bot 1440
+preplace port btns_4bits -pg 1 -y 860 -defaultsOSRD
+preplace port DDR -pg 1 -y 270 -defaultsOSRD
+preplace port reset_rtl -pg 1 -y 800 -defaultsOSRD
+preplace port sws_4bits -pg 1 -y 620 -defaultsOSRD
+preplace port sys_clock -pg 1 -y 1410 -defaultsOSRD
+preplace port H_SYNC -pg 1 -y 1030 -defaultsOSRD
+preplace port V_SYNC -pg 1 -y 930 -defaultsOSRD
+preplace port leds_4bits -pg 1 -y 740 -defaultsOSRD
+preplace port IIC_0 -pg 1 -y 310 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -y 290 -defaultsOSRD
+preplace portBus MUTEN_O -pg 1 -y 1580 -defaultsOSRD
+preplace portBus VGA_RED -pg 1 -y 1480 -defaultsOSRD
+preplace portBus MCLK_O -pg 1 -y 1400 -defaultsOSRD
+preplace portBus SDATA_O -pg 1 -y 150 -defaultsOSRD
+preplace portBus LRCLK_I -pg 1 -y 130 -defaultsOSRD
+preplace portBus VGA_BLUE -pg 1 -y 1350 -defaultsOSRD
+preplace portBus BCLK_O -pg 1 -y 210 -defaultsOSRD
+preplace portBus VGA_GREEN -pg 1 -y 950 -defaultsOSRD
+preplace portBus SDATA_I -pg 1 -y 330 -defaultsOSRD
+preplace portBus LRCLK_O -pg 1 -y 170 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 5 -y 1580 -defaultsOSRD
+preplace inst red_slice -pg 1 -lvl 5 -y 1480 -defaultsOSRD
+preplace inst blue_slice -pg 1 -lvl 5 -y 1350 -defaultsOSRD
+preplace inst gpio_leds -pg 1 -lvl 5 -y 740 -defaultsOSRD
+preplace inst vga_fb -pg 1 -lvl 3 -y 1030 -defaultsOSRD -resize 220 220
+preplace inst proc_sys_reset_0 -pg 1 -lvl 1 -y 820 -defaultsOSRD
+preplace inst gpio_switches -pg 1 -lvl 5 -y 620 -defaultsOSRD
+preplace inst axi_i2s_adi_0 -pg 1 -lvl 4 -y 350 -defaultsOSRD
+preplace inst ps7_0_axi_periph -pg 1 -lvl 2 -y 700 -defaultsOSRD
+preplace inst irq_const -pg 1 -lvl 3 -y 1190 -defaultsOSRD
+preplace inst clk_wiz_1 -pg 1 -lvl 4 -y 1410 -defaultsOSRD
+preplace inst axi_mem_intercon -pg 1 -lvl 4 -y 820 -defaultsOSRD
+preplace inst util_ds_buf_0 -pg 1 -lvl 3 -y 1410 -defaultsOSRD
+preplace inst gpio_buttons -pg 1 -lvl 5 -y 860 -defaultsOSRD
+preplace inst irq_concat -pg 1 -lvl 4 -y 1150 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 5 -y 360 -defaultsOSRD
+preplace netloc processing_system7_0_DDR 1 5 1 NJ
+preplace netloc ps7_0_axi_periph_M02_AXI 1 2 3 NJ 690 NJ 690 1630
+preplace netloc vga_fb_tft_vga_g 1 3 3 1250J 1470 1710J 950 NJ
+preplace netloc axi_i2s_adi_0_DMA_REQ_RX 1 4 1 1700
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 5 620 480 920J 500 NJ 500 NJ 500 2170
+preplace netloc v_tc_0_vsync_out 1 3 3 1270J 940 NJ 940 2170J
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 6 10J 1510 NJ 1510 NJ 1510 NJ 1510 1720J 1420 2150
+preplace netloc processing_system7_0_IIC_0 1 5 1 NJ
+preplace netloc axi_mem_intercon_M00_AXI 1 4 1 1660
+preplace netloc ps7_0_axi_periph_M03_AXI 1 2 1 900
+preplace netloc sys_clock_1 1 0 3 NJ 1410 NJ 1410 NJ
+preplace netloc util_ds_buf_0_BUFG_O1 1 3 1 NJ
+preplace netloc axi_i2s_adi_0_SDATA_O 1 4 2 1650 150 NJ
+preplace netloc processing_system7_0_DMA0_ACK 1 3 3 1280 180 NJ 180 2170
+preplace netloc ps7_0_axi_periph_M01_AXI 1 2 3 NJ 670 NJ 670 1670
+preplace netloc axi_tft_0_ip2intc_irpt 1 3 1 1240
+preplace netloc proc_sys_reset_0_interconnect_aresetn 1 1 3 590 470 NJ 470 1260
+preplace netloc processing_system7_0_DMA1_ACK 1 3 3 1300 200 NJ 200 2150
+preplace netloc vga_fb_M_AXI_MM 1 3 1 1230
+preplace netloc xlconstant_0_dout 1 5 1 NJ
+preplace netloc axi_i2s_adi_0_BCLK_O 1 4 2 1630 210 NJ
+preplace netloc processing_system7_0_FIXED_IO 1 5 1 NJ
+preplace netloc axi_i2s_adi_0_LRCLK_O 1 4 2 1620 130 2170J
+preplace netloc vga_fb_tft_vga_b 1 3 2 1260J 1350 NJ
+preplace netloc axi_gpio_0_GPIO 1 5 1 NJ
+preplace netloc clk_wiz_1_clk_out2 1 2 3 920 1500 NJ 1500 1630
+preplace netloc v_tc_0_hsync_out 1 3 3 1280J 950 1630J 1030 NJ
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 1 4 610 370 910 370 1250 700 1710
+preplace netloc axi_gpio_2_GPIO 1 5 1 NJ
+preplace netloc axi_i2s_adi_0_DMA_REQ_TX 1 4 1 1640
+preplace netloc ps7_0_axi_periph_M04_AXI 1 2 2 NJ 730 1230
+preplace netloc SDATA_I_1 1 0 4 NJ 330 NJ 330 NJ 330 NJ
+preplace netloc blue_slice_Dout 1 5 1 NJ
+preplace netloc irq_const_dout 1 3 1 1290
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 6 10 350 600 350 930 350 1270 170 1680 510 2160
+preplace netloc axi_gpio_1_GPIO 1 5 1 NJ
+preplace netloc ps7_0_axi_periph_M00_AXI 1 2 3 N 650 NJ 650 1690J
+preplace netloc util_ds_buf_0_BUFG_O 1 3 3 1300 1490 1680 1400 NJ
+preplace netloc vga_fb_tft_vga_r 1 3 2 1230J 1480 NJ
+preplace netloc red_slice_Dout 1 5 1 NJ
+preplace netloc irq_concat_dout 1 4 1 1700
+preplace netloc reset_rtl_1 1 0 1 NJ
+levelinfo -pg 1 -10 420 760 1100 1470 1940 2210 -top -10 -bot 1630
 ",
 }
 

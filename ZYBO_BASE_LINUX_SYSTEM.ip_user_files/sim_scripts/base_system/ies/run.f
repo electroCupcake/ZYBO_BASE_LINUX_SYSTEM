@@ -92,9 +92,41 @@
   "../../../bd/base_system/ipshared/c49f/xlslice.v" \
   "../../../bd/base_system/ip/base_system_xlslice_0_0/sim/base_system_xlslice_0_0.v" \
   "../../../bd/base_system/ip/base_system_xlslice_0_1/sim/base_system_xlslice_0_1.v" \
-  "../../../bd/base_system/ip/base_system_clk_wiz_0_0/base_system_clk_wiz_0_0_clk_wiz.v" \
-  "../../../bd/base_system/ip/base_system_clk_wiz_0_0/base_system_clk_wiz_0_0.v" \
   "../../../bd/base_system/hdl/base_system.v" \
+-endlib
+-makelib ies/xil_defaultlib \
+  "../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/d221/dma_fifo.vhd" \
+  "../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/d221/i2s_rx.vhd" \
+  "../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/d221/i2s_tx.vhd" \
+  "../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/d221/i2s_clkgen.vhd" \
+  "../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/d221/fifo_synchronizer.vhd" \
+  "../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/d221/axi_ctrlif.vhd" \
+  "../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/d221/axi_streaming_dma_tx_fifo.vhd" \
+  "../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/d221/axi_streaming_dma_rx_fifo.vhd" \
+  "../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/d221/pl330_dma_fifo.vhd" \
+  "../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/d221/i2s_controller.vhd" \
+  "../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/d221/axi_i2s_adi.vhd" \
+  "../../../bd/base_system/ip/base_system_axi_i2s_adi_0_0/sim/base_system_axi_i2s_adi_0_0.vhd" \
+-endlib
+-makelib ies/xil_defaultlib \
+  "../../../bd/base_system/ip/base_system_xlconstant_0_1/sim/base_system_xlconstant_0_1.v" \
+  "../../../bd/base_system/ip/base_system_clk_wiz_1_0/base_system_clk_wiz_1_0_clk_wiz.v" \
+  "../../../bd/base_system/ip/base_system_clk_wiz_1_0/base_system_clk_wiz_1_0.v" \
+-endlib
+-makelib ies/util_ds_buf_v2_01_a \
+  "../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/1e84/hdl/vhdl/util_ds_buf.vhd" \
+-endlib
+-makelib ies/xil_defaultlib \
+  "../../../bd/base_system/ip/base_system_util_ds_buf_0_0/sim/base_system_util_ds_buf_0_0.vhd" \
+-endlib
+-makelib ies/axi_iic_v2_0_14 \
+  "../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/efc9/hdl/axi_iic_v2_0_vh_rfs.vhd" \
+-endlib
+-makelib ies/xil_defaultlib \
+  "../../../bd/base_system/ip/base_system_axi_iic_0_0/sim/base_system_axi_iic_0_0.vhd" \
+-endlib
+-makelib ies/xil_defaultlib \
+  "../../../bd/base_system/ip/base_system_s00_data_fifo_0/sim/base_system_s00_data_fifo_0.v" \
 -endlib
 -makelib ies/axi_protocol_converter_v2_1_11 \
   "../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/df1b/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \

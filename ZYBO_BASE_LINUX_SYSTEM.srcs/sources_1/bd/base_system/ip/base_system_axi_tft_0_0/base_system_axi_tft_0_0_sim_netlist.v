@@ -1,10 +1,10 @@
 // Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
-// Date        : Sat Jul 29 20:59:09 2017
-// Host        : MONOLITH running 64-bit Ubuntu 14.04.5 LTS
-// Command     : write_verilog -force -mode funcsim -rename_top base_system_axi_tft_0_0 -prefix
-//               base_system_axi_tft_0_0_ base_system_axi_tft_0_0_sim_netlist.v
+// Date        : Sat Jan 27 21:52:49 2018
+// Host        : monolith running 64-bit Ubuntu 16.04.3 LTS
+// Command     : write_verilog -force -mode funcsim
+//               /home/jconvertino/Documents/Programs/HDL/Xilinx2016/ZYBO_VIVADO_LINUX_BASE/ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ip/base_system_axi_tft_0_0/base_system_axi_tft_0_0_sim_netlist.v
 // Design      : base_system_axi_tft_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,6 +12,285 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
+(* CHECK_LICENSE_TYPE = "base_system_axi_tft_0_0,axi_tft,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "axi_tft,Vivado 2016.4" *) 
+(* NotValidForBitStream *)
+module base_system_axi_tft_0_0
+   (s_axi_aclk,
+    s_axi_aresetn,
+    m_axi_aclk,
+    m_axi_aresetn,
+    md_error,
+    ip2intc_irpt,
+    m_axi_arready,
+    m_axi_arvalid,
+    m_axi_araddr,
+    m_axi_arlen,
+    m_axi_arsize,
+    m_axi_arburst,
+    m_axi_arprot,
+    m_axi_arcache,
+    m_axi_rready,
+    m_axi_rvalid,
+    m_axi_rdata,
+    m_axi_rresp,
+    m_axi_rlast,
+    m_axi_awready,
+    m_axi_awvalid,
+    m_axi_awaddr,
+    m_axi_awlen,
+    m_axi_awsize,
+    m_axi_awburst,
+    m_axi_awprot,
+    m_axi_awcache,
+    m_axi_wready,
+    m_axi_wvalid,
+    m_axi_wdata,
+    m_axi_wstrb,
+    m_axi_wlast,
+    m_axi_bready,
+    m_axi_bvalid,
+    m_axi_bresp,
+    s_axi_awaddr,
+    s_axi_awvalid,
+    s_axi_awready,
+    s_axi_wdata,
+    s_axi_wstrb,
+    s_axi_wvalid,
+    s_axi_wready,
+    s_axi_bresp,
+    s_axi_bvalid,
+    s_axi_bready,
+    s_axi_araddr,
+    s_axi_arvalid,
+    s_axi_arready,
+    s_axi_rdata,
+    s_axi_rresp,
+    s_axi_rvalid,
+    s_axi_rready,
+    sys_tft_clk,
+    tft_hsync,
+    tft_vsync,
+    tft_de,
+    tft_dps,
+    tft_vga_clk,
+    tft_vga_r,
+    tft_vga_g,
+    tft_vga_b);
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 S_AXI_ACLK CLK" *) input s_axi_aclk;
+  (* x_interface_info = "xilinx.com:signal:reset:1.0 S_AXI_ARESETN RST" *) input s_axi_aresetn;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 M_AXI_ACLK CLK" *) input m_axi_aclk;
+  (* x_interface_info = "xilinx.com:signal:reset:1.0 M_AXI_ARESETN RST" *) input m_axi_aresetn;
+  output md_error;
+  (* x_interface_info = "xilinx.com:signal:interrupt:1.0 TFT_INTR INTERRUPT" *) output ip2intc_irpt;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM ARREADY" *) input m_axi_arready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM ARVALID" *) output m_axi_arvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM ARADDR" *) output [31:0]m_axi_araddr;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM ARLEN" *) output [7:0]m_axi_arlen;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM ARSIZE" *) output [2:0]m_axi_arsize;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM ARBURST" *) output [1:0]m_axi_arburst;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM ARPROT" *) output [2:0]m_axi_arprot;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM ARCACHE" *) output [3:0]m_axi_arcache;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM RREADY" *) output m_axi_rready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM RVALID" *) input m_axi_rvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM RDATA" *) input [63:0]m_axi_rdata;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM RRESP" *) input [1:0]m_axi_rresp;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM RLAST" *) input m_axi_rlast;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM AWREADY" *) input m_axi_awready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM AWVALID" *) output m_axi_awvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM AWADDR" *) output [31:0]m_axi_awaddr;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM AWLEN" *) output [7:0]m_axi_awlen;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM AWSIZE" *) output [2:0]m_axi_awsize;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM AWBURST" *) output [1:0]m_axi_awburst;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM AWPROT" *) output [2:0]m_axi_awprot;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM AWCACHE" *) output [3:0]m_axi_awcache;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM WREADY" *) input m_axi_wready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM WVALID" *) output m_axi_wvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM WDATA" *) output [63:0]m_axi_wdata;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM WSTRB" *) output [7:0]m_axi_wstrb;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM WLAST" *) output m_axi_wlast;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM BREADY" *) output m_axi_bready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM BVALID" *) input m_axi_bvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM BRESP" *) input [1:0]m_axi_bresp;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM AWADDR" *) input [3:0]s_axi_awaddr;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM AWVALID" *) input s_axi_awvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM AWREADY" *) output s_axi_awready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM WDATA" *) input [31:0]s_axi_wdata;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM WSTRB" *) input [3:0]s_axi_wstrb;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM WVALID" *) input s_axi_wvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM WREADY" *) output s_axi_wready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM BRESP" *) output [1:0]s_axi_bresp;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM BVALID" *) output s_axi_bvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM BREADY" *) input s_axi_bready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM ARADDR" *) input [3:0]s_axi_araddr;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM ARVALID" *) input s_axi_arvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM ARREADY" *) output s_axi_arready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM RDATA" *) output [31:0]s_axi_rdata;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM RRESP" *) output [1:0]s_axi_rresp;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM RVALID" *) output s_axi_rvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM RREADY" *) input s_axi_rready;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 TFT_CLK CLK" *) input sys_tft_clk;
+  (* x_interface_info = "xilinx.com:interface:vga:1.0 VGA_INTF HSYNC" *) output tft_hsync;
+  (* x_interface_info = "xilinx.com:interface:vga:1.0 VGA_INTF VSYNC" *) output tft_vsync;
+  (* x_interface_info = "xilinx.com:interface:vga:1.0 VGA_INTF DE" *) output tft_de;
+  (* x_interface_info = "xilinx.com:interface:vga:1.0 VGA_INTF DPS" *) output tft_dps;
+  (* x_interface_info = "xilinx.com:interface:vga:1.0 VGA_INTF CLK" *) output tft_vga_clk;
+  (* x_interface_info = "xilinx.com:interface:vga:1.0 VGA_INTF RED" *) output [5:0]tft_vga_r;
+  (* x_interface_info = "xilinx.com:interface:vga:1.0 VGA_INTF GREEN" *) output [5:0]tft_vga_g;
+  (* x_interface_info = "xilinx.com:interface:vga:1.0 VGA_INTF BLUE" *) output [5:0]tft_vga_b;
+
+  wire ip2intc_irpt;
+  wire m_axi_aclk;
+  wire [31:0]m_axi_araddr;
+  wire [1:0]m_axi_arburst;
+  wire [3:0]m_axi_arcache;
+  wire m_axi_aresetn;
+  wire [7:0]m_axi_arlen;
+  wire [2:0]m_axi_arprot;
+  wire m_axi_arready;
+  wire [2:0]m_axi_arsize;
+  wire m_axi_arvalid;
+  wire [31:0]m_axi_awaddr;
+  wire [1:0]m_axi_awburst;
+  wire [3:0]m_axi_awcache;
+  wire [7:0]m_axi_awlen;
+  wire [2:0]m_axi_awprot;
+  wire m_axi_awready;
+  wire [2:0]m_axi_awsize;
+  wire m_axi_awvalid;
+  wire m_axi_bready;
+  wire [1:0]m_axi_bresp;
+  wire m_axi_bvalid;
+  wire [63:0]m_axi_rdata;
+  wire m_axi_rlast;
+  wire m_axi_rready;
+  wire [1:0]m_axi_rresp;
+  wire m_axi_rvalid;
+  wire [63:0]m_axi_wdata;
+  wire m_axi_wlast;
+  wire m_axi_wready;
+  wire [7:0]m_axi_wstrb;
+  wire m_axi_wvalid;
+  wire md_error;
+  wire s_axi_aclk;
+  wire [3:0]s_axi_araddr;
+  wire s_axi_aresetn;
+  wire s_axi_arready;
+  wire s_axi_arvalid;
+  wire [3:0]s_axi_awaddr;
+  wire s_axi_awready;
+  wire s_axi_awvalid;
+  wire s_axi_bready;
+  wire [1:0]s_axi_bresp;
+  wire s_axi_bvalid;
+  wire [31:0]s_axi_rdata;
+  wire s_axi_rready;
+  wire [1:0]s_axi_rresp;
+  wire s_axi_rvalid;
+  wire [31:0]s_axi_wdata;
+  wire s_axi_wready;
+  wire [3:0]s_axi_wstrb;
+  wire s_axi_wvalid;
+  wire sys_tft_clk;
+  wire tft_de;
+  wire tft_dps;
+  wire tft_hsync;
+  wire [5:0]tft_vga_b;
+  wire tft_vga_clk;
+  wire [5:0]tft_vga_g;
+  wire [5:0]tft_vga_r;
+  wire tft_vsync;
+  wire NLW_U0_tft_dvi_clk_n_UNCONNECTED;
+  wire NLW_U0_tft_dvi_clk_p_UNCONNECTED;
+  wire NLW_U0_tft_iic_scl_o_UNCONNECTED;
+  wire NLW_U0_tft_iic_scl_t_UNCONNECTED;
+  wire NLW_U0_tft_iic_sda_o_UNCONNECTED;
+  wire NLW_U0_tft_iic_sda_t_UNCONNECTED;
+  wire [11:0]NLW_U0_tft_dvi_data_UNCONNECTED;
+
+  (* C_DEFAULT_TFT_BASE_ADDR = "64'b0000000000000000000000000000000011110000000000000000000000000000" *) 
+  (* C_EN_I2C_INTF = "0" *) 
+  (* C_FAMILY = "zynq" *) 
+  (* C_I2C_SLAVE_ADDR = "8'b01110110" *) 
+  (* C_MAX_BURST_LEN = "16" *) 
+  (* C_M_AXI_ADDR_WIDTH = "32" *) 
+  (* C_M_AXI_DATA_WIDTH = "64" *) 
+  (* C_S_AXI_ADDR_WIDTH = "3" *) 
+  (* C_TFT_INTERFACE = "0" *) 
+  (* downgradeipidentifiedwarnings = "yes" *) 
+  base_system_axi_tft_0_0_axi_tft U0
+       (.ip2intc_irpt(ip2intc_irpt),
+        .m_axi_aclk(m_axi_aclk),
+        .m_axi_araddr(m_axi_araddr),
+        .m_axi_arburst(m_axi_arburst),
+        .m_axi_arcache(m_axi_arcache),
+        .m_axi_aresetn(m_axi_aresetn),
+        .m_axi_arlen(m_axi_arlen),
+        .m_axi_arprot(m_axi_arprot),
+        .m_axi_arready(m_axi_arready),
+        .m_axi_arsize(m_axi_arsize),
+        .m_axi_arvalid(m_axi_arvalid),
+        .m_axi_awaddr(m_axi_awaddr),
+        .m_axi_awburst(m_axi_awburst),
+        .m_axi_awcache(m_axi_awcache),
+        .m_axi_awlen(m_axi_awlen),
+        .m_axi_awprot(m_axi_awprot),
+        .m_axi_awready(m_axi_awready),
+        .m_axi_awsize(m_axi_awsize),
+        .m_axi_awvalid(m_axi_awvalid),
+        .m_axi_bready(m_axi_bready),
+        .m_axi_bresp(m_axi_bresp),
+        .m_axi_bvalid(m_axi_bvalid),
+        .m_axi_rdata(m_axi_rdata),
+        .m_axi_rlast(m_axi_rlast),
+        .m_axi_rready(m_axi_rready),
+        .m_axi_rresp(m_axi_rresp),
+        .m_axi_rvalid(m_axi_rvalid),
+        .m_axi_wdata(m_axi_wdata),
+        .m_axi_wlast(m_axi_wlast),
+        .m_axi_wready(m_axi_wready),
+        .m_axi_wstrb(m_axi_wstrb),
+        .m_axi_wvalid(m_axi_wvalid),
+        .md_error(md_error),
+        .s_axi_aclk(s_axi_aclk),
+        .s_axi_araddr(s_axi_araddr),
+        .s_axi_aresetn(s_axi_aresetn),
+        .s_axi_arready(s_axi_arready),
+        .s_axi_arvalid(s_axi_arvalid),
+        .s_axi_awaddr(s_axi_awaddr),
+        .s_axi_awready(s_axi_awready),
+        .s_axi_awvalid(s_axi_awvalid),
+        .s_axi_bready(s_axi_bready),
+        .s_axi_bresp(s_axi_bresp),
+        .s_axi_bvalid(s_axi_bvalid),
+        .s_axi_rdata(s_axi_rdata),
+        .s_axi_rready(s_axi_rready),
+        .s_axi_rresp(s_axi_rresp),
+        .s_axi_rvalid(s_axi_rvalid),
+        .s_axi_wdata(s_axi_wdata),
+        .s_axi_wready(s_axi_wready),
+        .s_axi_wstrb(s_axi_wstrb),
+        .s_axi_wvalid(s_axi_wvalid),
+        .sys_tft_clk(sys_tft_clk),
+        .tft_de(tft_de),
+        .tft_dps(tft_dps),
+        .tft_dvi_clk_n(NLW_U0_tft_dvi_clk_n_UNCONNECTED),
+        .tft_dvi_clk_p(NLW_U0_tft_dvi_clk_p_UNCONNECTED),
+        .tft_dvi_data(NLW_U0_tft_dvi_data_UNCONNECTED[11:0]),
+        .tft_hsync(tft_hsync),
+        .tft_iic_scl_i(1'b0),
+        .tft_iic_scl_o(NLW_U0_tft_iic_scl_o_UNCONNECTED),
+        .tft_iic_scl_t(NLW_U0_tft_iic_scl_t_UNCONNECTED),
+        .tft_iic_sda_i(1'b0),
+        .tft_iic_sda_o(NLW_U0_tft_iic_sda_o_UNCONNECTED),
+        .tft_iic_sda_t(NLW_U0_tft_iic_sda_t_UNCONNECTED),
+        .tft_vga_b(tft_vga_b),
+        .tft_vga_clk(tft_vga_clk),
+        .tft_vga_g(tft_vga_g),
+        .tft_vga_r(tft_vga_r),
+        .tft_vsync(tft_vsync));
+endmodule
+
+(* ORIG_REF_NAME = "address_decoder" *) 
 module base_system_axi_tft_0_0_address_decoder
    (bus2ip_wrce_d1_reg,
     bus2ip_wrce_d1_reg_0,
@@ -661,6 +940,7 @@ module base_system_axi_tft_0_0_address_decoder
         .O(bus2ip_wrce[1]));
 endmodule
 
+(* ORIG_REF_NAME = "async_fifo_fg" *) 
 module base_system_axi_tft_0_0_async_fifo_fg
    (D,
     \BRAM_TFT_G_data_reg[5] ,
@@ -703,6 +983,7 @@ module base_system_axi_tft_0_0_async_fifo_fg
         .tft_rst(tft_rst));
 endmodule
 
+(* ORIG_REF_NAME = "axi_lite_ipif" *) 
 module base_system_axi_tft_0_0_axi_lite_ipif
    (\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ,
     \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ,
@@ -977,6 +1258,7 @@ module base_system_axi_tft_0_0_axi_lite_ipif
         .tft_dps(tft_dps));
 endmodule
 
+(* ORIG_REF_NAME = "axi_master_burst" *) 
 module base_system_axi_tft_0_0_axi_master_burst
    (out,
     m_axi_wvalid,
@@ -1248,6 +1530,7 @@ module base_system_axi_tft_0_0_axi_master_burst
         .sig_rd_error_reg_reg(sig_rst2llink_reset));
 endmodule
 
+(* ORIG_REF_NAME = "axi_master_burst_addr_cntl" *) 
 module base_system_axi_tft_0_0_axi_master_burst_addr_cntl
    (out,
     sig_addr2stat_cmd_fifo_empty,
@@ -1674,6 +1957,7 @@ module base_system_axi_tft_0_0_axi_master_burst_addr_cntl
         .R(sig_next_addr_reg0));
 endmodule
 
+(* ORIG_REF_NAME = "axi_master_burst_cmd_status" *) 
 module base_system_axi_tft_0_0_axi_master_burst_cmd_status
    (sig_cmd2pcc_cmd_valid,
     sig_cmd_mst_be,
@@ -2157,6 +2441,7 @@ module base_system_axi_tft_0_0_axi_master_burst_cmd_status
         .R(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "axi_master_burst_fifo" *) 
 module base_system_axi_tft_0_0_axi_master_burst_fifo
    (sig_reset_reg,
     m_axi_bready,
@@ -2234,6 +2519,7 @@ module base_system_axi_tft_0_0_axi_master_burst_fifo
         .R(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "axi_master_burst_pcc" *) 
 module base_system_axi_tft_0_0_axi_master_burst_pcc
    (sig_pcc2addr_burst,
     sig_pcc2data_cmd_cmplt,
@@ -4998,6 +5284,7 @@ module base_system_axi_tft_0_0_axi_master_burst_pcc
         .R(sig_xfer_addr_reg0));
 endmodule
 
+(* ORIG_REF_NAME = "axi_master_burst_rd_llink" *) 
 module base_system_axi_tft_0_0_axi_master_burst_rd_llink
    (eof_n_reg,
     E,
@@ -5176,6 +5463,7 @@ module base_system_axi_tft_0_0_axi_master_burst_rd_llink
         .O(\trans_cnt_reg[4] ));
 endmodule
 
+(* ORIG_REF_NAME = "axi_master_burst_rd_status_cntl" *) 
 module base_system_axi_tft_0_0_axi_master_burst_rd_status_cntl
    (sig_rsc2stat_status_valid,
     sig_rsc2rdc_ready,
@@ -5275,6 +5563,7 @@ module base_system_axi_tft_0_0_axi_master_burst_rd_status_cntl
         .R(sig_rd_sts_tag_reg0));
 endmodule
 
+(* ORIG_REF_NAME = "axi_master_burst_rd_wr_cntlr" *) 
 module base_system_axi_tft_0_0_axi_master_burst_rd_wr_cntlr
    (sig_pcc2data_calc_error,
     sig_m_valid_out_reg,
@@ -5610,6 +5899,7 @@ module base_system_axi_tft_0_0_axi_master_burst_rd_wr_cntlr
         .R(out));
 endmodule
 
+(* ORIG_REF_NAME = "axi_master_burst_rddata_cntl" *) 
 module base_system_axi_tft_0_0_axi_master_burst_rddata_cntl
    (sig_rdc2pcc_cmd_ready,
     sig_next_eof_reg,
@@ -6261,6 +6551,7 @@ module base_system_axi_tft_0_0_axi_master_burst_rddata_cntl
         .O(sig_rd_sts_slverr_reg0));
 endmodule
 
+(* ORIG_REF_NAME = "axi_master_burst_reset" *) 
 module base_system_axi_tft_0_0_axi_master_burst_reset
    (out,
     \INFERRED_GEN.cnt_i_reg[2] ,
@@ -6425,6 +6716,7 @@ module base_system_axi_tft_0_0_axi_master_burst_reset
         .R(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "axi_master_burst_skid2mm_buf" *) 
 module base_system_axi_tft_0_0_axi_master_burst_skid2mm_buf
    (m_axi_wvalid,
     m_axi_wstrb,
@@ -6537,6 +6829,7 @@ module base_system_axi_tft_0_0_axi_master_burst_skid2mm_buf
         .R(out));
 endmodule
 
+(* ORIG_REF_NAME = "axi_master_burst_skid_buf" *) 
 module base_system_axi_tft_0_0_axi_master_burst_skid_buf
    (sig_m_valid_out_reg_0,
     out,
@@ -7623,6 +7916,7 @@ module base_system_axi_tft_0_0_axi_master_burst_skid_buf_27
         .R(out));
 endmodule
 
+(* ORIG_REF_NAME = "axi_master_burst_wr_status_cntl" *) 
 module base_system_axi_tft_0_0_axi_master_burst_wr_status_cntl
    (sig_reset_reg,
     m_axi_bready,
@@ -7652,7 +7946,7 @@ endmodule
 (* C_DEFAULT_TFT_BASE_ADDR = "64'b0000000000000000000000000000000011110000000000000000000000000000" *) (* C_EN_I2C_INTF = "0" *) (* C_FAMILY = "zynq" *) 
 (* C_I2C_SLAVE_ADDR = "8'b01110110" *) (* C_MAX_BURST_LEN = "16" *) (* C_M_AXI_ADDR_WIDTH = "32" *) 
 (* C_M_AXI_DATA_WIDTH = "64" *) (* C_S_AXI_ADDR_WIDTH = "3" *) (* C_TFT_INTERFACE = "0" *) 
-(* downgradeipidentifiedwarnings = "yes" *) 
+(* ORIG_REF_NAME = "axi_tft" *) (* downgradeipidentifiedwarnings = "yes" *) 
 module base_system_axi_tft_0_0_axi_tft
    (s_axi_aclk,
     s_axi_aresetn,
@@ -8335,6 +8629,7 @@ module base_system_axi_tft_0_0_axi_tft
         .R(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "axi_tft_v2_0_15_h_sync" *) 
 module base_system_axi_tft_0_0_axi_tft_v2_0_15_h_sync
    (vsync_rst,
     h_pix_cnt_tc,
@@ -9178,6 +9473,7 @@ module base_system_axi_tft_0_0_axi_tft_v2_0_15_h_sync
         .R(h_pix_cnt0));
 endmodule
 
+(* ORIG_REF_NAME = "axi_tft_v2_0_15_line_buffer" *) 
 module base_system_axi_tft_0_0_axi_tft_v2_0_15_line_buffer
    (\gen_vga_if.FDR_R5 ,
     \gen_vga_if.FDR_G5 ,
@@ -9651,6 +9947,7 @@ module base_system_axi_tft_0_0_axi_tft_v2_0_15_line_buffer
         .S(SR));
 endmodule
 
+(* ORIG_REF_NAME = "axi_tft_v2_0_15_slave_register" *) 
 module base_system_axi_tft_0_0_axi_tft_v2_0_15_slave_register
    (TFT_iic_xfer,
     D,
@@ -10274,6 +10571,7 @@ module base_system_axi_tft_0_0_axi_tft_v2_0_15_slave_register
         .R(bus2ip_sreset));
 endmodule
 
+(* ORIG_REF_NAME = "axi_tft_v2_0_15_tft_controller" *) 
 module base_system_axi_tft_0_0_axi_tft_v2_0_15_tft_controller
    (ip2intc_irpt,
     tft_vga_clk,
@@ -11509,6 +11807,7 @@ module base_system_axi_tft_0_0_axi_tft_v2_0_15_tft_controller
         .R(TFT_ON_MAXI_SYNC_n_0));
 endmodule
 
+(* ORIG_REF_NAME = "axi_tft_v2_0_15_tft_interface" *) 
 module base_system_axi_tft_0_0_axi_tft_v2_0_15_tft_interface
    (tft_vga_clk,
     tft_vga_r,
@@ -11790,6 +12089,7 @@ module base_system_axi_tft_0_0_axi_tft_v2_0_15_tft_interface
         .S(\NLW_gen_vga_if.gen_7s.TFT_CLK_ODDR_S_UNCONNECTED ));
 endmodule
 
+(* ORIG_REF_NAME = "axi_tft_v2_0_15_v_sync" *) 
 module base_system_axi_tft_0_0_axi_tft_v2_0_15_v_sync
    (clk_stb_d1,
     prmry_in_xored,
@@ -12422,284 +12722,7 @@ module base_system_axi_tft_0_0_axi_tft_v2_0_15_v_sync
         .R(1'b0));
 endmodule
 
-(* CHECK_LICENSE_TYPE = "base_system_axi_tft_0_0,axi_tft,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "axi_tft,Vivado 2016.4" *) 
-(* NotValidForBitStream *)
-module base_system_axi_tft_0_0
-   (s_axi_aclk,
-    s_axi_aresetn,
-    m_axi_aclk,
-    m_axi_aresetn,
-    md_error,
-    ip2intc_irpt,
-    m_axi_arready,
-    m_axi_arvalid,
-    m_axi_araddr,
-    m_axi_arlen,
-    m_axi_arsize,
-    m_axi_arburst,
-    m_axi_arprot,
-    m_axi_arcache,
-    m_axi_rready,
-    m_axi_rvalid,
-    m_axi_rdata,
-    m_axi_rresp,
-    m_axi_rlast,
-    m_axi_awready,
-    m_axi_awvalid,
-    m_axi_awaddr,
-    m_axi_awlen,
-    m_axi_awsize,
-    m_axi_awburst,
-    m_axi_awprot,
-    m_axi_awcache,
-    m_axi_wready,
-    m_axi_wvalid,
-    m_axi_wdata,
-    m_axi_wstrb,
-    m_axi_wlast,
-    m_axi_bready,
-    m_axi_bvalid,
-    m_axi_bresp,
-    s_axi_awaddr,
-    s_axi_awvalid,
-    s_axi_awready,
-    s_axi_wdata,
-    s_axi_wstrb,
-    s_axi_wvalid,
-    s_axi_wready,
-    s_axi_bresp,
-    s_axi_bvalid,
-    s_axi_bready,
-    s_axi_araddr,
-    s_axi_arvalid,
-    s_axi_arready,
-    s_axi_rdata,
-    s_axi_rresp,
-    s_axi_rvalid,
-    s_axi_rready,
-    sys_tft_clk,
-    tft_hsync,
-    tft_vsync,
-    tft_de,
-    tft_dps,
-    tft_vga_clk,
-    tft_vga_r,
-    tft_vga_g,
-    tft_vga_b);
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 S_AXI_ACLK CLK" *) input s_axi_aclk;
-  (* x_interface_info = "xilinx.com:signal:reset:1.0 S_AXI_ARESETN RST" *) input s_axi_aresetn;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 M_AXI_ACLK CLK" *) input m_axi_aclk;
-  (* x_interface_info = "xilinx.com:signal:reset:1.0 M_AXI_ARESETN RST" *) input m_axi_aresetn;
-  output md_error;
-  (* x_interface_info = "xilinx.com:signal:interrupt:1.0 TFT_INTR INTERRUPT" *) output ip2intc_irpt;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM ARREADY" *) input m_axi_arready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM ARVALID" *) output m_axi_arvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM ARADDR" *) output [31:0]m_axi_araddr;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM ARLEN" *) output [7:0]m_axi_arlen;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM ARSIZE" *) output [2:0]m_axi_arsize;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM ARBURST" *) output [1:0]m_axi_arburst;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM ARPROT" *) output [2:0]m_axi_arprot;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM ARCACHE" *) output [3:0]m_axi_arcache;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM RREADY" *) output m_axi_rready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM RVALID" *) input m_axi_rvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM RDATA" *) input [63:0]m_axi_rdata;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM RRESP" *) input [1:0]m_axi_rresp;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM RLAST" *) input m_axi_rlast;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM AWREADY" *) input m_axi_awready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM AWVALID" *) output m_axi_awvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM AWADDR" *) output [31:0]m_axi_awaddr;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM AWLEN" *) output [7:0]m_axi_awlen;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM AWSIZE" *) output [2:0]m_axi_awsize;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM AWBURST" *) output [1:0]m_axi_awburst;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM AWPROT" *) output [2:0]m_axi_awprot;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM AWCACHE" *) output [3:0]m_axi_awcache;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM WREADY" *) input m_axi_wready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM WVALID" *) output m_axi_wvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM WDATA" *) output [63:0]m_axi_wdata;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM WSTRB" *) output [7:0]m_axi_wstrb;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM WLAST" *) output m_axi_wlast;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM BREADY" *) output m_axi_bready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM BVALID" *) input m_axi_bvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM BRESP" *) input [1:0]m_axi_bresp;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM AWADDR" *) input [3:0]s_axi_awaddr;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM AWVALID" *) input s_axi_awvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM AWREADY" *) output s_axi_awready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM WDATA" *) input [31:0]s_axi_wdata;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM WSTRB" *) input [3:0]s_axi_wstrb;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM WVALID" *) input s_axi_wvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM WREADY" *) output s_axi_wready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM BRESP" *) output [1:0]s_axi_bresp;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM BVALID" *) output s_axi_bvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM BREADY" *) input s_axi_bready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM ARADDR" *) input [3:0]s_axi_araddr;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM ARVALID" *) input s_axi_arvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM ARREADY" *) output s_axi_arready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM RDATA" *) output [31:0]s_axi_rdata;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM RRESP" *) output [1:0]s_axi_rresp;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM RVALID" *) output s_axi_rvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_MM RREADY" *) input s_axi_rready;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 TFT_CLK CLK" *) input sys_tft_clk;
-  (* x_interface_info = "xilinx.com:interface:vga:1.0 VGA_INTF HSYNC" *) output tft_hsync;
-  (* x_interface_info = "xilinx.com:interface:vga:1.0 VGA_INTF VSYNC" *) output tft_vsync;
-  (* x_interface_info = "xilinx.com:interface:vga:1.0 VGA_INTF DE" *) output tft_de;
-  (* x_interface_info = "xilinx.com:interface:vga:1.0 VGA_INTF DPS" *) output tft_dps;
-  (* x_interface_info = "xilinx.com:interface:vga:1.0 VGA_INTF CLK" *) output tft_vga_clk;
-  (* x_interface_info = "xilinx.com:interface:vga:1.0 VGA_INTF RED" *) output [5:0]tft_vga_r;
-  (* x_interface_info = "xilinx.com:interface:vga:1.0 VGA_INTF GREEN" *) output [5:0]tft_vga_g;
-  (* x_interface_info = "xilinx.com:interface:vga:1.0 VGA_INTF BLUE" *) output [5:0]tft_vga_b;
-
-  wire ip2intc_irpt;
-  wire m_axi_aclk;
-  wire [31:0]m_axi_araddr;
-  wire [1:0]m_axi_arburst;
-  wire [3:0]m_axi_arcache;
-  wire m_axi_aresetn;
-  wire [7:0]m_axi_arlen;
-  wire [2:0]m_axi_arprot;
-  wire m_axi_arready;
-  wire [2:0]m_axi_arsize;
-  wire m_axi_arvalid;
-  wire [31:0]m_axi_awaddr;
-  wire [1:0]m_axi_awburst;
-  wire [3:0]m_axi_awcache;
-  wire [7:0]m_axi_awlen;
-  wire [2:0]m_axi_awprot;
-  wire m_axi_awready;
-  wire [2:0]m_axi_awsize;
-  wire m_axi_awvalid;
-  wire m_axi_bready;
-  wire [1:0]m_axi_bresp;
-  wire m_axi_bvalid;
-  wire [63:0]m_axi_rdata;
-  wire m_axi_rlast;
-  wire m_axi_rready;
-  wire [1:0]m_axi_rresp;
-  wire m_axi_rvalid;
-  wire [63:0]m_axi_wdata;
-  wire m_axi_wlast;
-  wire m_axi_wready;
-  wire [7:0]m_axi_wstrb;
-  wire m_axi_wvalid;
-  wire md_error;
-  wire s_axi_aclk;
-  wire [3:0]s_axi_araddr;
-  wire s_axi_aresetn;
-  wire s_axi_arready;
-  wire s_axi_arvalid;
-  wire [3:0]s_axi_awaddr;
-  wire s_axi_awready;
-  wire s_axi_awvalid;
-  wire s_axi_bready;
-  wire [1:0]s_axi_bresp;
-  wire s_axi_bvalid;
-  wire [31:0]s_axi_rdata;
-  wire s_axi_rready;
-  wire [1:0]s_axi_rresp;
-  wire s_axi_rvalid;
-  wire [31:0]s_axi_wdata;
-  wire s_axi_wready;
-  wire [3:0]s_axi_wstrb;
-  wire s_axi_wvalid;
-  wire sys_tft_clk;
-  wire tft_de;
-  wire tft_dps;
-  wire tft_hsync;
-  wire [5:0]tft_vga_b;
-  wire tft_vga_clk;
-  wire [5:0]tft_vga_g;
-  wire [5:0]tft_vga_r;
-  wire tft_vsync;
-  wire NLW_U0_tft_dvi_clk_n_UNCONNECTED;
-  wire NLW_U0_tft_dvi_clk_p_UNCONNECTED;
-  wire NLW_U0_tft_iic_scl_o_UNCONNECTED;
-  wire NLW_U0_tft_iic_scl_t_UNCONNECTED;
-  wire NLW_U0_tft_iic_sda_o_UNCONNECTED;
-  wire NLW_U0_tft_iic_sda_t_UNCONNECTED;
-  wire [11:0]NLW_U0_tft_dvi_data_UNCONNECTED;
-
-  (* C_DEFAULT_TFT_BASE_ADDR = "64'b0000000000000000000000000000000011110000000000000000000000000000" *) 
-  (* C_EN_I2C_INTF = "0" *) 
-  (* C_FAMILY = "zynq" *) 
-  (* C_I2C_SLAVE_ADDR = "8'b01110110" *) 
-  (* C_MAX_BURST_LEN = "16" *) 
-  (* C_M_AXI_ADDR_WIDTH = "32" *) 
-  (* C_M_AXI_DATA_WIDTH = "64" *) 
-  (* C_S_AXI_ADDR_WIDTH = "3" *) 
-  (* C_TFT_INTERFACE = "0" *) 
-  (* downgradeipidentifiedwarnings = "yes" *) 
-  base_system_axi_tft_0_0_axi_tft U0
-       (.ip2intc_irpt(ip2intc_irpt),
-        .m_axi_aclk(m_axi_aclk),
-        .m_axi_araddr(m_axi_araddr),
-        .m_axi_arburst(m_axi_arburst),
-        .m_axi_arcache(m_axi_arcache),
-        .m_axi_aresetn(m_axi_aresetn),
-        .m_axi_arlen(m_axi_arlen),
-        .m_axi_arprot(m_axi_arprot),
-        .m_axi_arready(m_axi_arready),
-        .m_axi_arsize(m_axi_arsize),
-        .m_axi_arvalid(m_axi_arvalid),
-        .m_axi_awaddr(m_axi_awaddr),
-        .m_axi_awburst(m_axi_awburst),
-        .m_axi_awcache(m_axi_awcache),
-        .m_axi_awlen(m_axi_awlen),
-        .m_axi_awprot(m_axi_awprot),
-        .m_axi_awready(m_axi_awready),
-        .m_axi_awsize(m_axi_awsize),
-        .m_axi_awvalid(m_axi_awvalid),
-        .m_axi_bready(m_axi_bready),
-        .m_axi_bresp(m_axi_bresp),
-        .m_axi_bvalid(m_axi_bvalid),
-        .m_axi_rdata(m_axi_rdata),
-        .m_axi_rlast(m_axi_rlast),
-        .m_axi_rready(m_axi_rready),
-        .m_axi_rresp(m_axi_rresp),
-        .m_axi_rvalid(m_axi_rvalid),
-        .m_axi_wdata(m_axi_wdata),
-        .m_axi_wlast(m_axi_wlast),
-        .m_axi_wready(m_axi_wready),
-        .m_axi_wstrb(m_axi_wstrb),
-        .m_axi_wvalid(m_axi_wvalid),
-        .md_error(md_error),
-        .s_axi_aclk(s_axi_aclk),
-        .s_axi_araddr(s_axi_araddr),
-        .s_axi_aresetn(s_axi_aresetn),
-        .s_axi_arready(s_axi_arready),
-        .s_axi_arvalid(s_axi_arvalid),
-        .s_axi_awaddr(s_axi_awaddr),
-        .s_axi_awready(s_axi_awready),
-        .s_axi_awvalid(s_axi_awvalid),
-        .s_axi_bready(s_axi_bready),
-        .s_axi_bresp(s_axi_bresp),
-        .s_axi_bvalid(s_axi_bvalid),
-        .s_axi_rdata(s_axi_rdata),
-        .s_axi_rready(s_axi_rready),
-        .s_axi_rresp(s_axi_rresp),
-        .s_axi_rvalid(s_axi_rvalid),
-        .s_axi_wdata(s_axi_wdata),
-        .s_axi_wready(s_axi_wready),
-        .s_axi_wstrb(s_axi_wstrb),
-        .s_axi_wvalid(s_axi_wvalid),
-        .sys_tft_clk(sys_tft_clk),
-        .tft_de(tft_de),
-        .tft_dps(tft_dps),
-        .tft_dvi_clk_n(NLW_U0_tft_dvi_clk_n_UNCONNECTED),
-        .tft_dvi_clk_p(NLW_U0_tft_dvi_clk_p_UNCONNECTED),
-        .tft_dvi_data(NLW_U0_tft_dvi_data_UNCONNECTED[11:0]),
-        .tft_hsync(tft_hsync),
-        .tft_iic_scl_i(1'b0),
-        .tft_iic_scl_o(NLW_U0_tft_iic_scl_o_UNCONNECTED),
-        .tft_iic_scl_t(NLW_U0_tft_iic_scl_t_UNCONNECTED),
-        .tft_iic_sda_i(1'b0),
-        .tft_iic_sda_o(NLW_U0_tft_iic_sda_o_UNCONNECTED),
-        .tft_iic_sda_t(NLW_U0_tft_iic_sda_t_UNCONNECTED),
-        .tft_vga_b(tft_vga_b),
-        .tft_vga_clk(tft_vga_clk),
-        .tft_vga_g(tft_vga_g),
-        .tft_vga_r(tft_vga_r),
-        .tft_vsync(tft_vsync));
-endmodule
-
+(* ORIG_REF_NAME = "cdc_sync" *) 
 module base_system_axi_tft_0_0_cdc_sync
    (ip2intc_irpt_i,
     vsync_intr,
@@ -14278,6 +14301,7 @@ module base_system_axi_tft_0_0_cdc_sync__parameterized6
         .R(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "cntr_incr_decr_addn_f" *) 
 module base_system_axi_tft_0_0_cntr_incr_decr_addn_f
    (Q,
     sig_inhibit_rdy_n,
@@ -14351,6 +14375,7 @@ module base_system_axi_tft_0_0_cntr_incr_decr_addn_f
         .S(out));
 endmodule
 
+(* ORIG_REF_NAME = "pselect_f" *) 
 module base_system_axi_tft_0_0_pselect_f
    (ce_expnd_i_3,
     \bus2ip_addr_i_reg[2] ,
@@ -14400,6 +14425,7 @@ module base_system_axi_tft_0_0_pselect_f__parameterized1
         .O(ce_expnd_i_1));
 endmodule
 
+(* ORIG_REF_NAME = "slave_attachment" *) 
 module base_system_axi_tft_0_0_slave_attachment
    (bus2ip_wrce_d1_reg,
     bus2ip_wrce_d1_reg_0,
@@ -15063,6 +15089,7 @@ module base_system_axi_tft_0_0_slave_attachment
         .R(bus2ip_sreset));
 endmodule
 
+(* ORIG_REF_NAME = "srl_fifo_f" *) 
 module base_system_axi_tft_0_0_srl_fifo_f
    (m_axi_bready,
     out,
@@ -15089,6 +15116,7 @@ module base_system_axi_tft_0_0_srl_fifo_f
         .sig_inhibit_rdy_n(sig_inhibit_rdy_n));
 endmodule
 
+(* ORIG_REF_NAME = "srl_fifo_rbu_f" *) 
 module base_system_axi_tft_0_0_srl_fifo_rbu_f
    (m_axi_bready,
     out,
@@ -15143,6 +15171,7 @@ module base_system_axi_tft_0_0_srl_fifo_rbu_f
         .O(m_axi_bready));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_generic_cstr" *) 
 module base_system_axi_tft_0_0_blk_mem_gen_generic_cstr
    (D,
     sys_tft_clk,
@@ -15185,6 +15214,7 @@ module base_system_axi_tft_0_0_blk_mem_gen_generic_cstr
         .tmp_ram_rd_en(tmp_ram_rd_en));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module base_system_axi_tft_0_0_blk_mem_gen_prim_width
    (D,
     sys_tft_clk,
@@ -15227,6 +15257,7 @@ module base_system_axi_tft_0_0_blk_mem_gen_prim_width
         .tmp_ram_rd_en(tmp_ram_rd_en));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
 module base_system_axi_tft_0_0_blk_mem_gen_prim_wrapper
    (D,
     sys_tft_clk,
@@ -15384,6 +15415,7 @@ module base_system_axi_tft_0_0_blk_mem_gen_prim_wrapper
         .WEBWE({WEBWE,WEBWE,WEBWE,WEBWE}));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_top" *) 
 module base_system_axi_tft_0_0_blk_mem_gen_top
    (D,
     sys_tft_clk,
@@ -15426,6 +15458,7 @@ module base_system_axi_tft_0_0_blk_mem_gen_top
         .tmp_ram_rd_en(tmp_ram_rd_en));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_v8_3_5" *) 
 module base_system_axi_tft_0_0_blk_mem_gen_v8_3_5
    (D,
     sys_tft_clk,
@@ -15468,6 +15501,7 @@ module base_system_axi_tft_0_0_blk_mem_gen_v8_3_5
         .tmp_ram_rd_en(tmp_ram_rd_en));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_v8_3_5_synth" *) 
 module base_system_axi_tft_0_0_blk_mem_gen_v8_3_5_synth
    (D,
     sys_tft_clk,
@@ -15510,6 +15544,7 @@ module base_system_axi_tft_0_0_blk_mem_gen_v8_3_5_synth
         .tmp_ram_rd_en(tmp_ram_rd_en));
 endmodule
 
+(* ORIG_REF_NAME = "clk_x_pntrs" *) 
 module base_system_axi_tft_0_0_clk_x_pntrs
    (ram_full_i_reg,
     RD_PNTR_WR,
@@ -16011,6 +16046,7 @@ module base_system_axi_tft_0_0_clk_x_pntrs
         .Q(wr_pntr_gc[8]));
 endmodule
 
+(* ORIG_REF_NAME = "compare" *) 
 module base_system_axi_tft_0_0_compare
    (comp1,
     \gnxpm_cdc.rd_pntr_bin_reg[8] ,
@@ -16367,6 +16403,7 @@ module base_system_axi_tft_0_0_compare_26
         .O(ram_empty_i0));
 endmodule
 
+(* ORIG_REF_NAME = "fifo_generator_ramfifo" *) 
 module base_system_axi_tft_0_0_fifo_generator_ramfifo
    (D,
     \BRAM_TFT_G_data_reg[5] ,
@@ -16486,6 +16523,7 @@ module base_system_axi_tft_0_0_fifo_generator_ramfifo
         .tft_rst(tft_rst));
 endmodule
 
+(* ORIG_REF_NAME = "fifo_generator_top" *) 
 module base_system_axi_tft_0_0_fifo_generator_top
    (D,
     \BRAM_TFT_G_data_reg[5] ,
@@ -16528,6 +16566,7 @@ module base_system_axi_tft_0_0_fifo_generator_top
         .tft_rst(tft_rst));
 endmodule
 
+(* ORIG_REF_NAME = "fifo_generator_v13_1_3" *) 
 module base_system_axi_tft_0_0_fifo_generator_v13_1_3
    (D,
     \BRAM_TFT_G_data_reg[5] ,
@@ -16570,6 +16609,7 @@ module base_system_axi_tft_0_0_fifo_generator_v13_1_3
         .tft_rst(tft_rst));
 endmodule
 
+(* ORIG_REF_NAME = "fifo_generator_v13_1_3_synth" *) 
 module base_system_axi_tft_0_0_fifo_generator_v13_1_3_synth
    (D,
     \BRAM_TFT_G_data_reg[5] ,
@@ -16612,6 +16652,7 @@ module base_system_axi_tft_0_0_fifo_generator_v13_1_3_synth
         .tft_rst(tft_rst));
 endmodule
 
+(* ORIG_REF_NAME = "memory" *) 
 module base_system_axi_tft_0_0_memory
    (D,
     \BRAM_TFT_G_data_reg[5] ,
@@ -17103,6 +17144,7 @@ module base_system_axi_tft_0_0_memory
         .R(SR));
 endmodule
 
+(* ORIG_REF_NAME = "rd_bin_cntr" *) 
 module base_system_axi_tft_0_0_rd_bin_cntr
    (ram_empty_fb_i_reg,
     Q,
@@ -17446,6 +17488,7 @@ module base_system_axi_tft_0_0_rd_bin_cntr
         .O(ram_empty_fb_i_reg_0));
 endmodule
 
+(* ORIG_REF_NAME = "rd_fwft" *) 
 module base_system_axi_tft_0_0_rd_fwft
    (out,
     fwft_rst_done_q,
@@ -17669,6 +17712,7 @@ module base_system_axi_tft_0_0_rd_fwft
         .R(SR));
 endmodule
 
+(* ORIG_REF_NAME = "rd_logic" *) 
 module base_system_axi_tft_0_0_rd_logic
    (fwft_rst_done_q,
     E,
@@ -17752,6 +17796,7 @@ module base_system_axi_tft_0_0_rd_logic
         .sys_tft_clk(sys_tft_clk));
 endmodule
 
+(* ORIG_REF_NAME = "rd_status_flags_as" *) 
 module base_system_axi_tft_0_0_rd_status_flags_as
    (out,
     \gc1.count_d2_reg[8] ,
@@ -17830,6 +17875,7 @@ module base_system_axi_tft_0_0_rd_status_flags_as
         .Q(ram_empty_i));
 endmodule
 
+(* ORIG_REF_NAME = "reset_blk_ramfifo" *) 
 module base_system_axi_tft_0_0_reset_blk_ramfifo
    (out,
     ram_empty_i_reg,
@@ -18298,6 +18344,7 @@ module base_system_axi_tft_0_0_reset_blk_ramfifo
         .Q(wr_rst_reg[2]));
 endmodule
 
+(* ORIG_REF_NAME = "synchronizer_ff" *) 
 module base_system_axi_tft_0_0_synchronizer_ff
    (\Q_reg_reg[0]_0 ,
     out,
@@ -19711,6 +19758,7 @@ module base_system_axi_tft_0_0_synchronizer_ff__parameterized3
         .O(\gnxpm_cdc.rd_pntr_bin_reg[7] [7]));
 endmodule
 
+(* ORIG_REF_NAME = "wr_bin_cntr" *) 
 module base_system_axi_tft_0_0_wr_bin_cntr
    (Q,
     \gic0.gc1.count_d3_reg[8]_0 ,
@@ -20107,6 +20155,7 @@ module base_system_axi_tft_0_0_wr_bin_cntr
         .R(SR));
 endmodule
 
+(* ORIG_REF_NAME = "wr_logic" *) 
 module base_system_axi_tft_0_0_wr_logic
    (WEBWE,
     Q,
@@ -20169,6 +20218,7 @@ module base_system_axi_tft_0_0_wr_logic
         .m_axi_aclk(m_axi_aclk));
 endmodule
 
+(* ORIG_REF_NAME = "wr_status_flags_as" *) 
 module base_system_axi_tft_0_0_wr_status_flags_as
    (E,
     \gnxpm_cdc.rd_pntr_bin_reg[8] ,

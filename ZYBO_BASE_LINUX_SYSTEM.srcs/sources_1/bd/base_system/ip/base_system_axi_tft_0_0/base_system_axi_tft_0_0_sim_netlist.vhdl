@@ -1,10 +1,10 @@
 -- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
--- Date        : Sat Jul 29 20:59:10 2017
--- Host        : MONOLITH running 64-bit Ubuntu 14.04.5 LTS
--- Command     : write_vhdl -force -mode funcsim -rename_top base_system_axi_tft_0_0 -prefix
---               base_system_axi_tft_0_0_ base_system_axi_tft_0_0_sim_netlist.vhdl
+-- Date        : Sat Jan 27 21:52:49 2018
+-- Host        : monolith running 64-bit Ubuntu 16.04.3 LTS
+-- Command     : write_vhdl -force -mode funcsim
+--               /home/jconvertino/Documents/Programs/HDL/Xilinx2016/ZYBO_VIVADO_LINUX_BASE/ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ip/base_system_axi_tft_0_0/base_system_axi_tft_0_0_sim_netlist.vhdl
 -- Design      : base_system_axi_tft_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -34,6 +34,8 @@ entity base_system_axi_tft_0_0_axi_master_burst_addr_cntl is
     Q : in STD_LOGIC_VECTOR ( 31 downto 0 );
     \sig_xfer_len_reg_reg[3]\ : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_axi_master_burst_addr_cntl : entity is "axi_master_burst_addr_cntl";
 end base_system_axi_tft_0_0_axi_master_burst_addr_cntl;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_axi_master_burst_addr_cntl is
@@ -591,6 +593,8 @@ entity base_system_axi_tft_0_0_axi_master_burst_cmd_status is
     sig_llink_busy_reg : in STD_LOGIC;
     \tft_base_addr_reg[0]\ : in STD_LOGIC_VECTOR ( 24 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_axi_master_burst_cmd_status : entity is "axi_master_burst_cmd_status";
 end base_system_axi_tft_0_0_axi_master_burst_cmd_status;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_axi_master_burst_cmd_status is
@@ -1160,6 +1164,8 @@ entity base_system_axi_tft_0_0_axi_master_burst_pcc is
     sig_cmd_mst_be : in STD_LOGIC_VECTOR ( 0 to 0 );
     \sig_cmd_mst_be_reg[3]\ : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_axi_master_burst_pcc : entity is "axi_master_burst_pcc";
 end base_system_axi_tft_0_0_axi_master_burst_pcc;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_axi_master_burst_pcc is
@@ -4836,6 +4842,8 @@ entity base_system_axi_tft_0_0_axi_master_burst_rd_llink is
     sig_cmd2all_doing_read : in STD_LOGIC;
     sig_doing_read_reg : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_axi_master_burst_rd_llink : entity is "axi_master_burst_rd_llink";
 end base_system_axi_tft_0_0_axi_master_burst_rd_llink;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_axi_master_burst_rd_llink is
@@ -5025,6 +5033,8 @@ entity base_system_axi_tft_0_0_axi_master_burst_rd_status_cntl is
     sig_push_status1_out : in STD_LOGIC;
     md_error : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_axi_master_burst_rd_status_cntl : entity is "axi_master_burst_rd_status_cntl";
 end base_system_axi_tft_0_0_axi_master_burst_rd_status_cntl;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_axi_master_burst_rd_status_cntl is
@@ -5140,6 +5150,8 @@ entity base_system_axi_tft_0_0_axi_master_burst_rddata_cntl is
     \sig_xfer_len_reg_reg[3]_0\ : in STD_LOGIC;
     sig_posted_to_axi_reg : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_axi_master_burst_rddata_cntl : entity is "axi_master_burst_rddata_cntl";
 end base_system_axi_tft_0_0_axi_master_burst_rddata_cntl;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_axi_master_burst_rddata_cntl is
@@ -5901,6 +5913,8 @@ entity base_system_axi_tft_0_0_axi_master_burst_reset is
     scndry_out : in STD_LOGIC;
     m_axi_aresetn : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_axi_master_burst_reset : entity is "axi_master_burst_reset";
 end base_system_axi_tft_0_0_axi_master_burst_reset;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_axi_master_burst_reset is
@@ -6117,6 +6131,8 @@ entity base_system_axi_tft_0_0_axi_master_burst_skid2mm_buf is
     sig_reset_reg : in STD_LOGIC;
     m_axi_wready : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_axi_master_burst_skid2mm_buf : entity is "axi_master_burst_skid2mm_buf";
 end base_system_axi_tft_0_0_axi_master_burst_skid2mm_buf;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_axi_master_burst_skid2mm_buf is
@@ -6280,6 +6296,8 @@ entity base_system_axi_tft_0_0_axi_master_burst_skid_buf is
     sig_llink2cmd_rd_busy : in STD_LOGIC;
     IP2Bus_MstRd_dst_rdy : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_axi_master_burst_skid_buf : entity is "axi_master_burst_skid_buf";
 end base_system_axi_tft_0_0_axi_master_burst_skid_buf;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_axi_master_burst_skid_buf is
@@ -7733,6 +7751,8 @@ entity base_system_axi_tft_0_0_axi_tft_v2_0_15_h_sync is
     \out\ : in STD_LOGIC;
     clk_stb_d1 : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_axi_tft_v2_0_15_h_sync : entity is "axi_tft_v2_0_15_h_sync";
 end base_system_axi_tft_0_0_axi_tft_v2_0_15_h_sync;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_axi_tft_v2_0_15_h_sync is
@@ -8849,6 +8869,8 @@ entity base_system_axi_tft_0_0_axi_tft_v2_0_15_slave_register is
     s_axi_aresetn : in STD_LOGIC;
     s_axi_wdata : in STD_LOGIC_VECTOR ( 26 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_axi_tft_v2_0_15_slave_register : entity is "axi_tft_v2_0_15_slave_register";
 end base_system_axi_tft_0_0_axi_tft_v2_0_15_slave_register;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_axi_tft_v2_0_15_slave_register is
@@ -9471,6 +9493,8 @@ entity base_system_axi_tft_0_0_axi_tft_v2_0_15_tft_interface is
     VSYNC_i : in STD_LOGIC;
     DE_i : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_axi_tft_v2_0_15_tft_interface : entity is "axi_tft_v2_0_15_tft_interface";
 end base_system_axi_tft_0_0_axi_tft_v2_0_15_tft_interface;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_axi_tft_v2_0_15_tft_interface is
@@ -9796,6 +9820,8 @@ entity base_system_axi_tft_0_0_axi_tft_v2_0_15_v_sync is
     h_pix_cnt_tc : in STD_LOGIC;
     vsync_rst : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_axi_tft_v2_0_15_v_sync : entity is "axi_tft_v2_0_15_v_sync";
 end base_system_axi_tft_0_0_axi_tft_v2_0_15_v_sync;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_axi_tft_v2_0_15_v_sync is
@@ -10581,6 +10607,8 @@ entity base_system_axi_tft_0_0_cdc_sync is
     prmry_in : in STD_LOGIC;
     m_axi_aclk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_cdc_sync : entity is "cdc_sync";
 end base_system_axi_tft_0_0_cdc_sync;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_cdc_sync is
@@ -12495,6 +12523,8 @@ entity base_system_axi_tft_0_0_cntr_incr_decr_addn_f is
     \out\ : in STD_LOGIC;
     m_axi_aclk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_cntr_incr_decr_addn_f : entity is "cntr_incr_decr_addn_f";
 end base_system_axi_tft_0_0_cntr_incr_decr_addn_f;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_cntr_incr_decr_addn_f is
@@ -12579,6 +12609,8 @@ entity base_system_axi_tft_0_0_pselect_f is
     Q : in STD_LOGIC;
     \bus2ip_addr_i_reg[3]\ : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_pselect_f : entity is "pselect_f";
 end base_system_axi_tft_0_0_pselect_f;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_pselect_f is
@@ -12638,6 +12670,8 @@ entity base_system_axi_tft_0_0_blk_mem_gen_prim_wrapper is
     \gic0.gc1.count_d3_reg[8]\ : in STD_LOGIC_VECTOR ( 8 downto 0 );
     \AXI_BRAM_data_i_reg[8]\ : in STD_LOGIC_VECTOR ( 35 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_blk_mem_gen_prim_wrapper : entity is "blk_mem_gen_prim_wrapper";
 end base_system_axi_tft_0_0_blk_mem_gen_prim_wrapper;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_blk_mem_gen_prim_wrapper is
@@ -12797,6 +12831,8 @@ entity base_system_axi_tft_0_0_compare is
     Q : in STD_LOGIC_VECTOR ( 7 downto 0 );
     RD_PNTR_WR : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_compare : entity is "compare";
 end base_system_axi_tft_0_0_compare;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_compare is
@@ -13242,6 +13278,8 @@ entity base_system_axi_tft_0_0_rd_bin_cntr is
     E : in STD_LOGIC_VECTOR ( 0 to 0 );
     sys_tft_clk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_rd_bin_cntr : entity is "rd_bin_cntr";
 end base_system_axi_tft_0_0_rd_bin_cntr;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_rd_bin_cntr is
@@ -13703,6 +13741,8 @@ entity base_system_axi_tft_0_0_rd_fwft is
     \BRAM_TFT_addr_reg[9]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     ram_empty_fb_i_reg : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_rd_fwft : entity is "rd_fwft";
 end base_system_axi_tft_0_0_rd_fwft;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_rd_fwft is
@@ -13964,6 +14004,8 @@ entity base_system_axi_tft_0_0_synchronizer_ff is
     \out\ : in STD_LOGIC;
     m_axi_aclk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_synchronizer_ff : entity is "synchronizer_ff";
 end base_system_axi_tft_0_0_synchronizer_ff;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_synchronizer_ff is
@@ -15836,6 +15878,8 @@ entity base_system_axi_tft_0_0_wr_bin_cntr is
     E : in STD_LOGIC_VECTOR ( 0 to 0 );
     m_axi_aclk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_wr_bin_cntr : entity is "wr_bin_cntr";
 end base_system_axi_tft_0_0_wr_bin_cntr;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_wr_bin_cntr is
@@ -16419,6 +16463,8 @@ entity base_system_axi_tft_0_0_address_decoder is
     \bus2ip_addr_i_reg[3]\ : in STD_LOGIC;
     \bus2ip_addr_i_reg[2]\ : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_address_decoder : entity is "address_decoder";
 end base_system_axi_tft_0_0_address_decoder;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_address_decoder is
@@ -17083,6 +17129,8 @@ entity base_system_axi_tft_0_0_srl_fifo_rbu_f is
     m_axi_bvalid : in STD_LOGIC;
     sig_inhibit_rdy_n : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_srl_fifo_rbu_f : entity is "srl_fifo_rbu_f";
 end base_system_axi_tft_0_0_srl_fifo_rbu_f;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_srl_fifo_rbu_f is
@@ -17150,6 +17198,8 @@ entity base_system_axi_tft_0_0_blk_mem_gen_prim_width is
     \gic0.gc1.count_d3_reg[8]\ : in STD_LOGIC_VECTOR ( 8 downto 0 );
     \AXI_BRAM_data_i_reg[8]\ : in STD_LOGIC_VECTOR ( 35 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_blk_mem_gen_prim_width : entity is "blk_mem_gen_prim_width";
 end base_system_axi_tft_0_0_blk_mem_gen_prim_width;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_blk_mem_gen_prim_width is
@@ -17186,6 +17236,8 @@ entity base_system_axi_tft_0_0_clk_x_pntrs is
     sys_tft_clk : in STD_LOGIC;
     \out\ : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_clk_x_pntrs : entity is "clk_x_pntrs";
 end base_system_axi_tft_0_0_clk_x_pntrs;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_clk_x_pntrs is
@@ -17848,6 +17900,8 @@ entity base_system_axi_tft_0_0_rd_status_flags_as is
     Q : in STD_LOGIC_VECTOR ( 7 downto 0 );
     \gc1.count_d1_reg[7]\ : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_rd_status_flags_as : entity is "rd_status_flags_as";
 end base_system_axi_tft_0_0_rd_status_flags_as;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_rd_status_flags_as is
@@ -17928,6 +17982,8 @@ entity base_system_axi_tft_0_0_reset_blk_ramfifo is
     E : in STD_LOGIC_VECTOR ( 0 to 0 );
     fwft_rst_done_q : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_reset_blk_ramfifo : entity is "reset_blk_ramfifo";
 end base_system_axi_tft_0_0_reset_blk_ramfifo;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_reset_blk_ramfifo is
@@ -18536,6 +18592,8 @@ entity base_system_axi_tft_0_0_wr_status_flags_as is
     RD_PNTR_WR : in STD_LOGIC_VECTOR ( 7 downto 0 );
     \gic0.gc1.count_d1_reg[7]\ : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_wr_status_flags_as : entity is "wr_status_flags_as";
 end base_system_axi_tft_0_0_wr_status_flags_as;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_wr_status_flags_as is
@@ -18679,6 +18737,8 @@ entity base_system_axi_tft_0_0_slave_attachment is
     s_axi_araddr : in STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axi_awaddr : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_slave_attachment : entity is "slave_attachment";
 end base_system_axi_tft_0_0_slave_attachment;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_slave_attachment is
@@ -19298,6 +19358,8 @@ entity base_system_axi_tft_0_0_srl_fifo_f is
     m_axi_bvalid : in STD_LOGIC;
     sig_inhibit_rdy_n : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_srl_fifo_f : entity is "srl_fifo_f";
 end base_system_axi_tft_0_0_srl_fifo_f;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_srl_fifo_f is
@@ -19327,6 +19389,8 @@ entity base_system_axi_tft_0_0_blk_mem_gen_generic_cstr is
     \gic0.gc1.count_d3_reg[8]\ : in STD_LOGIC_VECTOR ( 8 downto 0 );
     \AXI_BRAM_data_i_reg[8]\ : in STD_LOGIC_VECTOR ( 35 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_blk_mem_gen_generic_cstr : entity is "blk_mem_gen_generic_cstr";
 end base_system_axi_tft_0_0_blk_mem_gen_generic_cstr;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_blk_mem_gen_generic_cstr is
@@ -19363,6 +19427,8 @@ entity base_system_axi_tft_0_0_rd_logic is
     \BRAM_TFT_addr_reg[9]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     WR_PNTR_RD : in STD_LOGIC_VECTOR ( 8 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_rd_logic : entity is "rd_logic";
 end base_system_axi_tft_0_0_rd_logic;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_rd_logic is
@@ -19439,6 +19505,8 @@ entity base_system_axi_tft_0_0_wr_logic is
     \grstd1.grst_full.grst_f.rst_d3_reg\ : in STD_LOGIC;
     RD_PNTR_WR : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_wr_logic : entity is "wr_logic";
 end base_system_axi_tft_0_0_wr_logic;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_wr_logic is
@@ -19547,6 +19615,8 @@ entity base_system_axi_tft_0_0_axi_lite_ipif is
     s_axi_araddr : in STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axi_awaddr : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_axi_lite_ipif : entity is "axi_lite_ipif";
 end base_system_axi_tft_0_0_axi_lite_ipif;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_axi_lite_ipif is
@@ -19634,6 +19704,8 @@ entity base_system_axi_tft_0_0_axi_master_burst_fifo is
     m_axi_aclk : in STD_LOGIC;
     m_axi_bvalid : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_axi_master_burst_fifo : entity is "axi_master_burst_fifo";
 end base_system_axi_tft_0_0_axi_master_burst_fifo;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_axi_master_burst_fifo is
@@ -19734,6 +19806,8 @@ entity base_system_axi_tft_0_0_blk_mem_gen_top is
     \gic0.gc1.count_d3_reg[8]\ : in STD_LOGIC_VECTOR ( 8 downto 0 );
     \AXI_BRAM_data_i_reg[8]\ : in STD_LOGIC_VECTOR ( 35 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_blk_mem_gen_top : entity is "blk_mem_gen_top";
 end base_system_axi_tft_0_0_blk_mem_gen_top;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_blk_mem_gen_top is
@@ -19763,6 +19837,8 @@ entity base_system_axi_tft_0_0_axi_master_burst_wr_status_cntl is
     m_axi_aclk : in STD_LOGIC;
     m_axi_bvalid : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_axi_master_burst_wr_status_cntl : entity is "axi_master_burst_wr_status_cntl";
 end base_system_axi_tft_0_0_axi_master_burst_wr_status_cntl;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_axi_master_burst_wr_status_cntl is
@@ -19792,6 +19868,8 @@ entity base_system_axi_tft_0_0_blk_mem_gen_v8_3_5_synth is
     \gic0.gc1.count_d3_reg[8]\ : in STD_LOGIC_VECTOR ( 8 downto 0 );
     \AXI_BRAM_data_i_reg[8]\ : in STD_LOGIC_VECTOR ( 35 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_blk_mem_gen_v8_3_5_synth : entity is "blk_mem_gen_v8_3_5_synth";
 end base_system_axi_tft_0_0_blk_mem_gen_v8_3_5_synth;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_blk_mem_gen_v8_3_5_synth is
@@ -19868,6 +19946,8 @@ entity base_system_axi_tft_0_0_axi_master_burst_rd_wr_cntlr is
     m_axi_bvalid : in STD_LOGIC;
     \sig_cmd_mst_be_reg[3]\ : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_axi_master_burst_rd_wr_cntlr : entity is "axi_master_burst_rd_wr_cntlr";
 end base_system_axi_tft_0_0_axi_master_burst_rd_wr_cntlr;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_axi_master_burst_rd_wr_cntlr is
@@ -20092,6 +20172,8 @@ entity base_system_axi_tft_0_0_blk_mem_gen_v8_3_5 is
     \gic0.gc1.count_d3_reg[8]\ : in STD_LOGIC_VECTOR ( 8 downto 0 );
     \AXI_BRAM_data_i_reg[8]\ : in STD_LOGIC_VECTOR ( 35 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_blk_mem_gen_v8_3_5 : entity is "blk_mem_gen_v8_3_5";
 end base_system_axi_tft_0_0_blk_mem_gen_v8_3_5;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_blk_mem_gen_v8_3_5 is
@@ -20158,6 +20240,8 @@ entity base_system_axi_tft_0_0_axi_master_burst is
     m_axi_bvalid : in STD_LOGIC;
     \tft_base_addr_reg[0]\ : in STD_LOGIC_VECTOR ( 24 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_axi_master_burst : entity is "axi_master_burst";
 end base_system_axi_tft_0_0_axi_master_burst;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_axi_master_burst is
@@ -20346,6 +20430,8 @@ entity base_system_axi_tft_0_0_memory is
     SR : in STD_LOGIC_VECTOR ( 0 to 0 );
     E : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_memory : entity is "memory";
 end base_system_axi_tft_0_0_memory;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_memory is
@@ -20976,6 +21062,8 @@ entity base_system_axi_tft_0_0_fifo_generator_ramfifo is
     \BRAM_TFT_addr_reg[9]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     AXI_BRAM_we_i : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_fifo_generator_ramfifo : entity is "fifo_generator_ramfifo";
 end base_system_axi_tft_0_0_fifo_generator_ramfifo;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_fifo_generator_ramfifo is
@@ -21095,6 +21183,8 @@ entity base_system_axi_tft_0_0_fifo_generator_top is
     \BRAM_TFT_addr_reg[9]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     AXI_BRAM_we_i : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_fifo_generator_top : entity is "fifo_generator_top";
 end base_system_axi_tft_0_0_fifo_generator_top;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_fifo_generator_top is
@@ -21128,6 +21218,8 @@ entity base_system_axi_tft_0_0_fifo_generator_v13_1_3_synth is
     \BRAM_TFT_addr_reg[9]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     AXI_BRAM_we_i : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_fifo_generator_v13_1_3_synth : entity is "fifo_generator_v13_1_3_synth";
 end base_system_axi_tft_0_0_fifo_generator_v13_1_3_synth;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_fifo_generator_v13_1_3_synth is
@@ -21161,6 +21253,8 @@ entity base_system_axi_tft_0_0_fifo_generator_v13_1_3 is
     \BRAM_TFT_addr_reg[9]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     AXI_BRAM_we_i : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_fifo_generator_v13_1_3 : entity is "fifo_generator_v13_1_3";
 end base_system_axi_tft_0_0_fifo_generator_v13_1_3;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_fifo_generator_v13_1_3 is
@@ -21194,6 +21288,8 @@ entity base_system_axi_tft_0_0_async_fifo_fg is
     \BRAM_TFT_addr_reg[9]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     AXI_BRAM_we_i : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_async_fifo_fg : entity is "async_fifo_fg";
 end base_system_axi_tft_0_0_async_fifo_fg;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_async_fifo_fg is
@@ -21228,6 +21324,8 @@ entity base_system_axi_tft_0_0_axi_tft_v2_0_15_line_buffer is
     AXI_BRAM_we_i : in STD_LOGIC;
     H_bp_cnt_tc_reg : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_axi_tft_v2_0_15_line_buffer : entity is "axi_tft_v2_0_15_line_buffer";
 end base_system_axi_tft_0_0_axi_tft_v2_0_15_line_buffer;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_axi_tft_v2_0_15_line_buffer is
@@ -21914,6 +22012,8 @@ entity base_system_axi_tft_0_0_axi_tft_v2_0_15_tft_controller is
     sig_rd2llink_strm_tlast : in STD_LOGIC;
     bus2ip_mst_cmplt : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_axi_tft_v2_0_15_tft_controller : entity is "axi_tft_v2_0_15_tft_controller";
 end base_system_axi_tft_0_0_axi_tft_v2_0_15_tft_controller;
 
 architecture STRUCTURE of base_system_axi_tft_0_0_axi_tft_v2_0_15_tft_controller is
@@ -23311,6 +23411,8 @@ entity base_system_axi_tft_0_0_axi_tft is
   attribute C_S_AXI_ADDR_WIDTH of base_system_axi_tft_0_0_axi_tft : entity is 3;
   attribute C_TFT_INTERFACE : integer;
   attribute C_TFT_INTERFACE of base_system_axi_tft_0_0_axi_tft : entity is 0;
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of base_system_axi_tft_0_0_axi_tft : entity is "axi_tft";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of base_system_axi_tft_0_0_axi_tft : entity is "yes";
 end base_system_axi_tft_0_0_axi_tft;

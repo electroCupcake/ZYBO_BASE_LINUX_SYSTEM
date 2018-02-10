@@ -20,6 +20,8 @@ vlib msim/lib_fifo_v1_0_7
 vlib msim/lib_srl_fifo_v1_0_2
 vlib msim/axi_master_burst_v2_0_7
 vlib msim/axi_tft_v2_0_15
+vlib msim/util_ds_buf_v2_01_a
+vlib msim/axi_iic_v2_0_14
 vlib msim/axi_protocol_converter_v2_1_11
 
 vmap xil_defaultlib msim/xil_defaultlib
@@ -41,6 +43,8 @@ vmap lib_fifo_v1_0_7 msim/lib_fifo_v1_0_7
 vmap lib_srl_fifo_v1_0_2 msim/lib_srl_fifo_v1_0_2
 vmap axi_master_burst_v2_0_7 msim/axi_master_burst_v2_0_7
 vmap axi_tft_v2_0_15 msim/axi_tft_v2_0_15
+vmap util_ds_buf_v2_01_a msim/util_ds_buf_v2_01_a
+vmap axi_iic_v2_0_14 msim/axi_iic_v2_0_14
 vmap axi_protocol_converter_v2_1_11 msim/axi_protocol_converter_v2_1_11
 
 vlog -work xil_defaultlib -64 -incr -sv "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/7dd0/hdl" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/7e3a/hdl" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/100a" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/7dd0/hdl" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/7e3a/hdl" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/100a" \
@@ -137,9 +141,41 @@ vlog -work xil_defaultlib -64 -incr "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.
 "../../../bd/base_system/ipshared/c49f/xlslice.v" \
 "../../../bd/base_system/ip/base_system_xlslice_0_0/sim/base_system_xlslice_0_0.v" \
 "../../../bd/base_system/ip/base_system_xlslice_0_1/sim/base_system_xlslice_0_1.v" \
-"../../../bd/base_system/ip/base_system_clk_wiz_0_0/base_system_clk_wiz_0_0_clk_wiz.v" \
-"../../../bd/base_system/ip/base_system_clk_wiz_0_0/base_system_clk_wiz_0_0.v" \
 "../../../bd/base_system/hdl/base_system.v" \
+
+vcom -work xil_defaultlib -64 -93 \
+"../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/d221/dma_fifo.vhd" \
+"../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/d221/i2s_rx.vhd" \
+"../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/d221/i2s_tx.vhd" \
+"../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/d221/i2s_clkgen.vhd" \
+"../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/d221/fifo_synchronizer.vhd" \
+"../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/d221/axi_ctrlif.vhd" \
+"../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/d221/axi_streaming_dma_tx_fifo.vhd" \
+"../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/d221/axi_streaming_dma_rx_fifo.vhd" \
+"../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/d221/pl330_dma_fifo.vhd" \
+"../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/d221/i2s_controller.vhd" \
+"../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/d221/axi_i2s_adi.vhd" \
+"../../../bd/base_system/ip/base_system_axi_i2s_adi_0_0/sim/base_system_axi_i2s_adi_0_0.vhd" \
+
+vlog -work xil_defaultlib -64 -incr "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/7dd0/hdl" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/7e3a/hdl" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/100a" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/7dd0/hdl" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/7e3a/hdl" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/100a" \
+"../../../bd/base_system/ip/base_system_xlconstant_0_1/sim/base_system_xlconstant_0_1.v" \
+"../../../bd/base_system/ip/base_system_clk_wiz_1_0/base_system_clk_wiz_1_0_clk_wiz.v" \
+"../../../bd/base_system/ip/base_system_clk_wiz_1_0/base_system_clk_wiz_1_0.v" \
+
+vcom -work util_ds_buf_v2_01_a -64 -93 \
+"../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/1e84/hdl/vhdl/util_ds_buf.vhd" \
+
+vcom -work xil_defaultlib -64 -93 \
+"../../../bd/base_system/ip/base_system_util_ds_buf_0_0/sim/base_system_util_ds_buf_0_0.vhd" \
+
+vcom -work axi_iic_v2_0_14 -64 -93 \
+"../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/efc9/hdl/axi_iic_v2_0_vh_rfs.vhd" \
+
+vcom -work xil_defaultlib -64 -93 \
+"../../../bd/base_system/ip/base_system_axi_iic_0_0/sim/base_system_axi_iic_0_0.vhd" \
+
+vlog -work xil_defaultlib -64 -incr "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/7dd0/hdl" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/7e3a/hdl" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/100a" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/7dd0/hdl" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/7e3a/hdl" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/100a" \
+"../../../bd/base_system/ip/base_system_s00_data_fifo_0/sim/base_system_s00_data_fifo_0.v" \
 
 vlog -work axi_protocol_converter_v2_1_11 -64 -incr "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/7dd0/hdl" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/7e3a/hdl" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/100a" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/7dd0/hdl" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/7e3a/hdl" "+incdir+../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/100a" \
 "../../../../ZYBO_BASE_LINUX_SYSTEM.srcs/sources_1/bd/base_system/ipshared/df1b/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \

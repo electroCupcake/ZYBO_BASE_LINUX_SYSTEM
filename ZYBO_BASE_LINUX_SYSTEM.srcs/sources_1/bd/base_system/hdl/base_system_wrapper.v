@@ -1,7 +1,7 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
-//Date        : Sat Jan 27 19:40:09 2018
+//Date        : Thu Feb  1 19:37:22 2018
 //Host        : monolith running 64-bit Ubuntu 16.04.3 LTS
 //Command     : generate_target base_system_wrapper.bd
 //Design      : base_system_wrapper
@@ -48,7 +48,8 @@ module base_system_wrapper
     iic_0_sda_io,
     leds_4bits_tri_io,
     reset_rtl,
-    sws_4bits_tri_i);
+    sws_4bits_tri_i,
+    sys_clock);
   output [0:0]BCLK_O;
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
@@ -74,7 +75,7 @@ module base_system_wrapper
   output H_SYNC;
   output [0:0]LRCLK_I;
   output [0:0]LRCLK_O;
-  output MCLK_O;
+  output [0:0]MCLK_O;
   output [0:0]MUTEN_O;
   input [0:0]SDATA_I;
   output [0:0]SDATA_O;
@@ -88,6 +89,7 @@ module base_system_wrapper
   inout [3:0]leds_4bits_tri_io;
   input reset_rtl;
   input [3:0]sws_4bits_tri_i;
+  input sys_clock;
 
   wire [0:0]BCLK_O;
   wire [14:0]DDR_addr;
@@ -114,7 +116,7 @@ module base_system_wrapper
   wire H_SYNC;
   wire [0:0]LRCLK_I;
   wire [0:0]LRCLK_O;
-  wire MCLK_O;
+  wire [0:0]MCLK_O;
   wire [0:0]MUTEN_O;
   wire [0:0]SDATA_I;
   wire [0:0]SDATA_O;
@@ -149,6 +151,7 @@ module base_system_wrapper
   wire [3:3]leds_4bits_tri_t_3;
   wire reset_rtl;
   wire [3:0]sws_4bits_tri_i;
+  wire sys_clock;
 
   base_system base_system_i
        (.BCLK_O(BCLK_O),
@@ -195,7 +198,8 @@ module base_system_wrapper
         .leds_4bits_tri_o({leds_4bits_tri_o_3,leds_4bits_tri_o_2,leds_4bits_tri_o_1,leds_4bits_tri_o_0}),
         .leds_4bits_tri_t({leds_4bits_tri_t_3,leds_4bits_tri_t_2,leds_4bits_tri_t_1,leds_4bits_tri_t_0}),
         .reset_rtl(reset_rtl),
-        .sws_4bits_tri_i(sws_4bits_tri_i));
+        .sws_4bits_tri_i(sws_4bits_tri_i),
+        .sys_clock(sys_clock));
   IOBUF iic_0_scl_iobuf
        (.I(iic_0_scl_o),
         .IO(iic_0_scl_io),
